@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:checked="true"
+            android:title="Pinned" />
+        <item
+            android:id="@+id/item2"
+            android:title="Favourite" />
+        <item
+            android:id="@+id/item3"
+            android:title="History" />
+        <item
+            android:id="@+id/item4"
+            android:title="Settings" />
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/subtitle"
+            android:title="Others">
+            <menu>
+                <item
+                    android:id="@+id/item5"
+                    android:icon="@drawable/ic_baseline_help_24"
+                    android:title="Help" />
+                <item
+                    android:id="@+id/item6"
+                    android:title="About" />
+                <item
+                    android:id="@+id/item7"
+                    android:title="Rate us" />
+            </menu>
+        </item>
+
+    </group>
+
+</menu>
