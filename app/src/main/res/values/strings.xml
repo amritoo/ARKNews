@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ARKNews</string>
+    <string name="theme">Appearance</string>
+    <string name="settings">Settings</string>
+    <string name="notify">Notification</string>
+    <string name="user_manual">User Manual</string>
+    <string name="help">Help</string>
+    <string name="auto_deletion">Set Time For Auto-deletion</string>
+    <string name="language">Language</string>
+    <string name="category">Category Selection</string>
+    <string name="dark">Dark Mode</string>
+    <string name="light">Light Mode</string>
+    <string name="theme_dialog_text_message">Choose your preferred appearance:</string>
+    <string name="language_dialog_text_message">Choose your preferred language:</string>
+    <string name="english">English</string>
+    <string name="bangla">Bengali</string>
+    <string name="nepali">Nepali</string>
 </resources>
