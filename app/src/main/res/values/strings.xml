@@ -15,4 +15,8 @@
     <string name="english">English</string>
     <string name="bangla">Bengali</string>
     <string name="nepali">Nepali</string>
+    <string name="del_time_day">Last 24 Hours</string>
+    <string name="del_time_week">Last 1 Week</string>
+    <string name="del_time_hour">Last 6 Hours</string>
+    <string name="auto_del_text_message">This is auto-del section where you can set custom time to delete your browsing history.</string>
 </resources>

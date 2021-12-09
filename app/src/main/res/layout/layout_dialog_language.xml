@@ -2,35 +2,24 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="380sp"
+    android:padding="20sp"
     android:layout_gravity="center"
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="horizontal">
+        android:text="@string/language_dialog_text_message"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/language_dialog_text_message"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-
-        <Button
-            android:id="@+id/close_language_dialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_baseline_close_24"
-            > </Button>
-    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10sp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,14 +34,14 @@
                 tools:ignore="MissingConstraints">
 
                 <RadioButton
-                    android:id="@+id/radio_eng"
+                    android:id="@+id/radio_english"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
                     android:text="@string/english" />
 
                 <RadioButton
-                    android:id="@+id/radio_bengali"
+                    android:id="@+id/radio_bangali"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
@@ -70,6 +59,13 @@
 
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/close_language_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Close"
+        > </Button>
 
 
 

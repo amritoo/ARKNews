@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,136 +14,112 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/settings_toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
-            app:title="@string/settings"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+            app:title="@string/settings" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <!--  Appearance  -->
-    <LinearLayout
+    <Button
+        android:id="@+id/theme"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/theme"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/theme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/theme"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-    </LinearLayout>
-
-    <!--  Notification  -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
         android:orientation="horizontal">
 
-        <com.google.android.material.textview.MaterialTextView
+        <Button
             android:id="@+id/notify"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/notify"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:textStyle="bold" />
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
 
-        <ToggleButton
-            android:id="@+id/toggleBtn"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/notify_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="end"
-            android:layout_marginStart="190dp"
-            android:layout_marginEnd="17dp"
-            android:layout_toEndOf="@+id/notify"
-            android:gravity="center" />
-
-
-    </RelativeLayout>
+            android:layout_marginEnd="28dp"
+            android:checked="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--  Language  -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/language"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/language"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/language"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-    </LinearLayout>
+        android:text="@string/language"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <!--  Set Time For Auto-deletion  -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/auto_deletion"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/auto_deletion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/auto_deletion"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-    </LinearLayout>
+        android:text="@string/auto_deletion"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <!--  Category Selection  -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/category_selection"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/category_selection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/category"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-    </LinearLayout>
+        android:text="@string/category"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <!--  Help  -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/help"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/help"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/help"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-    </LinearLayout>
+        android:text="@string/help"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <!--  User Manual  -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/user_manual"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/user_manual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/user_manual"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-    </LinearLayout>
+        android:text="@string/user_manual"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
