@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ARKNews">
+        <activity android:name=".settings.AutoDelActivity"></activity>
+        <activity android:name=".settings.UserManualActivity" />
+        <activity android:name=".settings.SettingsActivity" />
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
