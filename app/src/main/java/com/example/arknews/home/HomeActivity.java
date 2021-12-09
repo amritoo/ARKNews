@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arknews.R;
 import com.example.arknews.settings.SettingsActivity;
@@ -17,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     MaterialToolbar toolbar;
     NavigationView navigationView;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     void initializeViews() {
-        drawerLayout = findViewById(R.id.drawer);
+        drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.home_toolbar);
         navigationView = findViewById(R.id.nav_view);
+        recyclerView = findViewById(R.id.rv_newsfeed);
     }
 
     void setListeners() {
