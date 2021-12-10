@@ -19,4 +19,42 @@
     <string name="del_time_week">Last 1 Week</string>
     <string name="del_time_hour">Last 6 Hours</string>
     <string name="auto_del_text_message">This is auto-del section where you can set custom time to delete your browsing history.</string>
+
+    <string name="collapsing_image">collapsing_image</string>
+    <string name="title_activity_article">ARK News</string>
+    <string name="article_activity_author">AUTHOR:</string>
+    <string name="article_activity_source">SOURCE: BBC News</string>
+    <string name="article_activity_date">DATE:</string>
+    <string name="menu_title_url">url</string>
+    <string name="iv_card_content_description_image">Image of the news response</string>
+    <string name="menu_title_about">About the app</string>
+    <string name="powered_by"> Powered by</string>
+    <string name="iv_card_my_info">My Photo</string>
+    <string name="tv_libraries_used">Libraries Used</string>
+    <string name="toolbar_default_text">Google News </string>
+    <string name="title_about_the_app">About the app</string>
+
+    <string name="ARK_Logo">ARK Logo</string>
+    <string name="newsapi_tag"> www.newsapi.org</string>
+    <string name="material_drawer">Material Drawer</string>
+
+    <string name="TH_times">The Himalayan Times</string>
+    <string name="square_times">Current Affairs</string>
+    <string name="prothomAlo">Prothom Alo</string>
+    <string name="NTimes">New York Times</string>
+    <string name="News">Newyork Affairs</string>
+    <string name="read_the_full_article">Read the full article</string>
+
+
+    <string name="history">History</string>
+    <string name="refresh_if_your_history_is_not_shown">Refresh if your history is not shown</string>
+    <string name="pinned_news">Pinned News</string>
+    <string name="more_on_new_york_times">More on New York Times</string>
+    <string name="more_on_your_news">More on your News</string>
+
+    <string-array name="spinner">
+        <item>TOP HEADLINES</item>
+        <item>LATEST HEADLINES</item>
+    </string-array>
+
 </resources>
