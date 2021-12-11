@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".news_article.Full_contents_news">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/source"
+                    android:text="Source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"/>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category"
+                    android:padding="5dp"
+                    android:layout_alignParentStart="true"/>
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+          <ScrollView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/thumbnailImageOnTop"
+                android:layout_width="match_parent"
+                android:layout_height="600px"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/headlineOnTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                tools:text="Headline goes here" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Author" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/recent_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="257dp"
+                    android:gravity="center"
+                    android:text="5sec ago" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toEndOf="@+id/author"
+                    android:gravity="center"
+                    android:text="Date"
+                    android:textAlignment="center" />
+            </RelativeLayout>
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mainNewsText"
+                android:layout_width="match_parent"
+                android:layout_height="374dp"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="10dp"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                tools:text="Main Article goes here." />
+
+
+    </ScrollView>
+        </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/shareNewsFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_baseline_share_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/moreContentButton"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="19dp"
+        android:text="@string/more_on_your_news"
+        android:visibility="gone" />
+
+</RelativeLayout>

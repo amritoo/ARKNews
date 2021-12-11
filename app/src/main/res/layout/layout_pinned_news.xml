@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_pinned"
+    tools:context=".news_article.AboutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_powered_by"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/powered_by"
+            android:textAllCaps="true"
+            android:textColor="@color/colorDarkBackground"
+            android:textSize="14sp" />
+
+        <include layout="@layout/card_info" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_libraries_used"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/pinned_news"
+            android:textAllCaps="true"
+            android:textColor="@color/colorDarkBackground"
+            android:textSize="14sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            style="@style/card_layout_about"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_info1"
+                    style="@style/card_layout_library_name"
+                    android:text="NewsPaper" />
+
+                <TextView
+                    android:id="@+id/tv_author1"
+                    style="@style/card_layout_library_author"
+                    android:layout_below="@id/tv_info1"
+                    android:text="Title" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            style="@style/card_layout_about"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_info2"
+                    style="@style/card_layout_library_name"
+                    android:text="@string/TH_times" />
+
+                <TextView
+                    android:id="@+id/tv_author2"
+                    style="@style/card_layout_library_author"
+                    android:layout_below="@id/tv_info2"
+                    android:text="@string/square_times" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            style="@style/card_layout_about"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_info3"
+                    style="@style/card_layout_library_name"
+                    android:text="@string/prothomAlo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_author3"
+                    style="@style/card_layout_library_author"
+                    android:layout_below="@id/tv_info3"
+                    android:text="@string/square_times" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            style="@style/card_layout_about"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_info4"
+                    style="@style/card_layout_library_name"
+                    android:text="@string/NTimes" />
+
+                <TextView
+                    android:id="@+id/tv_author4"
+                    style="@style/card_layout_library_author"
+                    android:layout_below="@id/tv_info4"
+                    android:text="@string/News" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

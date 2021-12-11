@@ -22,14 +22,13 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <!--  Appearance  -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/theme"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/theme"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -38,14 +37,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/notify"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/notify"
             android:textAllCaps="false"
-            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
@@ -62,43 +60,40 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--  Language  -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/language"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/language"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <!--  Set Time For Auto-deletion  -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/auto_deletion"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/auto_deletion"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <!--  Category Selection  -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/category_selection"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/category"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <!--  Help  -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/help"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
@@ -106,19 +101,17 @@
         android:text="@string/help"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <!--  User Manual  -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/user_manual"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/user_manual"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
