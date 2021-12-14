@@ -8,8 +8,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.arknews.FavoriteChannels;
 import com.example.arknews.R;
+import com.example.arknews.news_article.AboutActivity;
+import com.example.arknews.news_article.HistoryActivity;
+import com.example.arknews.news_article.PinnedActivity;
 import com.example.arknews.settings.SettingsActivity;
+import com.example.arknews.settings.UserManualActivity;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -44,16 +49,25 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
 //                case R.id.menu_home:
                 case R.id.menu_pinned:
+                    intent = new Intent(HomeActivity.this, PinnedActivity.class);
+                    break;
                 case R.id.menu_favorite:
+                    intent = new Intent(HomeActivity.this, FavoriteChannels.class);
+                    break;
                 case R.id.menu_history:
+                    intent = new Intent(HomeActivity.this, HistoryActivity.class);
                     break;
                 case R.id.menu_settings:
                     intent = new Intent(HomeActivity.this, SettingsActivity.class);
                     break;
                 case R.id.menu_help:
+                    intent = new Intent(HomeActivity.this, UserManualActivity.class);
+                    break;
                 case R.id.menu_about:
+                    intent = new Intent(HomeActivity.this, AboutActivity.class);
+                    break;
                 case R.id.menu_rating:
-                    int i = 0;
+                    // TODO add rate us view
                     break;
             }
             startActivity(intent);

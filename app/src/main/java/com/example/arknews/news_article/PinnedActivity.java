@@ -49,7 +49,9 @@ public class PinnedActivity extends AppCompatActivity {
 
     private void createInfoTextView() {
         TextView aboutHeaderAppName = findViewById(R.id.about_header_app_name);
-        TextView aboutHeaderAppDescription = findViewById(R.id.about_header_app_description);
+        // TODO
+//        TextView aboutHeaderAppDescription = findViewById(R.id.about_header_app_description);
+        TextView aboutHeaderAppDescription = findViewById(R.id.about_header_app_name);
         TextView cardInfo = findViewById(R.id.tv_card_info);
         TextView poweredBy = findViewById(R.id.tv_powered_by);
         TextView librariesUsed = findViewById(R.id.tv_libraries_used);
@@ -123,19 +125,22 @@ public class PinnedActivity extends AppCompatActivity {
 
 
     private void createToolbar() {
-        final Toolbar toolbar = findViewById(R.id.toolbar_layout_about);
+//        final Toolbar toolbar = findViewById(R.id.toolbar_layout_about);
+        final Toolbar toolbar = findViewById(R.id.deletion_toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final TextView toolbarTitle = findViewById(R.id.toolbar_title_about);
+//        final TextView toolbarTitle = findViewById(R.id.toolbar_title_about);
+        final TextView toolbarTitle = findViewById(R.id.home_toolbar);
 
         /*
          ** Customising animations of the AppBar Layout
          **/
-        AppBarLayout appBarLayout = findViewById(R.id.app_bar_about);
+//        AppBarLayout appBarLayout = findViewById(R.id.app_bar_about);
+        AppBarLayout appBarLayout = findViewById(R.id.about_header_app_name);
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = false;
             int scrollRange = -1;

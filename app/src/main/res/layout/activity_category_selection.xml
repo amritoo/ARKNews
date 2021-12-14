@@ -43,7 +43,7 @@
                     android:layout_width="77dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="-1dp"
-                    android:src="@drawable/football" />
+                    android:src="@drawable/bgsport" />
 
                 <TextView
                     android:layout_width="188dp"

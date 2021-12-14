@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ARKNews">
-        <activity
-            android:name=".FavoriteChannels"
-            android:exported="false" />
+        <activity android:name=".FavoriteChannels" />
         <activity android:name=".settings.AutoDelActivity" />
         <activity android:name=".settings.UserManualActivity" />
         <activity android:name=".settings.SettingsActivity" />
         <activity android:name=".home.HomeActivity" />
+        <activity android:name=".news_article.HistoryActivity" />
+        <activity android:name=".news_article.Full_contents_news" />
+        <activity android:name=".news_article.PinnedActivity" />
+        <activity android:name=".news_article.AboutActivity" />
         <activity android:name=".categories.CategorySelectionActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
