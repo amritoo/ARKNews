@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".categories.CategorySelectionActivity">
+
+    <!--  Toolbar  -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/home_toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
+            app:title="CATEGORIES"
+            app:titleCentered="true" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgsport">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/football" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:layout_marginRight="86dp"
+                    android:padding="25dp"
+                    android:text="Channel 1"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/channel1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="Star to indicate pinned."
+                    android:src="@drawable/ic_baseline_star_border_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Channel 2"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/channel2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="Star to indicate pinned."
+                    android:src="@drawable/ic_baseline_star_border_24" />
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/finance" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgpolitics">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/politics" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Channel 3"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/channel3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="Star to indicate pinned."
+                    android:src="@drawable/ic_baseline_star_border_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/fashion" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Channel 4"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/channel4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="Star to indicate pinned."
+                    android:src="@drawable/ic_baseline_star_border_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgsport">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/health" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Channel 5"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/channel5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="Star to indicate pinned."
+                    android:src="@drawable/ic_baseline_star_border_24" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgpolitics">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/science" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Channel 6"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/channel6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="Star to indicate pinned."
+                    android:src="@drawable/ic_baseline_star_border_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgsport">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/technology2" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Channel 7"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/channel7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="Star to indicate pinned."
+                    android:src="@drawable/ic_baseline_star_border_24" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
