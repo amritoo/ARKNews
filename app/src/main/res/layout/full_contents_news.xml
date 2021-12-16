@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".news_article.Full_contents_news">
+    tools:context=".ui.news_article.Full_contents_news">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout

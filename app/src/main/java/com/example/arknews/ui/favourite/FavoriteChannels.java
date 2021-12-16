@@ -1,16 +1,16 @@
-package com.example.arknews.settings;
+package com.example.arknews.ui.favourite;
+
+import static com.example.arknews.R.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.arknews.R;
-
-public class AutoDelActivity extends AppCompatActivity {
+public class FavoriteChannels extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auto_del);
+        setContentView(layout.activity_favorite_channels);
     }
 }

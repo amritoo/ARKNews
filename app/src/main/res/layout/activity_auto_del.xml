@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".settings.AutoDelActivity">
+    tools:context=".ui.settings.AutoDelActivity">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout

@@ -1,4 +1,4 @@
-package com.example.arknews.news_article;
+package com.example.arknews.ui.news_article;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

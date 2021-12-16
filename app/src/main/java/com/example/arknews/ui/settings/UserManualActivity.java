@@ -1,16 +1,16 @@
-package com.example.arknews.news_article;
-
-import android.os.Bundle;
+package com.example.arknews.ui.settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+
 import com.example.arknews.R;
 
-public class HistoryActivity extends AppCompatActivity {
+public class UserManualActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_user_manual);
     }
 }

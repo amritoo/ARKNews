@@ -1,4 +1,4 @@
-package com.example.arknews.home;
+package com.example.arknews.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +8,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.arknews.favourite.FavoriteChannels;
+import com.example.arknews.ui.favourite.FavoriteChannels;
 import com.example.arknews.R;
-import com.example.arknews.news_article.HistoryActivity;
-import com.example.arknews.news_article.PinnedActivity;
-import com.example.arknews.settings.SettingsActivity;
-import com.example.arknews.settings.UserManualActivity;
+import com.example.arknews.ui.news_article.HistoryActivity;
+import com.example.arknews.ui.news_article.PinnedActivity;
+import com.example.arknews.ui.settings.SettingsActivity;
+import com.example.arknews.ui.settings.UserManualActivity;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 

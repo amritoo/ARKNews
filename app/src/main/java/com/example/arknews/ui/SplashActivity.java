@@ -1,4 +1,4 @@
-package com.example.arknews;
+package com.example.arknews.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +8,8 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.example.arknews.home.HomeActivity;
+import com.example.arknews.R;
+import com.example.arknews.ui.home.HomeActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

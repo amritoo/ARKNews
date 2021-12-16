@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".news_article.PinnedActivity">
+    tools:context=".ui.news_article.PinnedActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
