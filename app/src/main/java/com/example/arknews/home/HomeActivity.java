@@ -8,9 +8,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.arknews.FavoriteChannels;
+import com.example.arknews.favourite.FavoriteChannels;
 import com.example.arknews.R;
-import com.example.arknews.news_article.AboutActivity;
 import com.example.arknews.news_article.HistoryActivity;
 import com.example.arknews.news_article.PinnedActivity;
 import com.example.arknews.settings.SettingsActivity;
@@ -64,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
                     intent = new Intent(HomeActivity.this, UserManualActivity.class);
                     break;
                 case R.id.menu_about:
-                    intent = new Intent(HomeActivity.this, AboutActivity.class);
+//                    intent = new Intent(HomeActivity.this, AboutActivity.class);
                     break;
                 case R.id.menu_rating:
                     // TODO add rate us view

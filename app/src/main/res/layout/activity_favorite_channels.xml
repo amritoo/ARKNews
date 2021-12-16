@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoriteChannels"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".favourite.FavoriteChannels">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -23,258 +22,264 @@
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        tools:listitem="@layout/item_channel" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="vertical"
-            android:visibility="visible">
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bgsport">
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="5dp"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:visibility="visible">-->
 
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="-1dp"
-                    android:src="@drawable/bgsport" />
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="75dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:background="@drawable/bgsport">-->
 
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="83dp"
-                    android:layout_marginRight="86dp"
-                    android:padding="25dp"
-                    android:text="Sports"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
+    <!--                <ImageView-->
+    <!--                    android:layout_width="77dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginRight="-1dp"-->
+    <!--                    android:src="@drawable/bgsport" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="11dp"
-                    android:gravity="center"
-                    android:padding="15dp" />
+    <!--                <TextView-->
+    <!--                    android:layout_width="188dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_marginEnd="83dp"-->
+    <!--                    android:layout_marginRight="86dp"-->
+    <!--                    android:padding="25dp"-->
+    <!--                    android:text="Sports"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:visibility="visible" />-->
 
-            </RelativeLayout>
+    <!--                <CheckBox-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_alignParentBottom="true"-->
+    <!--                    android:layout_marginRight="2dp"-->
+    <!--                    android:layout_marginBottom="11dp"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:padding="15dp" />-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+    <!--            </RelativeLayout>-->
 
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="-1dp"
-                    android:src="@drawable/finance" />
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="75dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:background="@drawable/bgfinance">-->
 
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="83dp"
-                    android:padding="25dp"
-                    android:text="Finance"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
+    <!--                <ImageView-->
+    <!--                    android:layout_width="77dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginRight="-1dp"-->
+    <!--                    android:src="@drawable/finance" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="11dp"
-                    android:gravity="center"
-                    android:padding="15dp" />
+    <!--                <TextView-->
+    <!--                    android:layout_width="188dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_marginEnd="83dp"-->
+    <!--                    android:padding="25dp"-->
+    <!--                    android:text="Finance"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:visibility="visible" />-->
 
-            </RelativeLayout>
+    <!--                <CheckBox-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_alignParentBottom="true"-->
+    <!--                    android:layout_marginRight="2dp"-->
+    <!--                    android:layout_marginBottom="11dp"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:padding="15dp" />-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bgpolitics">
+    <!--            </RelativeLayout>-->
 
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="-1dp"
-                    android:src="@drawable/politics" />
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="75dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:background="@drawable/bgpolitics">-->
 
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="83dp"
-                    android:padding="25dp"
-                    android:text="Politics"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
+    <!--                <ImageView-->
+    <!--                    android:layout_width="77dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginRight="-1dp"-->
+    <!--                    android:src="@drawable/politics" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="11dp"
-                    android:gravity="center"
-                    android:padding="15dp" />
+    <!--                <TextView-->
+    <!--                    android:layout_width="188dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_marginEnd="83dp"-->
+    <!--                    android:padding="25dp"-->
+    <!--                    android:text="Politics"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:visibility="visible" />-->
 
-            </RelativeLayout>
+    <!--                <CheckBox-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_alignParentBottom="true"-->
+    <!--                    android:layout_marginRight="2dp"-->
+    <!--                    android:layout_marginBottom="11dp"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:padding="15dp" />-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+    <!--            </RelativeLayout>-->
 
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="-1dp"
-                    android:src="@drawable/fashion" />
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="75dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:background="@drawable/bgfinance">-->
 
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="83dp"
-                    android:padding="25dp"
-                    android:text="Fasion"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
+    <!--                <ImageView-->
+    <!--                    android:layout_width="77dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginRight="-1dp"-->
+    <!--                    android:src="@drawable/fashion" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="11dp"
-                    android:gravity="center"
-                    android:padding="15dp" />
+    <!--                <TextView-->
+    <!--                    android:layout_width="188dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_marginEnd="83dp"-->
+    <!--                    android:padding="25dp"-->
+    <!--                    android:text="Fasion"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:visibility="visible" />-->
 
-            </RelativeLayout>
+    <!--                <CheckBox-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_alignParentBottom="true"-->
+    <!--                    android:layout_marginRight="2dp"-->
+    <!--                    android:layout_marginBottom="11dp"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:padding="15dp" />-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bgsport">
+    <!--            </RelativeLayout>-->
 
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="-1dp"
-                    android:src="@drawable/health" />
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="75dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:background="@drawable/bgsport">-->
 
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="83dp"
-                    android:padding="25dp"
-                    android:text="Health"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
+    <!--                <ImageView-->
+    <!--                    android:layout_width="77dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginRight="-1dp"-->
+    <!--                    android:src="@drawable/health" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="11dp"
-                    android:gravity="center"
-                    android:padding="15dp" />
+    <!--                <TextView-->
+    <!--                    android:layout_width="188dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_marginEnd="83dp"-->
+    <!--                    android:padding="25dp"-->
+    <!--                    android:text="Health"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:visibility="visible" />-->
 
-            </RelativeLayout>
+    <!--                <CheckBox-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_alignParentBottom="true"-->
+    <!--                    android:layout_marginRight="2dp"-->
+    <!--                    android:layout_marginBottom="11dp"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:padding="15dp" />-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bgpolitics">
+    <!--            </RelativeLayout>-->
 
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="-1dp"
-                    android:src="@drawable/science" />
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="75dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:background="@drawable/bgpolitics">-->
 
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="83dp"
-                    android:padding="25dp"
-                    android:text="Science"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
+    <!--                <ImageView-->
+    <!--                    android:layout_width="77dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginRight="-1dp"-->
+    <!--                    android:src="@drawable/science" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="11dp"
-                    android:gravity="center"
-                    android:padding="15dp" />
+    <!--                <TextView-->
+    <!--                    android:layout_width="188dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_marginEnd="83dp"-->
+    <!--                    android:padding="25dp"-->
+    <!--                    android:text="Science"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:visibility="visible" />-->
 
-            </RelativeLayout>
+    <!--                <CheckBox-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_alignParentBottom="true"-->
+    <!--                    android:layout_marginRight="2dp"-->
+    <!--                    android:layout_marginBottom="11dp"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:padding="15dp" />-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/bgsport">
+    <!--            </RelativeLayout>-->
 
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="-1dp"
-                    android:src="@drawable/technology2" />
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="75dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:background="@drawable/bgsport">-->
 
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="83dp"
-                    android:padding="25dp"
-                    android:text="Technologies"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
+    <!--                <ImageView-->
+    <!--                    android:layout_width="77dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginRight="-1dp"-->
+    <!--                    android:src="@drawable/technology2" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="11dp"
-                    android:gravity="center"
-                    android:padding="15dp" />
+    <!--                <TextView-->
+    <!--                    android:layout_width="188dp"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_marginEnd="83dp"-->
+    <!--                    android:padding="25dp"-->
+    <!--                    android:text="Technologies"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:visibility="visible" />-->
 
-            </RelativeLayout>
+    <!--                <CheckBox-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_alignParentRight="true"-->
+    <!--                    android:layout_alignParentBottom="true"-->
+    <!--                    android:layout_marginRight="2dp"-->
+    <!--                    android:layout_marginBottom="11dp"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:padding="15dp" />-->
 
-        </LinearLayout>
+    <!--            </RelativeLayout>-->
 
-    </ScrollView>
+    <!--        </LinearLayout>-->
+
+    <!--    </ScrollView>-->
 
 </LinearLayout>

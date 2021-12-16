@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/menu_share"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:title="share" />
+        <item
+            android:id="@+id/menu_pin"
+            android:title="pinn" />
+        <item
+            android:id="@+id/menu_hi"
+            android:title="extra" />
+        <item
+            android:id="@+id/menu_se"
+            android:title="copy" />
+    </group>
+
+</menu>

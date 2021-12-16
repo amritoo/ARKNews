@@ -1,4 +1,4 @@
-package com.example.arknews;
+package com.example.arknews.favourite;
 
 import static com.example.arknews.R.*;
 

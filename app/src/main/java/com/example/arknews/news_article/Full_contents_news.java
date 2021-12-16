@@ -1,11 +1,8 @@
 package com.example.arknews.news_article;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +13,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arknews.R;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,11 +26,6 @@ public class Full_contents_news extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.full_contents_news);
 
-        if (!isNetworkAvailable()) {
-            Snackbar.make(findViewById(android.R.id.content),
-                    "Internet Not Available", Snackbar.LENGTH_LONG).show();
-        }
-
         Bundle bundle = getIntent().getExtras();
         String setTitleOfActivity = bundle.getString("HEADLINES");
         if (setTitleOfActivity != null) {
@@ -42,7 +33,7 @@ public class Full_contents_news extends AppCompatActivity {
         }
 
 
-        TextView headlineTextView = (TextView) findViewById(R.id.headlineOnTop);
+        TextView headlineTextView = findViewById(R.id.headlineOnTop);
         TextView mainNewsTextView = (TextView) findViewById(R.id.mainNewsText);
         ImageView ig = (ImageView) findViewById(R.id.thumbnailImageOnTop);
         Button moreContent = (Button) findViewById(R.id.moreContentButton);
@@ -57,7 +48,7 @@ public class Full_contents_news extends AppCompatActivity {
             byte[] byteArray = bundle.getByteArray("THUMBNAIL");
             Bitmap bmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
             ig.setImageBitmap(bmap);
-          }
+        }
 
 
         if (mNewsUrl != null) {
@@ -71,25 +62,19 @@ public class Full_contents_news extends AppCompatActivity {
             fab.setVisibility(View.GONE);
         }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        fab.setOnClickListener(view -> {
 //                Snackbar.make(findViewById(android.R.id.content), mUrlForIntent.toString(), Snackbar.LENGTH_SHORT).show();
-                Intent i = new Intent();
-                i.setAction(Intent.ACTION_SEND);
-                i.putExtra(Intent.EXTRA_TEXT, mUrlForIntent.toString());
-                i.setType("text/plain");
+            Intent i = new Intent();
+            i.setAction(Intent.ACTION_SEND);
+            i.putExtra(Intent.EXTRA_TEXT, mUrlForIntent.toString());
+            i.setType("text/plain");
 
-                String title = "Share";
-                Intent chooser = Intent.createChooser(i, title);
-                if (i.resolveActivity(getPackageManager()) != null) {
-                    startActivity(chooser);
-                }
+            String title = "Share";
+            Intent chooser = Intent.createChooser(i, title);
+            if (i.resolveActivity(getPackageManager()) != null) {
+                startActivity(chooser);
             }
         });
-
-
-
 
 
     }
@@ -99,12 +84,6 @@ public class Full_contents_news extends AppCompatActivity {
         finish();
     }
 
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
 }
 
 

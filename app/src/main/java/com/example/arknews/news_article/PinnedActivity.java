@@ -29,8 +29,6 @@ public class PinnedActivity extends AppCompatActivity {
          **/
         createToolbar();
 
-
-
         /*
          ** Asset manager
          **/
@@ -176,7 +174,6 @@ public class PinnedActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
-
 
 
 }
