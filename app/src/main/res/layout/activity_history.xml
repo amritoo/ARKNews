@@ -35,39 +35,11 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <FrameLayout
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                android:id="@+id/swipe_refresh_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/layout_home_content" />
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/empty_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableTop="@drawable/ic_news_empty"
-                android:drawablePadding="@dimen/item_margin"
-                android:gravity="center"
-                android:text="@string/refresh_if_your_history_is_not_shown"
-                android:textSize="@dimen/big_medium"
-                android:visibility="gone"
-                tools:visibility="visible" />
-        </FrameLayout>
+            android:padding="8dp"
+            tools:listitem="@layout/history_news_card" />
 
 
     </LinearLayout>

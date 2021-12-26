@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:checkable="true"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_margin="5dp"
+        android:background="@color/white">
+
+<!--        <CheckBox-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="2dp"-->
+<!--            android:layout_marginBottom="11dp"-->
+<!--            android:gravity="center"-->
+<!--            android:visibility="invisible"-->
+<!--            android:padding="15dp" />-->
+
+
+        <!-- Title and secondary text -->
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+        <TextView
+            android:id="@+id/publish_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/title"
+            android:text="Publish time"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorSecondary" />
+<!--        Image view for news image-->
+        <ImageView
+            android:id="@+id/news_image"
+            android:layout_width="77dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="11dp"
+            android:contentDescription="This is a placeholder for news image."
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_twotone_image_128" />
+
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
