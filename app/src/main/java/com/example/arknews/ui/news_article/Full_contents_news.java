@@ -1,5 +1,6 @@
 package com.example.arknews.ui.news_article;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arknews.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,10 +23,11 @@ public class Full_contents_news extends AppCompatActivity {
     private String mNewsUrl = null;
     private URL mUrlForIntent;
 
+    @SuppressLint("QueryPermissionsNeeded")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.full_contents_news);
+        setContentView(R.layout.activity_full_contents_news);
 
         Bundle bundle = getIntent().getExtras();
         String setTitleOfActivity = bundle.getString("HEADLINES");
@@ -34,10 +37,10 @@ public class Full_contents_news extends AppCompatActivity {
 
 
         TextView headlineTextView = findViewById(R.id.headlineOnTop);
-        TextView mainNewsTextView = (TextView) findViewById(R.id.mainNewsText);
-        ImageView ig = (ImageView) findViewById(R.id.thumbnailImageOnTop);
-        Button moreContent = (Button) findViewById(R.id.moreContentButton);
-        ImageButton fab = (ImageButton) findViewById(R.id.shareNewsFAB);
+        TextView mainNewsTextView = findViewById(R.id.mainNewsText);
+        ImageView ig = findViewById(R.id.thumbnailImageOnTop);
+        Button moreContent = findViewById(R.id.moreContentButton);
+        ImageButton share = findViewById(R.id.shareNewsFAB);
 
 
         if (bundle.getString("MAIN_CONTENT") != null) {
@@ -53,17 +56,17 @@ public class Full_contents_news extends AppCompatActivity {
 
         if (mNewsUrl != null) {
             try {
-                fab.setVisibility(View.VISIBLE);
+                share.setVisibility(View.VISIBLE);
                 mUrlForIntent = new URL(mNewsUrl);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
         } else {
-            fab.setVisibility(View.GONE);
+            share.setVisibility(View.GONE);
         }
 
-        fab.setOnClickListener(view -> {
-//                Snackbar.make(findViewById(android.R.id.content), mUrlForIntent.toString(), Snackbar.LENGTH_SHORT).show();
+        share.setOnClickListener(view -> {
+            Snackbar.make(findViewById(android.R.id.content), mUrlForIntent.toString(), Snackbar.LENGTH_SHORT).show();
             Intent i = new Intent();
             i.setAction(Intent.ACTION_SEND);
             i.putExtra(Intent.EXTRA_TEXT, mUrlForIntent.toString());

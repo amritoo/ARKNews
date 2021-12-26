@@ -128,19 +128,20 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:layout_marginEnd="8dp"
+        android:visibility="gone"
         android:layout_marginBottom="16dp"
         android:background="@color/white"
         android:src="@drawable/ic_baseline_share_24" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/moreContentButton"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="19dp"
-        android:text="@string/more_on_your_news"
-        android:visibility="gone" />
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/moreContentButton"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginEnd="11dp"-->
+<!--        android:layout_marginBottom="19dp"-->
+<!--        android:text="@string/more_on_your_news"-->
+<!--        />-->
 
 </LinearLayout>
