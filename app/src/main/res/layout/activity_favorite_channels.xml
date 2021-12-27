@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.favourite.FavoriteChannels">
+    tools:context=".ui.favourite.FavoriteChannels"
+    android:orientation="vertical">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/home_toolbar"
+            android:id="@+id/favorite_toolbar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,264 +23,632 @@
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        tools:listitem="@layout/item_channel" />
+        android:layout_height="match_parent">
 
-    <!--    <ScrollView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_margin="5dp"-->
-    <!--            android:orientation="vertical"-->
-    <!--            android:visibility="visible">-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--            <RelativeLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="75dp"-->
-    <!--                android:layout_margin="5dp"-->
-    <!--                android:background="@drawable/bgsport">-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/abc_news" />
 
-    <!--                <ImageView-->
-    <!--                    android:layout_width="77dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginRight="-1dp"-->
-    <!--                    android:src="@drawable/bgsport" />-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:layout_marginRight="86dp"
+                    android:padding="25dp"
+                    android:text="ABC News"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
-    <!--                <TextView-->
-    <!--                    android:layout_width="188dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_marginEnd="83dp"-->
-    <!--                    android:layout_marginRight="86dp"-->
-    <!--                    android:padding="25dp"-->
-    <!--                    android:text="Sports"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:visibility="visible" />-->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
 
-    <!--                <CheckBox-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_alignParentBottom="true"-->
-    <!--                    android:layout_marginRight="2dp"-->
-    <!--                    android:layout_marginBottom="11dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:padding="15dp" />-->
+            </RelativeLayout>
 
-    <!--            </RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--            <RelativeLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="75dp"-->
-    <!--                android:layout_margin="5dp"-->
-    <!--                android:background="@drawable/bgfinance">-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/bbc_news" />
 
-    <!--                <ImageView-->
-    <!--                    android:layout_width="77dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginRight="-1dp"-->
-    <!--                    android:src="@drawable/finance" />-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="BBC News"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
-    <!--                <TextView-->
-    <!--                    android:layout_width="188dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_marginEnd="83dp"-->
-    <!--                    android:padding="25dp"-->
-    <!--                    android:text="Finance"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:visibility="visible" />-->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
 
-    <!--                <CheckBox-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_alignParentBottom="true"-->
-    <!--                    android:layout_marginRight="2dp"-->
-    <!--                    android:layout_marginBottom="11dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:padding="15dp" />-->
+            </RelativeLayout>
 
-    <!--            </RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--            <RelativeLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="75dp"-->
-    <!--                android:layout_margin="5dp"-->
-    <!--                android:background="@drawable/bgpolitics">-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/bbc_sports" />
 
-    <!--                <ImageView-->
-    <!--                    android:layout_width="77dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginRight="-1dp"-->
-    <!--                    android:src="@drawable/politics" />-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="BBC Sports"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
-    <!--                <TextView-->
-    <!--                    android:layout_width="188dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_marginEnd="83dp"-->
-    <!--                    android:padding="25dp"-->
-    <!--                    android:text="Politics"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:visibility="visible" />-->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
 
-    <!--                <CheckBox-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_alignParentBottom="true"-->
-    <!--                    android:layout_marginRight="2dp"-->
-    <!--                    android:layout_marginBottom="11dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:padding="15dp" />-->
+            </RelativeLayout>
 
-    <!--            </RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--            <RelativeLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="75dp"-->
-    <!--                android:layout_margin="5dp"-->
-    <!--                android:background="@drawable/bgfinance">-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/cbc_news" />
 
-    <!--                <ImageView-->
-    <!--                    android:layout_width="77dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginRight="-1dp"-->
-    <!--                    android:src="@drawable/fashion" />-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="CBC News"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
-    <!--                <TextView-->
-    <!--                    android:layout_width="188dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_marginEnd="83dp"-->
-    <!--                    android:padding="25dp"-->
-    <!--                    android:text="Fasion"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:visibility="visible" />-->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
 
-    <!--                <CheckBox-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_alignParentBottom="true"-->
-    <!--                    android:layout_marginRight="2dp"-->
-    <!--                    android:layout_marginBottom="11dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:padding="15dp" />-->
+            </RelativeLayout>
 
-    <!--            </RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--            <RelativeLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="75dp"-->
-    <!--                android:layout_margin="5dp"-->
-    <!--                android:background="@drawable/bgsport">-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/espn" />
 
-    <!--                <ImageView-->
-    <!--                    android:layout_width="77dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginRight="-1dp"-->
-    <!--                    android:src="@drawable/health" />-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="ESPN"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
-    <!--                <TextView-->
-    <!--                    android:layout_width="188dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_marginEnd="83dp"-->
-    <!--                    android:padding="25dp"-->
-    <!--                    android:text="Health"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:visibility="visible" />-->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
 
-    <!--                <CheckBox-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_alignParentBottom="true"-->
-    <!--                    android:layout_marginRight="2dp"-->
-    <!--                    android:layout_marginBottom="11dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:padding="15dp" />-->
+            </RelativeLayout>
 
-    <!--            </RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--            <RelativeLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="75dp"-->
-    <!--                android:layout_margin="5dp"-->
-    <!--                android:background="@drawable/bgpolitics">-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/google_news" />
 
-    <!--                <ImageView-->
-    <!--                    android:layout_width="77dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginRight="-1dp"-->
-    <!--                    android:src="@drawable/science" />-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Google News"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
-    <!--                <TextView-->
-    <!--                    android:layout_width="188dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_marginEnd="83dp"-->
-    <!--                    android:padding="25dp"-->
-    <!--                    android:text="Science"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:visibility="visible" />-->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
 
-    <!--                <CheckBox-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_alignParentBottom="true"-->
-    <!--                    android:layout_marginRight="2dp"-->
-    <!--                    android:layout_marginBottom="11dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:padding="15dp" />-->
+            </RelativeLayout>
 
-    <!--            </RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--            <RelativeLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="75dp"-->
-    <!--                android:layout_margin="5dp"-->
-    <!--                android:background="@drawable/bgsport">-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
 
-    <!--                <ImageView-->
-    <!--                    android:layout_width="77dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginRight="-1dp"-->
-    <!--                    android:src="@drawable/technology2" />-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Fox News"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
-    <!--                <TextView-->
-    <!--                    android:layout_width="188dp"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_marginEnd="83dp"-->
-    <!--                    android:padding="25dp"-->
-    <!--                    android:text="Technologies"-->
-    <!--                    android:textSize="20sp"-->
-    <!--                    android:visibility="visible" />-->
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
 
-    <!--                <CheckBox-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_alignParentRight="true"-->
-    <!--                    android:layout_alignParentBottom="true"-->
-    <!--                    android:layout_marginRight="2dp"-->
-    <!--                    android:layout_marginBottom="11dp"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:padding="15dp" />-->
+            </RelativeLayout>
 
-    <!--            </RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
 
-    <!--        </LinearLayout>-->
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
 
-    <!--    </ScrollView>-->
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Fox Sports"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="CBC News"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="National Geographic"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="CNN NEws"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Washington Times"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="IGN News"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Associatd Press"
+                    android:textSize="17sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Business Insider"
+                    android:textSize="17sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Engadget"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Independent"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bgfinance">
+
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:src="@drawable/ic_twotone_image_128" />
+
+                <TextView
+                    android:layout_width="188dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="83dp"
+                    android:padding="25dp"
+                    android:text="Reutors"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="11dp"
+                    android:gravity="center"
+                    android:padding="15dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

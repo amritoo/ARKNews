@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
 
     void initializeViews() {
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar = findViewById(R.id.home_toolbar);
+        toolbar = findViewById(R.id.favorite_toolbar);
         navigationView = findViewById(R.id.nav_view);
         recyclerView = findViewById(R.id.rv_newsfeed);
     }
