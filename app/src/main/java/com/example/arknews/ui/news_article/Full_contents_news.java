@@ -39,7 +39,7 @@ public class Full_contents_news extends AppCompatActivity {
         TextView headlineTextView = findViewById(R.id.headlineOnTop);
         TextView mainNewsTextView = findViewById(R.id.mainNewsText);
         ImageView ig = findViewById(R.id.thumbnailImageOnTop);
-      //  Button moreContent = findViewById(R.id.moreContentButton);
+        Button moreContent = findViewById(R.id.moreContentButton);
         ImageButton share = findViewById(R.id.shareNewsFAB);
 
 
