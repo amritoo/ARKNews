@@ -30,6 +30,8 @@ android {
 
 dependencies {
 
+    def room_version = "2.4.0"
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
@@ -39,5 +41,11 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     implementation "androidx.cardview:cardview:1.0.0" //for cardview in dialog
+    // https://github.com/google/volley
+    implementation 'com.android.volley:volley:1.2.1'
+
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
 }
