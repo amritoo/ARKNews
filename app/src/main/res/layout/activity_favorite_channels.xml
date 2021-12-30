@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -107,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -141,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -175,7 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -209,7 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -243,7 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -277,7 +277,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -311,7 +311,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -345,7 +345,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -379,7 +379,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -413,7 +413,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -447,7 +447,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -481,7 +481,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -515,7 +515,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -549,7 +549,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -583,7 +583,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"
@@ -617,7 +617,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
-                android:background="@drawable/bgfinance">
+                android:background="@color/teal_700">
 
                 <ImageView
                     android:layout_width="77dp"

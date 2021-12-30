@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgsport">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgfinance">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -106,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgpolitics">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -140,7 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgfinance">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -174,7 +174,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgsport">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -208,7 +208,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgpolitics">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -242,7 +242,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgsport">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -276,7 +276,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgsport">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
@@ -310,7 +310,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/bgsport">
+                    android:background="@color/teal_200">
 
                     <ImageView
                         android:layout_width="77dp"
