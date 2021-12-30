@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.arknews">
+    package="com.example.arknews"
+    android:installLocation="auto">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -8,7 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ARKNews">
+        android:theme="@style/Theme.ARKNews"
+        android:fullBackupContent="true">
         <activity android:name=".ui.favourite.FavoriteChannels" />
         <activity android:name=".ui.settings.AutoDelActivity" />
         <activity android:name=".ui.settings.UserManualActivity" />
@@ -18,7 +23,8 @@
         <activity android:name="com.example.arknews.ui.news_article.Full_contents_news" />
         <activity android:name="com.example.arknews.ui.news_article.PinnedActivity" />
         <activity android:name=".ui.categories.CategorySelectionActivity" />
-        <activity android:name=".ui.SplashActivity">
+        <activity android:name=".ui.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
