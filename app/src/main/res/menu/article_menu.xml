@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="Share"
+        android:contentDescription="Share news"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_baseline_star_border_24"
+        android:title="Star"
+        android:contentDescription="Starred Favorite content news"
+        app:showAsAction="ifRoom" />
+
+
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/menu_share"
             android:icon="@drawable/ic_baseline_keyboard_arrow_up_24"
-            android:title="share" />
+            android:title="Share" />
         <item
             android:id="@+id/menu_pin"
-            android:title="pinn" />
+            android:icon="@drawable/ic_baseline_push_pin_24"
+            android:title="Pin"/>
+
         <item
-            android:id="@+id/menu_hi"
-            android:title="extra" />
+            android:id="@+id/menu_save"
+            android:title="Save" />
         <item
             android:id="@+id/menu_se"
-            android:title="copy" />
+            android:title="Copy" />
     </group>
 
 </menu>

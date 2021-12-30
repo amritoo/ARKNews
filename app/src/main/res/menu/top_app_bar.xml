@@ -17,11 +17,20 @@
         android:contentDescription="Content description search"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/more"
-        android:icon="@drawable/ic_baseline_more_vert_24"
-        android:title="more"
-        android:contentDescription="Content description more"
-        app:showAsAction="never" />
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/history_pause"
+            android:title="Pause" />
+        <item
+            android:id="@+id/history_delete"
+            android:title="Delete" />
+        <item
+            android:id="@+id/history_search"
+            android:title="Search" />
+
+    </group>
+
 
 </menu>

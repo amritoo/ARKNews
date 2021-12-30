@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/article_menu"
-            app:navigationIcon="@drawable/ic_baseline_dehaze_24"
+            app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
             app:title="Article" />
     </com.google.android.material.appbar.AppBarLayout>
 
