@@ -1,6 +1,5 @@
 package com.example.arknews.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -8,7 +7,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.arknews.model.FAQ;
 import com.example.arknews.model.History;
 
 import java.util.List;
@@ -20,11 +18,10 @@ public interface HistoryDao {
      * Search History using liveData
      */
 
-    @Query("SELECT * FROM history")
-    LiveData<List<History>> getAllHistory();
-
 //    @Query("SELECT * FROM history")
-//    List<History> getAll();
+//    LiveData<List<History>> getAllHistory();
+    @Query("SELECT * FROM history")
+    List<History> getAll();
 
     //     ** Insert History **
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -38,14 +35,5 @@ public interface HistoryDao {
     //     ** Delete History **
     @Delete
     void delete(History history);
-
-
-
-
-
-
-
-
-
 
 }

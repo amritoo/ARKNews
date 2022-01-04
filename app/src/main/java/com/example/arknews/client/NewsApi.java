@@ -55,10 +55,22 @@ public class NewsApi {
                             ARKDatabase.getInstance(context).channelDao().insert(channel);
                         }
                     } catch (JSONException e) {
-                        Log.e(TAG, "getChannels:jsonError", e);
+                        Log.e(TAG, "getChannels:jsonException", e);
                     }
                 }, error -> Log.e(TAG, "getChannels:requestError", error));
         MyRequestQueue.getInstance(context).addToRequestQueue(jsonObjectRequest);
+    }
+
+    //    TODO Karma
+    public void getCategoryNews(String category) {
+    }
+
+    //    TODO Prashant
+    public void getChannelNews(String channel) {
+    }
+
+    //    TODO Priyanka
+    public void getCategoryAndChannelNews(String category, String channel) {
     }
 
 }

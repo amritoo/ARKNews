@@ -27,4 +27,5 @@ public interface FAQDao {
 
     @Delete
     void delete(FAQ faq);
+
 }

@@ -8,8 +8,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.arknews.ui.favourite.FavoriteChannels;
 import com.example.arknews.R;
+import com.example.arknews.ui.favourite.FavoriteChannels;
 import com.example.arknews.ui.news_article.HistoryActivity;
 import com.example.arknews.ui.news_article.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
@@ -40,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_newsfeed);
     }
 
+    // sets listeners to views
     void setListeners() {
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 

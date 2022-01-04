@@ -12,5 +12,8 @@ public interface Constants {
                     "espn", "fox-news", "fox-sports", "google-news",
                     "ign", "independent", "national-geographic", "reuters",
                     "the-washington-times");
+    List<String> categories = Arrays
+            .asList("Business", "Education", "Entertainment", "General",
+                    "Health", "Science", "Sports", "Politics", "Technology");
 
 }
