@@ -94,7 +94,7 @@ public class NewsApi {
                             String content = source.getString("content");
 
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
-                            ARKDatabase.getInstance(context).newsDao().insert(news);
+                            ARKDatabase.getInstance(context).newsDao().insertAll(news);
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "getChannelsNews:jsonException", e);
