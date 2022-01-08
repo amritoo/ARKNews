@@ -68,7 +68,6 @@ public class NewsApi {
     public void getCategoryNews(String category) {
     }
 
-    //    TODO Prashant
     public void getChannelNews(String channel) {
 
         String SourceUrl = "https://newsapi.org/v2/everything?sources=" + channel + "&apiKey=" + API_KEY;
@@ -81,7 +80,7 @@ public class NewsApi {
 
                             JSONObject parentObject = parentArray.getJSONObject(i);
                             JSONObject source = parentObject.getJSONObject("source");
-                            String sourceId= source.getString("id");
+                            String sourceId = source.getString("id");
                             if (!Constants.channels.contains(sourceId))
                                 continue;
 
