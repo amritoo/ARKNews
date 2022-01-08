@@ -46,11 +46,12 @@ public class Full_contents_news extends AppCompatActivity {
         ig = findViewById(R.id.thumbnailImageOnTop);
         //Button moreContent = findViewById(R.id.moreContentButton);
         share = findViewById(R.id.shareNewsFAB);
+        toolbar = findViewById(R.id.news_toolbar);
     }
 
    void setListeners(){
 
-       toolbar = findViewById(R.id.home_toolbar);
+
        toolbar.setNavigationOnClickListener(v -> finish());
 
        Bundle bundle = getIntent().getExtras();

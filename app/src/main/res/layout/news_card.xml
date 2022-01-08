@@ -44,14 +44,14 @@
 
                 <!-- Title and secondary text -->
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/history_news_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Title"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <TextView
-                    android:id="@+id/publish_time"
+                    android:id="@+id/history_news_published"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

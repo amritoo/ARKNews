@@ -17,6 +17,17 @@ public interface ChannelDao {
     @Query("SELECT * FROM channel")
     List<Channel> getAll();
 
+
+//    @Query("SELECT id FROM channel where   ")
+//    int getChannelId(String source);
+
+     public default int getChannelId(String source){
+
+       int channelId = Integer.parseInt(("SELECT id FROM channel where name =" +source));
+       return channelId;
+
+    }
+
     @Insert
     void insert(Channel channel);
 

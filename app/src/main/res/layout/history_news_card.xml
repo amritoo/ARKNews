@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     android:checkable="true"
     android:clickable="true"
@@ -14,35 +14,56 @@
         android:layout_margin="5dp"
         android:background="@color/white">
 
-<!--        <CheckBox-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginRight="2dp"-->
-<!--            android:layout_marginBottom="11dp"-->
-<!--            android:gravity="center"-->
-<!--            android:visibility="invisible"-->
-<!--            android:padding="15dp" />-->
+        <!--        <CheckBox-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginRight="2dp"-->
+        <!--            android:layout_marginBottom="11dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:visibility="invisible"-->
+        <!--            android:padding="15dp" />-->
 
 
         <!-- Title and secondary text -->
-
-        <TextView
-            android:id="@+id/title"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/history_news_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
-        <TextView
-            android:id="@+id/publish_time"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/history_news_title"
             android:layout_marginTop="8dp"
-            android:layout_below="@+id/title"
-            android:text="Publish time"
-            android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary" />
-<!--        Image view for news image-->
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/channel_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Channel"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="?android:attr/listDivider" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/history_news_published"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish time"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
+
+        <!--        Image view for news image-->
         <ImageView
             android:id="@+id/news_image"
             android:layout_width="77dp"
@@ -54,8 +75,6 @@
             android:contentDescription="This is a placeholder for news image."
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_twotone_image_128" />
-
-
 
     </RelativeLayout>
 

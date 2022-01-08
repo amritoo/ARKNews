@@ -77,6 +77,18 @@ public class News {
         this.pinned = pinned;
     }
 
+    @Ignore
+    public News(int channelId, int categoryId, String title, String author, java.sql.Date published, String url, String urlToImage, String content) {
+        this.channelId = channelId;
+        this.categoryId = categoryId;
+        this.title = title;
+        this.author = author;
+        this.published = published;
+        this.url = url;
+        this.urlToImage = urlToImage;
+        this.content = content;
+    }
+
     public int getId() {
         return id;
     }
