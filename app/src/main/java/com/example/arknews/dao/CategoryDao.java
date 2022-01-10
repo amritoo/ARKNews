@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
 import com.example.arknews.model.Category;
 
 import java.util.List;
@@ -15,15 +16,8 @@ public interface CategoryDao {
     @Query("SELECT * FROM category")
     List<Category> getAll();
 
-    @Query("SELECT id FROM category")
-    int getCategoryId();
-
-    public default int getCategoryId(String source){
-
-        int categoryId = Integer.parseInt(("SELECT id FROM category where name =" +source));
-        return categoryId;
-
-    }
+    @Query("SELECT id FROM category WHERE name = :source")
+    int getCategoryId(String source);
 
     @Insert
     void insert(Category category);

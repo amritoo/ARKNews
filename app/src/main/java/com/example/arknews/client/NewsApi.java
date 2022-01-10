@@ -51,10 +51,11 @@ public class NewsApi {
                             String url = source.getString("url");
                             String language = source.getString("language");
                             String country = source.getString("country");
-                            String category = source.getString("category");
+                            String categoryName = source.getString("categoryName");
                             String apiProvider = NEWS_API;
 
-                            Channel channel = new Channel(name, apiId, description, url, language, country, category, apiProvider);
+                            int categoryId = ARKDatabase.getInstance(context).categoryDao().getCategoryId(categoryName);
+                            Channel channel = new Channel(name, apiId, description, url, language, country, categoryId, apiProvider);
                             ARKDatabase.getInstance(context).channelDao().insert(channel);
                         }
                     } catch (JSONException e) {
@@ -64,13 +65,9 @@ public class NewsApi {
         MyRequestQueue.getInstance(context).addToRequestQueue(jsonObjectRequest);
     }
 
-    //    TODO Karma
     public void getCategoryNews(String category) {
-    }
-
-    public void getChannelNews(String channel) {
-
-        String SourceUrl = "https://newsapi.org/v2/everything?sources=" + channel + "&apiKey=" + API_KEY;
+//        String SourceUrl = "https://newsapi.org/v2/top-headlines?sources={" + channelName + "}&category=" + category + "&apiKey=" + API_KEY;
+        String SourceUrl = "https://newsapi.org/v2/top-headlines?category=" + category + "&apiKey=" + API_KEY;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, SourceUrl, null, response -> {
@@ -79,19 +76,54 @@ public class NewsApi {
                         for (int i = 0; i < parentArray.length(); i++) {
 
                             JSONObject parentObject = parentArray.getJSONObject(i);
-                            JSONObject source = parentObject.getJSONObject("source");
-                            String sourceId = source.getString("id");
-                            if (!Constants.channels.contains(sourceId))
+                            JSONObject channel = parentObject.getJSONObject("source");
+                            String apiId = channel.getString("id");
+                            if (!Constants.channels.contains(apiId))
                                 continue;
 
-                            int channelId = ARKDatabase.getInstance(context).channelDao().getChannelId(sourceId);
-                            int categoryId = ARKDatabase.getInstance(context).categoryDao().getCategoryId(sourceId);
-                            String title = source.getString("title");
-                            String author = source.getString("author");
-                            Date published = Date.valueOf(source.getString("publishedAt"));
-                            String url = source.getString("url");
-                            String urlToImage = source.getString("urlToImage");
-                            String content = source.getString("content");
+                            int channelId = ARKDatabase.getInstance(context).channelDao().getChannelId(apiId);
+                            int categoryId = ARKDatabase.getInstance(context).categoryDao().getCategoryId(apiId);
+                            String title = channel.getString("title");
+                            String author = channel.getString("author");
+                            Date published = Date.valueOf(channel.getString("publishedAt"));
+                            String url = channel.getString("url");
+                            String urlToImage = channel.getString("urlToImage");
+                            String content = channel.getString("content");
+
+                            News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
+                            ARKDatabase.getInstance(context).newsDao().insertAll(news);
+                        }
+                    } catch (JSONException e) {
+                        Log.e(TAG, "getCategoryNews:jsonException", e);
+                    }
+                }, error -> Log.e(TAG, "getCategoryNews:requestError", error));
+        MyRequestQueue.getInstance(context).addToRequestQueue(jsonObjectRequest);
+    }
+
+    public void getChannelNews(String channelName) {
+
+        String SourceUrl = "https://newsapi.org/v2/everything?sources=" + channelName + "&apiKey=" + API_KEY;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, SourceUrl, null, response -> {
+                    try {
+                        JSONArray parentArray = response.getJSONArray("articles");
+                        for (int i = 0; i < parentArray.length(); i++) {
+
+                            JSONObject parentObject = parentArray.getJSONObject(i);
+                            JSONObject channel = parentObject.getJSONObject("channel");
+                            String apiId = channel.getString("id");
+                            if (!Constants.channels.contains(apiId))
+                                continue;
+
+                            int channelId = ARKDatabase.getInstance(context).channelDao().getChannelId(apiId);
+                            int categoryId = ARKDatabase.getInstance(context).channelDao().getCategoryId(apiId);
+                            String title = channel.getString("title");
+                            String author = channel.getString("author");
+                            Date published = Date.valueOf(channel.getString("publishedAt"));
+                            String url = channel.getString("url");
+                            String urlToImage = channel.getString("urlToImage");
+                            String content = channel.getString("content");
 
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
                             ARKDatabase.getInstance(context).newsDao().insertAll(news);
@@ -102,10 +134,6 @@ public class NewsApi {
                 }, error -> Log.e(TAG, "getChannelsNews:requestError", error));
         MyRequestQueue.getInstance(context).addToRequestQueue(jsonObjectRequest);
 
-    }
-
-    //    TODO Priyanka
-    public void getCategoryAndChannelNews(String category, String channel) {
     }
 
 }

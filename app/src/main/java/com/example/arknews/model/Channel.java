@@ -2,10 +2,19 @@ package com.example.arknews.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "channel")
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(
+        tableName = "channel",
+        foreignKeys = {@ForeignKey(entity = Category.class,
+                parentColumns = "id",
+                childColumns = "category_id",
+                onDelete = CASCADE)}
+)
 public class Channel {
 
     @PrimaryKey(autoGenerate = true)
@@ -23,12 +32,12 @@ public class Channel {
     private String language;
     @ColumnInfo(name = "country")
     private String country;
-    @ColumnInfo(name = "category")
-    private String category;
+    @ColumnInfo(name = "category_id")
+    private int categoryId;
     @ColumnInfo(name = "api_provider")
     private String apiProvider;
 
-    public Channel(int id, String name, String apiId, String description, String url, String language, String country, String category, String apiProvider) {
+    public Channel(int id, String name, String apiId, String description, String url, String language, String country, int categoryId, String apiProvider) {
         this.id = id;
         this.name = name;
         this.apiId = apiId;
@@ -36,19 +45,19 @@ public class Channel {
         this.url = url;
         this.language = language;
         this.country = country;
-        this.category = category;
+        this.categoryId = categoryId;
         this.apiProvider = apiProvider;
     }
 
     @Ignore
-    public Channel(String name, String apiId, String description, String url, String language, String country, String category, String apiProvider) {
+    public Channel(String name, String apiId, String description, String url, String language, String country, int categoryId, String apiProvider) {
         this.name = name;
         this.apiId = apiId;
         this.description = description;
         this.url = url;
         this.language = language;
         this.country = country;
-        this.category = category;
+        this.categoryId = categoryId;
         this.apiProvider = apiProvider;
     }
 
@@ -108,12 +117,12 @@ public class Channel {
         this.country = country;
     }
 
-    public String getCategory() {
-        return category;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getApiProvider() {

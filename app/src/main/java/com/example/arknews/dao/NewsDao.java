@@ -18,15 +18,6 @@ public interface NewsDao {
     @Query("SELECT * FROM news")
     LiveData<List<News>> getAllNews();
 
-    /*
-     * TODO complete: Priyanka
-     * select
-     * delete
-     * update
-     * insert
-     *
-     */
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(News news);
 
@@ -35,6 +26,5 @@ public interface NewsDao {
 
     @Update
     void update(News news);
-
 
 }

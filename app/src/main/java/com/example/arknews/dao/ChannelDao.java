@@ -17,16 +17,8 @@ public interface ChannelDao {
     @Query("SELECT * FROM channel")
     List<Channel> getAll();
 
-
-//    @Query("SELECT id FROM channel where   ")
-//    int getChannelId(String source);
-
-     public default int getChannelId(String source){
-
-       int channelId = Integer.parseInt(("SELECT id FROM channel where name =" +source));
-       return channelId;
-
-    }
+    @Query("SELECT id FROM channel where api_id = :apiId")
+    public int getChannelId(String apiId);
 
     @Insert
     void insert(Channel channel);
@@ -37,4 +29,6 @@ public interface ChannelDao {
     @Delete
     void delete(Channel channel);
 
+    @Query("SELECT category_id FROM channel where api_id = :apiId")
+    int getCategoryId(String apiId);
 }
