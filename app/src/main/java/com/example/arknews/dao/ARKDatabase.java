@@ -30,7 +30,7 @@ public abstract class ARKDatabase extends RoomDatabase {
                     context.getApplicationContext(),
                     ARKDatabase.class,
                     DB_name
-            ).build();
+            ).allowMainThreadQueries().build();
         }
         return instance;
     }
