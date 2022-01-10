@@ -1,7 +1,6 @@
 package com.example.arknews.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -10,6 +9,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.arknews.R;
 import com.example.arknews.ui.home.HomeActivity;
+import com.example.arknews.utility.PopulateDatabase;
+import com.example.arknews.utility.Preferences;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -19,12 +20,17 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         // Setting theme
-        SharedPreferences preferences = getSharedPreferences("file", MODE_PRIVATE);
-        boolean isChecked = preferences.getBoolean("theme", false);
+        boolean isChecked = Preferences.getInstance(this).read("theme", false);
         if (isChecked) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        // Populating new database
+        boolean isPopulated = Preferences.getInstance(this).read(PopulateDatabase.POPULATED, false);
+        if (!isPopulated) {
+            new PopulateDatabase(this);
+            Preferences.getInstance(this).write(PopulateDatabase.POPULATED, true);
         }
 
         Handler handler = new Handler(this.getMainLooper());
@@ -35,4 +41,5 @@ public class SplashActivity extends AppCompatActivity {
             finish();
         }, 1000);
     }
+
 }

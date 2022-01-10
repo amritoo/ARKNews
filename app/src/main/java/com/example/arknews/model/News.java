@@ -6,6 +6,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
@@ -21,6 +22,10 @@ import java.util.Date;
                         parentColumns = "id",
                         childColumns = "category_id",
                         onDelete = CASCADE)
+        },
+        indices = {
+                @Index(value = "channel_id"),
+                @Index(value = "category_id")
         }
 )
 public class News {
@@ -81,7 +86,7 @@ public class News {
     }
 
     @Ignore
-    public News(int channelId, int categoryId, String title, String author, java.sql.Date published, String url, String urlToImage, String content) {
+    public News(int channelId, int categoryId, String title, String author, Date published, String url, String urlToImage, String content) {
         this.channelId = channelId;
         this.categoryId = categoryId;
         this.title = title;

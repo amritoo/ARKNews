@@ -77,8 +77,8 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     .load(news.getUrlToChannelImage())
                     .placeholder(R.drawable.ic_baseline_source_24)
                     .into(channelImageView);
-            if (news.getPinned())
-                pinnedImageView.setImageResource(R.drawable.ic_baseline_star_24);
+//            if (news.getPinned())
+//                pinnedImageView.setImageResource(R.drawable.ic_baseline_star_24);
 
             setListeners(news);
         }

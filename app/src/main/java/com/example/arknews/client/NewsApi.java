@@ -111,7 +111,7 @@ public class NewsApi {
                         for (int i = 0; i < parentArray.length(); i++) {
 
                             JSONObject parentObject = parentArray.getJSONObject(i);
-                            JSONObject channel = parentObject.getJSONObject("channel");
+                            JSONObject channel = parentObject.getJSONObject("source");
                             String apiId = channel.getString("id");
                             if (!Constants.channels.contains(apiId))
                                 continue;
@@ -120,13 +120,17 @@ public class NewsApi {
                             int categoryId = ARKDatabase.getInstance(context).channelDao().getCategoryId(apiId);
                             String title = channel.getString("title");
                             String author = channel.getString("author");
+                            if (author == null) author = apiId;
                             Date published = Date.valueOf(channel.getString("publishedAt"));
                             String url = channel.getString("url");
                             String urlToImage = channel.getString("urlToImage");
                             String content = channel.getString("content");
 
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
+                            System.out.println(news);
+                            System.out.println("hisa dsad sad s");
                             ARKDatabase.getInstance(context).newsDao().insert(news);
+                            System.out.println("arewr ew  we");
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "getChannelsNews:jsonException", e);
