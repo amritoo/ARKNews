@@ -6,7 +6,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.arknews.model.Category;
 import com.example.arknews.model.Channel;
 
 import java.util.List;
@@ -19,6 +18,9 @@ public interface ChannelDao {
 
     @Query("SELECT id FROM channel where api_id = :apiId")
     public int getChannelId(String apiId);
+
+    @Query("SELECT url FROM channel where id = :channelId")
+    public String getChannelImageUrl(int channelId);
 
     @Insert
     void insert(Channel channel);

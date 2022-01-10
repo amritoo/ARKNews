@@ -91,7 +91,7 @@ public class NewsApi {
                             String content = channel.getString("content");
 
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
-                            ARKDatabase.getInstance(context).newsDao().insertAll(news);
+                            ARKDatabase.getInstance(context).newsDao().insert(news);
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "getCategoryNews:jsonException", e);
@@ -126,7 +126,7 @@ public class NewsApi {
                             String content = channel.getString("content");
 
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
-                            ARKDatabase.getInstance(context).newsDao().insertAll(news);
+                            ARKDatabase.getInstance(context).newsDao().insert(news);
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "getChannelsNews:jsonException", e);

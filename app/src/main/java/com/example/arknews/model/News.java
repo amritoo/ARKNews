@@ -49,6 +49,9 @@ public class News {
     @ColumnInfo(name = "pinned")
     private Boolean pinned;
 
+    @Ignore
+    private String urlToChannelImage;
+
     public News(int id, int channelId, int categoryId, String title, String author, Date published, Date updated, String url, String urlToImage, String content, Boolean pinned) {
         this.id = id;
         this.channelId = channelId;
@@ -175,6 +178,14 @@ public class News {
 
     public void setPinned(Boolean pinned) {
         this.pinned = pinned;
+    }
+
+    public String getUrlToChannelImage() {
+        return urlToChannelImage;
+    }
+
+    public void setUrlToChannelImage(String urlToChannelImage) {
+        this.urlToChannelImage = urlToChannelImage;
     }
 
 }

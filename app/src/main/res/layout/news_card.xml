@@ -89,7 +89,7 @@
                     android:src="@drawable/ic_baseline_share_24" />
 
                 <ImageView
-                    android:id="@+id/news_card_options_iv"
+                    android:id="@+id/news_card_menu_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="More option for a news card."
