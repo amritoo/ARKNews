@@ -14,14 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ARKNews">
+        <activity android:name=".ui.help.AboutActivity" />
         <activity android:name=".ui.favourite.FavoriteChannels" />
         <activity android:name=".ui.settings.AutoDelActivity" />
-        <activity android:name=".ui.settings.UserManualActivity" />
+        <activity android:name=".ui.help.UserManualActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.home.HomeActivity" />
-        <activity android:name="com.example.arknews.ui.news_article.HistoryActivity" />
-        <activity android:name="com.example.arknews.ui.news_article.Full_contents_news" />
-        <activity android:name="com.example.arknews.ui.news_article.PinnedActivity" />
+        <activity android:name=".ui.news_article.HistoryActivity" />
+        <activity android:name=".ui.news_article.Full_contents_news" />
+        <activity android:name=".ui.news_article.PinnedActivity" />
         <activity android:name=".ui.categories.CategorySelectionActivity" />
         <activity
             android:name=".ui.SplashActivity"

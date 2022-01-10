@@ -1,4 +1,4 @@
-package com.example.arknews.ui.settings;
+package com.example.arknews.ui.help;
 
 import androidx.appcompat.app.AppCompatActivity;
 
