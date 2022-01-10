@@ -11,13 +11,9 @@ public class PopulateDatabase {
 
     public PopulateDatabase(Context context) {
         this.context = context;
-        populateChannel();
         populateCategory();
+        populateChannel();
         populateFAQ();
-    }
-
-    void populateChannel() {
-        new NewsApi(context).getChannels();
     }
 
     void populateCategory() {
@@ -32,6 +28,10 @@ public class PopulateDatabase {
                 - politics
                 - technology
         */
+    }
+
+    void populateChannel() {
+        new NewsApi(context).getChannels();
     }
 
     void populateFAQ() {
