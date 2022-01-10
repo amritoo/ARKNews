@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/history_toolbar"
+            android:id="@+id/settings_toolbar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,110 +21,103 @@
             app:title="@string/settings" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!--  Appearance  -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp"
-            android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/theme"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/theme"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
 
+                <!--  Appearance -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/theme"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theme"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:gravity="start"
+                    android:textStyle="bold" />
+
+                <!--  Notification -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/notify"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/notify"
                     android:textAllCaps="false"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:ignore="MissingConstraints" />
+                    android:gravity="start"
+                    android:textStyle="bold" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/notify_switch"
-                    android:layout_width="wrap_content"
+                <!--  Language  -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/language"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="28dp"
-                    android:checked="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="0dp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:text="@string/language"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:gravity="start"
+                    android:textStyle="bold" />
 
-            <!--  Language  -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/language"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/language"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <!--  Set Time For Auto-deletion  -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/auto_deletion"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:gravity="start"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auto_deletion"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            <!--  Set Time For Auto-deletion  -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/auto_deletion"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/auto_deletion"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <!--  Category Selection  -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/category_selection"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category"
+                    android:textAllCaps="false"
+                    android:gravity="start"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            <!--  Category Selection  -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/category_selection"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <!--  Help  -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/help"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:gravity="start"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            <!--  Help  -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/help"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/help"
-                android:textAlignment="viewStart"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <!--  User Manual  -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/user_manual"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="@string/user_manual"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <!--  User Manual  -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/user_manual"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/user_manual"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>

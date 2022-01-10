@@ -8,13 +8,28 @@
     android:orientation="vertical"
     tools:context=".ui.help.UserManualActivity">
 
+    <!--  Toolbar  -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/manual_toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
+            app:title="@string/user_manual" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200sp"
         android:textColor="@color/black"
         android:layout_gravity="center_horizontal"
-        android:text="This is demo user manual page. \n We'll contents add later"
+        android:textAlignment="center"
+        android:text="This is our demo User Manual page. \n We'll add contents later once our\n project is done"
         > </TextView>
 
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.settings.AutoDelActivity">
+    tools:context=".ui.settings.NotifyActivity">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -13,25 +13,25 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/deletion_toolbar"
+            android:id="@+id/notification_toolbar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
-            app:title="@string/auto_deletion" />
+            app:title="@string/notify" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20sp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:text="@string/auto_del_text_message"
+            android:text="Turn notification:"
             android:textSize="20sp" />
 
         <RadioGroup
@@ -41,25 +41,19 @@
             tools:ignore="MissingConstraints">
 
             <RadioButton
-                android:id="@+id/radio_sixHour"
+                android:id="@+id/radio_on"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/del_time_hour" />
+                android:text="On" />
 
             <RadioButton
-                android:id="@+id/radio_lastTwentyFour"
+                android:id="@+id/radio_off"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/del_time_day" />
+                android:text="Off" />
 
-            <RadioButton
-                android:id="@+id/radio_lastWeek"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/del_time_week" />
         </RadioGroup>
 
     </LinearLayout>
-
 
 </LinearLayout>
