@@ -1,6 +1,5 @@
 package com.example.arknews.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -17,6 +16,9 @@ public interface NewsDao {
 
     @Query("SELECT * FROM news")
     List<News> getAll();
+
+    @Query("SELECT * FROM news WHERE pinned = 1")
+    List<News> getAllPinned();
 
     @Query("SELECT * FROM news WHERE id = :id")
     News getById(int id);

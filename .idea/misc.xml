@@ -43,6 +43,30 @@
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/news_card.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/menu/nav_drawer_items.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/menu/top_app_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/karna/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/auto_complete_list.xml" value="0.3591485507246377" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/drawable/ic_baseline_source_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/drawable/ic_twotone_image_128.xml" value="0.3828125" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/activity_article.xml" value="0.1" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/activity_full_contents_news.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/activity_history.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/activity_home.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/activity_pinned.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/activity_splash.xml" value="0.3591485507246377" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/activity_user_manual.xml" value="0.3591485507246377" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/history_news_card.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/item_category.xml" value="0.3591485507246377" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/item_channel.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/layout_home_content.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/layout_pinned.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/news_card.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/pinned_menu.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/layout/pinned_news_card.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/menu/article_menu.xml" value="0.1" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/menu/history_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/menu/nav_drawer_items.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/menu/news_card_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/karna/StudioProjects/New/ARKNews/app/src/main/res/menu/pinned_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
