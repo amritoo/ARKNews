@@ -17,10 +17,13 @@ public interface ChannelDao {
     List<Channel> getAll();
 
     @Query("SELECT id FROM channel where api_id = :apiId")
-    public int getChannelId(String apiId);
+    int getChannelId(String apiId);
 
     @Query("SELECT url FROM channel where id = :channelId")
-    public String getChannelImageUrl(int channelId);
+    String getChannelImageUrl(int channelId);
+
+    @Query("SELECT name FROM channel where id = :channelId")
+    String getChannelName(int channelId);
 
     @Insert
     void insert(Channel channel);

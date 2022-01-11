@@ -18,6 +18,9 @@ public interface NewsDao {
     @Query("SELECT * FROM news")
     List<News> getAll();
 
+    @Query("SELECT * FROM news WHERE id = :id")
+    News getById(int id);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(News news);
 

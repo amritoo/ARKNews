@@ -2,39 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
     <item
-        android:id="@+id/favorite"
+        android:id="@+id/article_menu_share"
         android:icon="@drawable/ic_baseline_share_24"
         android:title="Share"
         android:contentDescription="Share news"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/article_menu_pin"
         android:icon="@drawable/ic_baseline_star_border_24"
-        android:title="Star"
+        android:title="Pin this news"
         android:contentDescription="Starred Favorite content news"
         app:showAsAction="ifRoom" />
 
-
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/menu_share"
-            android:icon="@drawable/ic_baseline_keyboard_arrow_up_24"
-            android:title="Share" />
+            android:id="@+id/article_menu_category"
+            android:title="Mark this category" />
         <item
-            android:id="@+id/menu_pin"
-            android:icon="@drawable/ic_baseline_push_pin_24"
-            android:title="Pin"/>
-
+            android:id="@+id/article_menu_unfavorite"
+            android:title="Favorite this channel" />
         <item
-            android:id="@+id/menu_save"
-            android:title="Save" />
-        <item
-            android:id="@+id/menu_se"
-            android:title="Copy" />
+            android:id="@+id/article_menu_copy_link"
+            android:title="Copy link" />
     </group>
 
 </menu>

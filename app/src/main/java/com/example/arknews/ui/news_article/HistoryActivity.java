@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arknews.R;
@@ -22,6 +23,8 @@ public class HistoryActivity extends AppCompatActivity {
     ImageView news_image;
     RecyclerView recyclerView;
 
+    List<History> historyList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +34,21 @@ public class HistoryActivity extends AppCompatActivity {
         initializeViews();
         setListeners();
 
-        List<History> historyList = ARKDatabase.getInstance(getApplicationContext()).historyDao().getAll();
+
+        historyList = ARKDatabase.getInstance(getApplicationContext()).historyDao().getAll();
+        HistoryListAdapter adapter = new HistoryListAdapter(this, historyList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+
+
     }
 
     void initializeViews() {
         toolbar = findViewById(R.id.history_toolbar);
         title = findViewById(R.id.history_news_title);
         publish_time = findViewById(R.id.history_news_published);
-        news_image = findViewById(R.id.news_image);
+        news_image = findViewById(R.id.history_news_image);
         recyclerView = findViewById(R.id.rv_history);
     }
 

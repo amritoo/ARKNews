@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.News;
-import com.example.arknews.ui.news_article.Full_contents_news;
+import com.example.arknews.ui.news_article.ArticleActivity;
 import com.example.arknews.utility.Constants;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
@@ -46,7 +46,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ((NewsfeedViewHolder) holder).bind(news);
         holder.itemView.setOnClickListener(view -> {
             // start article activity
-            Intent intent = new Intent(context, Full_contents_news.class);
+            Intent intent = new Intent(context, ArticleActivity.class);
             intent.putExtra(Constants.NEWSID, news.getId());
             context.startActivity(intent);
         });

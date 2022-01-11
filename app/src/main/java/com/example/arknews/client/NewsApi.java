@@ -127,10 +127,10 @@ public class NewsApi {
                             String content = channel.getString("content");
 
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
-                            System.out.println(news);
-                            System.out.println("hisa dsad sad s");
+//                            System.out.println(news);
+//                            System.out.println("hisa dsad sad s");
                             ARKDatabase.getInstance(context).newsDao().insert(news);
-                            System.out.println("arewr ew  we");
+//                            System.out.println("arewr ew  we");
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "getChannelsNews:jsonException", e);

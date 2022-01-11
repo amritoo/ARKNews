@@ -3,6 +3,7 @@ package com.example.arknews.ui.news_article;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     List<History> historyList;
 
-    public HistoryListAdapter(List<History> historyList) {
+    public HistoryListAdapter(HistoryActivity historyActivity, List<History> historyList) {
         this.historyList = historyList;
     }
 
@@ -40,14 +41,26 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     public static class HistoryViewHolder extends RecyclerView.ViewHolder {
         MaterialTextView title;
+        MaterialTextView channel_name;
+        MaterialTextView published_time;
+        ImageView news_image;
+
+
+
 
         public HistoryViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.history_news_title);
+            channel_name = itemView.findViewById(R.id.channel_name);
+            published_time = itemView.findViewById(R.id.history_news_published);
+            news_image = itemView.findViewById(R.id.history_news_image);
         }
 
         void bind(History history) {
             title.setText(history.getTitle());
+            channel_name.setText(history.getChannelId());
+            published_time.setText((CharSequence) history.getPublished());
+          //  news_image.setImageBitmap(history.getUrlToImage());
         }
     }
 

@@ -2,6 +2,8 @@ package com.example.arknews.model;
 
 import static androidx.room.ForeignKey.CASCADE;
 
+import android.graphics.Bitmap;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;

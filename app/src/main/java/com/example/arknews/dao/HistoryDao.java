@@ -15,16 +15,13 @@ import java.util.List;
 public interface HistoryDao {
 
     /**
-     * Search History using liveData
+     * Search History
      */
-
-//    @Query("SELECT * FROM history")
-//    LiveData<List<History>> getAllHistory();
     @Query("SELECT * FROM history")
     List<History> getAll();
 
     //     ** Insert History **
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     void insert(History history);
 
     //     ** Update History **
