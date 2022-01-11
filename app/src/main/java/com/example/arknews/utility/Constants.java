@@ -16,4 +16,6 @@ public interface Constants {
             .asList("Business", "Education", "Entertainment", "General",
                     "Health", "Science", "Sports", "Politics", "Technology");
 
+
+    String NEWSID = "newsId";
 }

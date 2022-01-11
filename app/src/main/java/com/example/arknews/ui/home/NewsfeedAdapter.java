@@ -1,6 +1,7 @@
 package com.example.arknews.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.News;
+import com.example.arknews.ui.news_article.Full_contents_news;
+import com.example.arknews.utility.Constants;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
@@ -41,6 +44,12 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         String urlToChannelImage = ARKDatabase.getInstance(context).channelDao().getChannelImageUrl(news.getChannelId());
         news.setUrlToChannelImage(urlToChannelImage);
         ((NewsfeedViewHolder) holder).bind(news);
+        holder.itemView.setOnClickListener(view -> {
+            // start article activity
+            Intent intent = new Intent(context, Full_contents_news.class);
+            intent.putExtra(Constants.NEWSID, news.getId());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -77,8 +86,8 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     .load(news.getUrlToChannelImage())
                     .placeholder(R.drawable.ic_baseline_source_24)
                     .into(channelImageView);
-//            if (news.getPinned())
-//                pinnedImageView.setImageResource(R.drawable.ic_baseline_star_24);
+            if (news.getPinned())
+                pinnedImageView.setImageResource(R.drawable.ic_baseline_star_24);
 
             setListeners(news);
         }

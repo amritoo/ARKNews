@@ -50,7 +50,6 @@ public class HomeActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
     }
 
     private void initializeViews() {

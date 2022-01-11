@@ -87,14 +87,7 @@ public class News {
 
     @Ignore
     public News(int channelId, int categoryId, String title, String author, Date published, String url, String urlToImage, String content) {
-        this.channelId = channelId;
-        this.categoryId = categoryId;
-        this.title = title;
-        this.author = author;
-        this.published = published;
-        this.url = url;
-        this.urlToImage = urlToImage;
-        this.content = content;
+        this(channelId, categoryId, title, author, published, null, url, urlToImage, content, false);
     }
 
     public int getId() {
