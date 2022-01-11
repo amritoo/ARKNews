@@ -9,7 +9,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 public class NotifyActivity extends AppCompatActivity {
 
-    MaterialToolbar toolbar;
+    MaterialToolbar toolbarNotify;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +20,8 @@ public class NotifyActivity extends AppCompatActivity {
     }
 
     void initializeViews() {
-        toolbar = findViewById(R.id.notification_toolbar);
+        toolbarNotify = findViewById(R.id.notification_toolbar);
     }
     void setListeners() {
-        toolbar.setNavigationOnClickListener(v -> finish());}
+        toolbarNotify.setNavigationOnClickListener(v -> finish());}
 }

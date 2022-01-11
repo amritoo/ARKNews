@@ -16,15 +16,10 @@
         android:textStyle="bold"
         android:textAppearance="@android:style/TextAppearance.Material.Large" />
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
             <RadioGroup
@@ -34,40 +29,35 @@
                 tools:ignore="MissingConstraints">
 
                 <RadioButton
-                    android:id="@+id/radio_english"
+                    android:id="@+id/language_english_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
                     android:text="@string/english" />
 
                 <RadioButton
-                    android:id="@+id/radio_bangali"
+                    android:id="@+id/language_bengali_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
                     android:text="@string/bangla" />
 
                 <RadioButton
-                    android:id="@+id/radio_nepali"
+                    android:id="@+id/language_nepali_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
                     android:text="@string/nepali" />
             </RadioGroup>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/close_language_dialog"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/language_close_mb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Close"
-        > </Button>
-
-
+        android:text="Close" />
 
 
 </LinearLayout>

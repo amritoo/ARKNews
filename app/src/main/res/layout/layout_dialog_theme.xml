@@ -15,48 +15,41 @@
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:textStyle="bold" />
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <RadioGroup
+                android:id="@+id/theme_rg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="MissingConstraints">
+                android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/radio_dark"
+                    android:id="@+id/theme_dark_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
                     android:text="@string/dark" />
 
                 <RadioButton
-                    android:id="@+id/radio_light"
+                    android:id="@+id/theme_light_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
                     android:text="@string/light" />
             </RadioGroup>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/close_theme_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Close"></Button>
+        android:text="Close" />
 
 
 </LinearLayout>

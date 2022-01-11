@@ -20,8 +20,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         // Setting theme
-        boolean isChecked = Preferences.getInstance(this).read("theme", false);
-        if (isChecked) {
+        String theme = Preferences.getInstance(this).read("theme", "light");
+        if (theme.equals("dark")) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);

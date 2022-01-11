@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.help.UserManualActivity">
+    tools:context=".ui.help.FAQActivity">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
-            app:title="@string/user_manual" />
+            app:title="@string/settings_faq" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView

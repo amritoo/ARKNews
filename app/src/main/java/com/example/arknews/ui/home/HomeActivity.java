@@ -15,7 +15,7 @@ import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.News;
 import com.example.arknews.ui.favourite.FavoriteChannels;
 import com.example.arknews.ui.help.AboutActivity;
-import com.example.arknews.ui.help.UserManualActivity;
+import com.example.arknews.ui.help.FAQActivity;
 import com.example.arknews.ui.news_article.HistoryActivity;
 import com.example.arknews.ui.news_article.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
@@ -87,7 +87,7 @@ public class HomeActivity extends AppCompatActivity {
                     intent = new Intent(HomeActivity.this, SettingsActivity.class);
                     break;
                 case R.id.menu_help:
-                    intent = new Intent(HomeActivity.this, UserManualActivity.class);
+                    intent = new Intent(HomeActivity.this, FAQActivity.class);
                     break;
                 case R.id.menu_about:
                     intent = new Intent(HomeActivity.this, AboutActivity.class);

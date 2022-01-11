@@ -41,19 +41,19 @@
             tools:ignore="MissingConstraints">
 
             <RadioButton
-                android:id="@+id/radio_sixHour"
+                android:id="@+id/autodel_hour_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/del_time_hour" />
 
             <RadioButton
-                android:id="@+id/radio_lastTwentyFour"
+                android:id="@+id/autodel_day_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/del_time_day" />
 
             <RadioButton
-                android:id="@+id/radio_lastWeek"
+                android:id="@+id/autodel_week_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/del_time_week" />

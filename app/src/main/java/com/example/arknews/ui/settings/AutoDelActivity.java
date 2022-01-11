@@ -8,14 +8,14 @@ import com.example.arknews.R;
 import com.google.android.material.appbar.MaterialToolbar;
 
 public class AutoDelActivity extends AppCompatActivity {
-    MaterialToolbar toolbar;
+    MaterialToolbar toolbarAutoDel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auto_del);
 
-        toolbar = findViewById(R.id.deletion_toolbar);
-        toolbar.setNavigationOnClickListener(v -> finish());
+        toolbarAutoDel = findViewById(R.id.deletion_toolbar);
+        toolbarAutoDel.setNavigationOnClickListener(v -> finish());
 
 
     }

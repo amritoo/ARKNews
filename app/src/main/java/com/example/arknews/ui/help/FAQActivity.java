@@ -7,13 +7,13 @@ import android.os.Bundle;
 import com.example.arknews.R;
 import com.google.android.material.appbar.MaterialToolbar;
 
-public class UserManualActivity extends AppCompatActivity {
+public class FAQActivity extends AppCompatActivity {
 
     MaterialToolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_manual);
+        setContentView(R.layout.activity_faq);
 
         initializeViews();
         setListeners();

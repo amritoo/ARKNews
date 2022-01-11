@@ -34,7 +34,7 @@
 
                 <!--  Appearance -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/theme"
+                    android:id="@+id/theme_settings"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
 
                 <!--  Notification -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/notify"
+                    android:id="@+id/notify_settings"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
 
                 <!--  Language  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/language"
+                    android:id="@+id/language_settings"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
 
                 <!--  Set Time For Auto-deletion  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/auto_deletion"
+                    android:id="@+id/auto_deletion_settings"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:gravity="start"
@@ -82,7 +82,7 @@
 
                 <!--  Category Selection  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/category_selection"
+                    android:id="@+id/category_selection_settings"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,12 +107,12 @@
 
                 <!--  User Manual  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/user_manual"
+                    android:id="@+id/user_manual_settings"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="start"
-                    android:text="@string/user_manual"
+                    android:text="@string/settings_faq"
                     android:textAllCaps="false"
                     android:textSize="18sp"
                     android:textStyle="bold" />
