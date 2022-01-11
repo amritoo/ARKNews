@@ -17,7 +17,7 @@ public interface HistoryDao {
     /**
      * Search History
      */
-    @Query("SELECT * FROM history")
+    @Query("SELECT * FROM history ORDER BY published DESC")
     List<History> getAll();
 
     //     ** Insert History **

@@ -9,8 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arknews.R;
+import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.History;
 import com.google.android.material.textview.MaterialTextView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,27 +42,27 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     public static class HistoryViewHolder extends RecyclerView.ViewHolder {
-        MaterialTextView title;
-        MaterialTextView channel_name;
-        MaterialTextView published_time;
+
+        MaterialTextView title, channel_name, published_time;
         ImageView news_image;
-
-
-
 
         public HistoryViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.history_news_title);
-            channel_name = itemView.findViewById(R.id.channel_name);
+            channel_name = itemView.findViewById(R.id.history_channel_name);
             published_time = itemView.findViewById(R.id.history_news_published);
             news_image = itemView.findViewById(R.id.history_news_image);
         }
 
         void bind(History history) {
             title.setText(history.getTitle());
-            channel_name.setText(history.getChannelId());
-            published_time.setText((CharSequence) history.getPublished());
-          //  news_image.setImageBitmap(history.getUrlToImage());
+            String channel = ARKDatabase.getInstance(itemView.getContext()).channelDao().getChannelName(history.getChannelId());
+            channel_name.setText(channel);
+            published_time.setText(history.getPublished().toString());
+            Picasso.get()
+                    .load(history.getUrlToImage())
+                    .placeholder(R.drawable.ic_twotone_image_128)
+                    .into(news_image);
         }
     }
 

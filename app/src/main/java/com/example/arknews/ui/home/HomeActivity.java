@@ -23,6 +23,9 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -34,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     ExtendedFloatingActionButton floatingActionButton;
 
     List<News> mNewsList;
+    NewsfeedAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +47,8 @@ public class HomeActivity extends AppCompatActivity {
         initializeViews();
         setListeners();
 
-        new NewsApiD(this).getChannelNews("bbc-news");
-
         mNewsList = ARKDatabase.getInstance(getApplicationContext()).newsDao().getAll();
-        NewsfeedAdapter adapter = new NewsfeedAdapter(this, mNewsList);
+        adapter = new NewsfeedAdapter(this, mNewsList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(adapter);
@@ -73,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.menu_refresh:
                     refresh();
-                    break;
+                    return true;
                 case R.id.menu_pinned:
                     intent = new Intent(HomeActivity.this, PinnedActivity.class);
                     break;
@@ -102,7 +104,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void refresh() {
-        // TODO
+        new NewsApiD(this).getChannelNews("bbc-news");
+        mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
+        adapter.notifyItemChanged(0);
     }
 
 }

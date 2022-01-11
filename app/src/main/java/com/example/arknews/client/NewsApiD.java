@@ -3,12 +3,11 @@ package com.example.arknews.client;
 import android.content.Context;
 import android.util.Log;
 
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.Channel;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Constants;
+import com.example.arknews.utility.Methods;
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.Article;
 import com.kwabenaberko.newsapilib.models.Source;
@@ -16,10 +15,6 @@ import com.kwabenaberko.newsapilib.models.request.EverythingRequest;
 import com.kwabenaberko.newsapilib.models.request.SourcesRequest;
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
 import com.kwabenaberko.newsapilib.models.response.SourcesResponse;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Date;
 
@@ -131,14 +126,13 @@ public class NewsApiD {
                             String title = article.getTitle();
                             String author = article.getAuthor();
                             if (author == null) author = apiId;
-//                            Date published = Date.valueOf(article.getPublishedAt());;
-                            Date published = new Date();
+
+                            Date published = Methods.convertDate(article.getPublishedAt());
                             String url = article.getUrl();
                             String urlToImage = article.getUrlToImage();
                             String content = article.getDescription();
 
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
-                            System.out.println(news);
                             ARKDatabase.getInstance(context).newsDao().insert(news);
                         }
                     }

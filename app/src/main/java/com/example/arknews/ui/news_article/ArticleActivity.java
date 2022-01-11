@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
+import com.example.arknews.model.History;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Constants;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -34,6 +35,14 @@ public class ArticleActivity extends AppCompatActivity {
         mNews = ARKDatabase.getInstance(this).newsDao().getById(id);
 
         setData();
+
+        // add to history
+        History history = new History(
+                mNews.getChannelId(), mNews.getCategoryId(),
+                mNews.getTitle(), mNews.getAuthor(),
+                mNews.getPublished(), mNews.getUrl(),
+                mNews.getUrlToImage(), mNews.getId());
+        ARKDatabase.getInstance(this).historyDao().insert(history);
     }
 
     void initializeViews() {
