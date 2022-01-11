@@ -1,4 +1,7 @@
-package com.example.arknews.ui.categories;
+package com.example.arknews.ui.favourite;
+
+import static com.example.arknews.R.id;
+import static com.example.arknews.R.layout;
 
 import android.os.Bundle;
 
@@ -8,34 +11,33 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
-import com.example.arknews.model.Category;
+import com.example.arknews.model.Channel;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.List;
 
-public class CategorySelectionActivity extends AppCompatActivity {
+public class FavoriteChannelsActivity extends AppCompatActivity {
 
     MaterialToolbar toolbar;
     RecyclerView recyclerView;
 
-    List<Category> categoryList;
+    List<Channel> channelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_selection);
+        setContentView(layout.activity_favorite_channels);
 
-        toolbar = findViewById(R.id.category_toolbar);
+        toolbar = findViewById(R.id.favorite_toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        categoryList = ARKDatabase.getInstance(this).categoryDao().getAll();
+        channelList = ARKDatabase.getInstance(this).channelDao().getAll();
 
-        recyclerView = findViewById(R.id.category_listview);
-        CategoryAdapter adapter = new CategoryAdapter(categoryList, this);
+        recyclerView = findViewById(id.channel_rv);
+        ChannelAdapter adapter = new ChannelAdapter(channelList, this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
-
 
 }

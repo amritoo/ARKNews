@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.favourite.FavoriteChannels"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.favourite.FavoriteChannelsActivity">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -23,10 +22,11 @@
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ListView
-        android:id="@+id/channel_list"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/channel_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_channel"/>
+        tools:listitem="@layout/item_channel" />
 
 </LinearLayout>
+

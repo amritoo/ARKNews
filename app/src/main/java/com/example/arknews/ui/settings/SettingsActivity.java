@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.arknews.R;
+import com.example.arknews.ui.categories.CategorySelectionActivity;
 import com.example.arknews.ui.help.FAQActivity;
 import com.example.arknews.utility.Preferences;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -90,8 +91,8 @@ public class SettingsActivity extends AppCompatActivity {
         //Redirect to Auto-Delete Activity
         autoDelMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, AutoDelActivity.class)));
 
-        //Redirect to Category Selection Activity Activity
-        //category.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, CategorySelectionActivity.class)));
+//        Redirect to Category Selection Activity Activity
+        categoryMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, CategorySelectionActivity.class)));
 
         //Help--> Default Gmail
         helpMaterialButton.setOnClickListener(v -> {

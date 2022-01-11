@@ -16,7 +16,7 @@
         android:theme="@style/Theme.ARKNews">
         <activity android:name=".ui.settings.NotifyActivity" />
         <activity android:name=".ui.help.AboutActivity" />
-        <activity android:name=".ui.favourite.FavoriteChannels" />
+        <activity android:name=".ui.favourite.FavoriteChannelsActivity" />
         <activity android:name=".ui.settings.AutoDelActivity" />
         <activity android:name=".ui.help.FAQActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />

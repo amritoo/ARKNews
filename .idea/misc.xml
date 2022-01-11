@@ -21,16 +21,20 @@
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_auto_del.xml" value="0.23324275362318841" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_categories_selection.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_category_selection.xml" value="0.264" />
-        <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_favorite_channels.xml" value="0.264" />
+        <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_favorite_channels.xml" value="0.2" />
+        <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_full_contents_news.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_history.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_home.xml" value="0.24230072463768115" />
+        <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_notify.xml" value="0.18659420289855072" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_pinned.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_settings.xml" value="0.23324275362318841" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_splash.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/activity_user_manual.xml" value="0.23324275362318841" />
+        <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/fav_channel_card_view.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/full_contents_news.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/history_news_card.xml" value="0.2246376811594203" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/history_view.xml" value="0.25181159420289856" />
+        <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/item_category.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/item_channel.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/layout_dialog_language.xml" value="0.23324275362318841" />
         <entry key="..\:/Users/User/StudioProjects/ARKNews/app/src/main/res/layout/layout_dialog_theme.xml" value="0.23324275362318841" />
