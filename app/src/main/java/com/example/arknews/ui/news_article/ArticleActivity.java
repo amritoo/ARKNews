@@ -74,14 +74,14 @@ public class ArticleActivity extends AppCompatActivity {
         channelMaterialTextView.setText(channelName);
 
         String categoryName = ARKDatabase.getInstance(this).categoryDao().getCategoryNameById(mNews.getCategoryId());
-        channelMaterialTextView.setText(categoryName);
+        categoryMaterialTextView.setText(categoryName);
 
         Picasso.get()
                 .load(mNews.getUrlToImage())
                 .placeholder(R.drawable.ic_twotone_image_128)
                 .into(articleImageView);
 
-        channelMaterialTextView.setText(mNews.getTitle());
+        titleMaterialTextView.setText(mNews.getTitle());
         authorMaterialTextView.setText(mNews.getAuthor());
         publishedMaterialTextView.setText(mNews.getPublished().toString());
 //        updateMaterialTextView.setText(mNews.getUpdated().toString());

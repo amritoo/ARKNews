@@ -30,7 +30,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_margin="16dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
@@ -42,23 +42,16 @@
                     android:id="@+id/article_channel_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_marginEnd="8dp"
                     android:text="Source" />
 
-                <LinearLayout
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/article_category_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/article_category_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:padding="5dp"
-                        android:text="Category" />
-                </LinearLayout>
+                    android:text="Category" />
             </RelativeLayout>
 
             <ImageView
@@ -73,7 +66,6 @@
                 android:id="@+id/article_headline_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
                 tools:text="Headline goes here" />
 
@@ -85,7 +77,6 @@
                     android:id="@+id/article_author_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
                     android:text="Author" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -93,7 +84,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_marginEnd="8dp"
                     android:layout_toEndOf="@+id/article_author_tv"
                     android:gravity="center"
                     android:text="Published date"
@@ -104,10 +94,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginStart="5dp"
                     android:layout_toEndOf="@id/article_published_tv"
-                    android:visibility="gone"
                     android:gravity="center"
-                    android:text="Last update" />
+                    android:text="Last update"
+                    android:visibility="gone" />
             </RelativeLayout>
 
 
@@ -115,7 +106,6 @@
                 android:id="@+id/article_contents_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 tools:text="Main Article goes here." />
         </LinearLayout>

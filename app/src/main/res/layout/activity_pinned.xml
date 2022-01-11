@@ -19,9 +19,15 @@
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
             app:title="Pinned News"
+            app:menu="@menu/pinned_menu"
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/layout_home_content" />
+    <!--  Newsfeed  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/newsfeed_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/news_card" />
 
 </LinearLayout>
