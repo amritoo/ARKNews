@@ -19,8 +19,7 @@
             android:layout_height="match_parent"
             app:menu="@menu/history_menu"
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
-            app:title="History"
-            app:titleCentered="true" />
+            app:title="History" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

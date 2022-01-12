@@ -34,7 +34,7 @@
 
                 <!--  Appearance -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/theme_settings"
+                    android:id="@+id/settings_theme"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
 
                 <!--  Notification -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/notify_settings"
+                    android:id="@+id/settings_notify"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
 
                 <!--  Language  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/language_settings"
+                    android:id="@+id/settings_language"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
 
                 <!--  Set Time For Auto-deletion  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/auto_deletion_settings"
+                    android:id="@+id/settings_auto_deletion"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:gravity="start"
@@ -82,7 +82,7 @@
 
                 <!--  Category Selection  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/category_selection_settings"
+                    android:id="@+id/settings_category_selection"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
 
                 <!--  Help  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/help"
+                    android:id="@+id/settings_help"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:gravity="start"
@@ -107,7 +107,7 @@
 
                 <!--  User Manual  -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/user_manual_settings"
+                    android:id="@+id/settings_user_manual"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

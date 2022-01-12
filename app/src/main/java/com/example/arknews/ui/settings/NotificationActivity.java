@@ -7,13 +7,14 @@ import android.os.Bundle;
 import com.example.arknews.R;
 import com.google.android.material.appbar.MaterialToolbar;
 
-public class NotifyActivity extends AppCompatActivity {
+public class NotificationActivity extends AppCompatActivity {
 
     MaterialToolbar toolbarNotify;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notify);
+        setContentView(R.layout.activity_notification);
 
         initializeViews();
         setListeners();
@@ -22,6 +23,8 @@ public class NotifyActivity extends AppCompatActivity {
     void initializeViews() {
         toolbarNotify = findViewById(R.id.notification_toolbar);
     }
+
     void setListeners() {
-        toolbarNotify.setNavigationOnClickListener(v -> finish());}
+        toolbarNotify.setNavigationOnClickListener(v -> finish());
+    }
 }

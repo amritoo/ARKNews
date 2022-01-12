@@ -21,7 +21,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton, autoDelMaterialButton, categoryMaterialButton, helpMaterialButton, manualMaterialButton;
+    private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton, autoDelMaterialButton, categoryMaterialButton, helpMaterialButton, faqMaterialButton;
     Context context;
     MaterialToolbar toolbarSettings;
     private RadioGroup radioGroup;
@@ -41,13 +41,13 @@ public class SettingsActivity extends AppCompatActivity {
 
     void initializeViews() {
         toolbarSettings = findViewById(R.id.settings_toolbar);
-        themeMaterialButton = findViewById(R.id.theme_settings);
-        notifyMaterialButton = findViewById(R.id.notify_settings);
-        languageMaterialButton = findViewById(R.id.language_settings);
-        autoDelMaterialButton = findViewById(R.id.auto_deletion_settings);
-        categoryMaterialButton = findViewById(R.id.category_selection_settings);
-        helpMaterialButton = findViewById(R.id.help);
-        manualMaterialButton = findViewById(R.id.user_manual_settings);
+        themeMaterialButton = findViewById(R.id.settings_theme);
+        notifyMaterialButton = findViewById(R.id.settings_notify);
+        languageMaterialButton = findViewById(R.id.settings_language);
+        autoDelMaterialButton = findViewById(R.id.settings_auto_deletion);
+        categoryMaterialButton = findViewById(R.id.settings_category_selection);
+        helpMaterialButton = findViewById(R.id.settings_help);
+        faqMaterialButton = findViewById(R.id.settings_user_manual);
 
         radioGroup = findViewById(R.id.theme_rg);
         theme_dark_rb = findViewById(R.id.theme_dark_rb);
@@ -62,20 +62,13 @@ public class SettingsActivity extends AppCompatActivity {
             Dialog dialog;
             dialog = new Dialog(context);
             dialog.setContentView(R.layout.layout_dialog_theme);
-            //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//            String theme = Preferences.getInstance(this).read("theme", "light");
-//            if (theme.equals("dark")) {
-//                theme_dark_rb.setChecked(true);
-//            } else {
-//                theme_light_rb.setChecked(true);
-//            }
             dialog.show();
-            MaterialButton closeTheme = dialog.findViewById(R.id.close_theme_dialog);
+            MaterialButton closeTheme = dialog.findViewById(R.id.theme_close_mb);
             closeTheme.setOnClickListener(view1 -> dialog.dismiss());
         });
 
         //Redirect to Notify Activity
-        notifyMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, NotifyActivity.class)));
+        notifyMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, NotificationActivity.class)));
 
         //Language
         languageMaterialButton.setOnClickListener(view -> {
@@ -91,7 +84,7 @@ public class SettingsActivity extends AppCompatActivity {
         //Redirect to Auto-Delete Activity
         autoDelMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, AutoDelActivity.class)));
 
-//        Redirect to Category Selection Activity Activity
+        //Redirect to Category Selection Activity Activity
         categoryMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, CategorySelectionActivity.class)));
 
         //Help--> Default Gmail
@@ -107,7 +100,7 @@ public class SettingsActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, "Send mail"));
         });
         //Redirect to User Manual Activity
-        manualMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, FAQActivity.class)));
+        faqMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, FAQActivity.class)));
     }
 
     public void onRadioButtonClicked(View view) {
