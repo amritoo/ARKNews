@@ -63,8 +63,6 @@ public class SettingsActivity extends AppCompatActivity {
             dialog = new Dialog(context);
             dialog.setContentView(R.layout.layout_dialog_theme);
             dialog.show();
-            MaterialButton closeTheme = dialog.findViewById(R.id.theme_close_mb);
-            closeTheme.setOnClickListener(view1 -> dialog.dismiss());
         });
 
         //Redirect to Notify Activity
