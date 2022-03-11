@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.arknews.R;
 import com.example.arknews.client.NewsApiD;
@@ -19,13 +20,11 @@ import com.example.arknews.ui.help.FAQActivity;
 import com.example.arknews.ui.news_article.HistoryActivity;
 import com.example.arknews.ui.news_article.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
+import com.example.arknews.utility.Constants;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -35,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
     NavigationView navigationView;
     RecyclerView mRecyclerView;
     ExtendedFloatingActionButton floatingActionButton;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     List<News> mNewsList;
     NewsfeedAdapter adapter;
@@ -60,10 +60,17 @@ public class HomeActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_view);
         mRecyclerView = findViewById(R.id.newsfeed_rv);
         floatingActionButton = findViewById(R.id.home_extended_fab);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
     }
 
     // sets listeners to views
     private void setListeners() {
+
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            swipeRefreshLayout.setRefreshing(false);
+            refresh();
+        });
+
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
         floatingActionButton.setOnClickListener(view -> {
@@ -73,9 +80,9 @@ public class HomeActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             Intent intent = null;
             switch (item.getItemId()) {
-                case R.id.menu_refresh:
-                    refresh();
-                    return true;
+//                case R.id.menu_refresh:
+//                    refresh();
+//                    return true;
                 case R.id.menu_pinned:
                     intent = new Intent(HomeActivity.this, PinnedActivity.class);
                     break;
@@ -103,10 +110,16 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+
     private void refresh() {
-        new NewsApiD(this).getChannelNews("bbc-news");
-        mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
-        adapter.notifyItemChanged(0);
+        int i = 0;
+        while (i < Constants.channels.size()) {
+            new NewsApiD(this).getChannelNews(Constants.channels.get(i));
+            mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
+            i++;
+            adapter.notifyItemChanged(0);
+        }
+
     }
 
 }

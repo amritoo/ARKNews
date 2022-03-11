@@ -55,4 +55,7 @@ dependencies {
     // https://github.com/KwabenBerko/News-API-Java
     implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
 
+    //https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
 }
