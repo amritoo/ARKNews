@@ -25,41 +25,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20sp">
+        android:padding="20dp">
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
+            android:layout_marginVertical="20dp"
+            android:justificationMode="inter_word"
             android:text="@string/auto_del_text_message"
-            android:textSize="20sp" />
+            android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints">
-
-            <RadioButton
-                android:id="@+id/autodel_hour_rb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/del_time_hour" />
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/autodel_day_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/del_time_day" />
 
             <RadioButton
                 android:id="@+id/autodel_week_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/del_time_week" />
+
+            <RadioButton
+                android:id="@+id/autodel_month_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/del_time_month" />
+
         </RadioGroup>
 
     </LinearLayout>
-
 
 </LinearLayout>

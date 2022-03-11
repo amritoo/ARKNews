@@ -24,8 +24,6 @@ public class SettingsActivity extends AppCompatActivity {
     private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton, autoDelMaterialButton, categoryMaterialButton, helpMaterialButton, faqMaterialButton;
     Context context;
     MaterialToolbar toolbarSettings;
-    private RadioGroup radioGroup;
-    RadioButton theme_dark_rb, theme_light_rb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +47,6 @@ public class SettingsActivity extends AppCompatActivity {
         helpMaterialButton = findViewById(R.id.settings_help);
         faqMaterialButton = findViewById(R.id.settings_user_manual);
 
-        radioGroup = findViewById(R.id.theme_rg);
-        theme_dark_rb = findViewById(R.id.theme_dark_rb);
-        theme_light_rb = findViewById(R.id.theme_light_rb);
     }
 
     void setListeners() {
@@ -62,6 +57,7 @@ public class SettingsActivity extends AppCompatActivity {
             Dialog dialog;
             dialog = new Dialog(context);
             dialog.setContentView(R.layout.layout_dialog_theme);
+            //Todo show already selected radio button
             dialog.show();
         });
 
@@ -107,17 +103,33 @@ public class SettingsActivity extends AppCompatActivity {
             case R.id.theme_dark_rb:
                 if (checked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    Toast.makeText(getApplicationContext(), "Theme changed to Dark theme", Toast.LENGTH_SHORT).show();
                     Preferences.getInstance(this).write("theme", "dark");
-                    break;
+                    Toast.makeText(getApplicationContext(), "Theme changed to Dark theme", Toast.LENGTH_SHORT).show();
                 }
+                break;
             case R.id.theme_light_rb:
                 if (checked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     Preferences.getInstance(this).write("theme", "light");
                     Toast.makeText(getApplicationContext(), "Theme changed to Dark theme", Toast.LENGTH_SHORT).show();
-                    break;
                 }
+                break;
+            case R.id.language_bengali_rb:
+                if (checked) {
+                    //Todo Implement language change
+                    Toast.makeText(getApplicationContext(), "Bengali selected", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.language_english_rb:
+                if (checked) {
+                    Toast.makeText(getApplicationContext(), "English selected", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.language_nepali_rb:
+                if (checked) {
+                    Toast.makeText(getApplicationContext(), "Nepali selected", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 }

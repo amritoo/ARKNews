@@ -5,7 +5,7 @@
     <string name="notify">Notification</string>
     <string name="settings_faq">Frequently Asked Questions</string>
     <string name="contact_us">Contact Us</string>
-    <string name="auto_deletion">Set Time For Auto-deletion</string>
+    <string name="auto_deletion">Set time for auto-deletion</string>
     <string name="language">Language</string>
     <string name="category">Category Selection</string>
     <string name="dark">Dark Mode</string>
@@ -15,12 +15,13 @@
     <string name="english">English</string>
     <string name="bangla">Bengali</string>
     <string name="nepali">Nepali</string>
-    <string name="del_time_day">Last 24 Hours</string>
-    <string name="del_time_week">Last 1 Week</string>
-    <string name="del_time_hour">Last 6 Hours</string>
-    <string name="auto_del_text_message">This is auto-del section where you can set custom time to delete your browsing history.</string>
+    <string name="del_time_day">2 Days</string>
+    <string name="del_time_week">A Week</string>
+    <string name="del_time_month">A Month</string>
+    <string name="auto_del_text_message">This is auto-delete section from where you can set the expiration time, after which older news will be automatically deleted from your internal storage.</string>
 
 
     <string name="more_on_your_news">More on your News</string>
+    <string name="close">Close</string>
 
 </resources>

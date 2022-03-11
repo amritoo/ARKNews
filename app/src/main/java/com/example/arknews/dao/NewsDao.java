@@ -9,6 +9,7 @@ import androidx.room.Update;
 
 import com.example.arknews.model.News;
 
+import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -32,4 +33,6 @@ public interface NewsDao {
     @Update
     void update(News news);
 
+    @Query("DELETE FROM news WHERE published <= :date")
+    void deleteBefore(Date date);
 }
