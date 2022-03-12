@@ -22,14 +22,10 @@
             app:title="@string/settings_faq" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/faq_rv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200sp"
-        android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"
-        android:text="This is our demo User Manual page. \n We'll add contents later once our\n project is done"
-        > </TextView>
+        tools:listitem="@layout/faq_card" />
 
 </LinearLayout>
