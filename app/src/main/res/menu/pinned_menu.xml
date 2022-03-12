@@ -3,27 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/home_menu_search"
-        android:contentDescription="Content description search"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="Search"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/home_menu_sort"
-        android:contentDescription="Select All"
+        android:id="@+id/pinned_menu_sort"
+        android:contentDescription="Sort"
         android:icon="@drawable/ic_baseline_sort_24"
         android:title="Sort"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
-    <group android:checkableBehavior="single">
-
-        <item
-            android:id="@+id/news_card_menu_open"
-            android:title="Delete" />
-        <item
-            android:id="@+id/news_card_menu_hide"
-            android:title="Hide this news" />
-
-    </group>
 </menu>

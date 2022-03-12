@@ -23,7 +23,7 @@
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.news_article.HistoryActivity" />
         <activity android:name=".ui.news_article.ArticleActivity" />
-        <activity android:name=".ui.news_article.PinnedActivity" />
+        <activity android:name=".ui.pinned.PinnedActivity" />
         <activity android:name=".ui.categories.CategorySelectionActivity" />
         <activity
             android:name=".ui.SplashActivity"

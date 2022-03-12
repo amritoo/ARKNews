@@ -19,18 +19,15 @@ import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.News;
 import com.example.arknews.ui.favourite.FavoriteChannelsActivity;
 import com.example.arknews.ui.help.AboutActivity;
-import com.example.arknews.ui.help.FAQActivity;
 import com.example.arknews.ui.news_article.HistoryActivity;
-import com.example.arknews.ui.news_article.PinnedActivity;
+import com.example.arknews.ui.pinned.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
 import com.example.arknews.utility.Constants;
-import com.example.arknews.utility.Methods;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.Date;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
