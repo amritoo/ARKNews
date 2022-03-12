@@ -88,10 +88,8 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     .load(news.getUrlToImage())
                     .placeholder(R.drawable.ic_twotone_image_128)
                     .into(newsImageView);
-            Picasso.get()
-                    .load(news.getUrlToChannelImage())
-                    .placeholder(R.drawable.ic_baseline_source_24)
-                    .into(channelImageView);
+            loadChannelIcon(ARKDatabase.getInstance(itemView.getContext())
+                    .channelDao().getChannelApiId(news.getChannelId()));
             if (news.getPinned())
                 pinnedImageView.setImageResource(R.drawable.ic_baseline_star_24);
 
@@ -117,7 +115,6 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
                 }
             });
-
 
             menuImageView.setOnClickListener(view -> {
                 PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
@@ -151,6 +148,64 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
             // update pinned to database
             ARKDatabase.getInstance(context).newsDao().update(news);
+        }
+
+        void loadChannelIcon(String channelName) {
+            int id = 0;
+            switch (channelName) {
+                case "abc-news":
+                    id = R.drawable.logo_abc_news;
+                    break;
+                case "associated-press":
+                    id = R.drawable.logo_ap;
+                    break;
+                case "bbc-news":
+                    id = R.drawable.logo_bbc_news;
+                    break;
+                case "bbc-sport":
+                    id = R.drawable.logo_bbc_sports;
+                    break;
+                case "business-insider":
+                    id = R.drawable.logo_business_insider;
+                    break;
+                case "cbc-news":
+                    id = R.drawable.logo_cbc;
+                    break;
+                case "cnn":
+                    id = R.drawable.logo_cnn;
+                    break;
+                case "engadget":
+                    id = R.drawable.logo_engadget;
+                    break;
+                case "espn":
+                    id = R.drawable.logo_espn;
+                    break;
+                case "fox-news":
+                    id = R.drawable.logo_fox_news;
+                    break;
+                case "fox-sports":
+                    id = R.drawable.logo_fox_sports;
+                    break;
+                case "google-news":
+                    id = R.drawable.logo_google_news;
+                    break;
+                case "ign":
+                    id = R.drawable.logo_ign;
+                    break;
+                case "independent":
+                    id = R.drawable.logo_independent;
+                    break;
+                case "national-geographic":
+                    id = R.drawable.logo_nat_geo;
+                    break;
+                case "reuters":
+                    id = R.drawable.logo_reuters;
+                    break;
+                case "the-washington-times":
+                    id = R.drawable.logo_wtimes;
+                    break;
+            }
+            channelImageView.setImageResource(id);
         }
     }
 

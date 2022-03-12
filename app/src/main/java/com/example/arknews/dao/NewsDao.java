@@ -18,6 +18,9 @@ public interface NewsDao {
     @Query("SELECT * FROM news ORDER BY published DESC")
     List<News> getAll();
 
+    @Query("SELECT * FROM news WHERE channel_id = :channelId ORDER BY published DESC")
+    List<News> getAllChannelNews(int channelId);
+
     @Query("SELECT * FROM news WHERE pinned = 1")
     List<News> getAllPinned();
 

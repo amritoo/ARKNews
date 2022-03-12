@@ -16,6 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.arknews.R;
 import com.example.arknews.client.NewsApiD;
 import com.example.arknews.dao.ARKDatabase;
+import com.example.arknews.model.Channel;
 import com.example.arknews.model.News;
 import com.example.arknews.ui.favourite.FavoriteChannelsActivity;
 import com.example.arknews.ui.help.AboutActivity;
@@ -134,15 +135,13 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void refresh() {
-        int i = 0;
-        while (i < Constants.channels.size()) {
-            new NewsApiD(this).getChannelNews(Constants.channels.get(i));
-            mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
-            adapter.notifyItemChanged(0);
-            i++;
-
+        mNewsList.clear();
+        List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAllSelected();
+        for (Channel channel : channels) {
+            new NewsApiD(this).getChannelNews(channel.getApiId());
         }
-
+        mNewsList.addAll(ARKDatabase.getInstance(this).newsDao().getAll());
+        adapter.notifyItemChanged(0);
     }
 
 }
