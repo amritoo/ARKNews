@@ -1,7 +1,10 @@
 package com.example.arknews.ui.home;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +28,13 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     Context context;
     List<News> newsList;
+    private String URL;
 
     public NewsfeedAdapter(Context context, List<News> newsList) {
         this.context = context;
         this.newsList = newsList;
     }
+
 
     @NonNull
     @Override
@@ -43,7 +48,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         News news = newsList.get(position);
         String urlToChannelImage = ARKDatabase.getInstance(context).channelDao().getChannelImageUrl(news.getChannelId());
         news.setUrlToChannelImage(urlToChannelImage);
-        ((NewsfeedViewHolder) holder).bind(news);
+        ((NewsfeedViewHolder) holder).bind(news, context);
         holder.itemView.setOnClickListener(view -> {
             // start article activity
             Intent intent = new Intent(context, ArticleActivity.class);
@@ -59,6 +64,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class NewsfeedViewHolder extends RecyclerView.ViewHolder {
 
+        Context context;
         ImageView newsImageView, channelImageView, pinnedImageView, shareImageView, menuImageView;
         MaterialTextView titleTextView, publishedTextView;
 
@@ -75,7 +81,8 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             menuImageView = itemView.findViewById(R.id.news_card_menu_iv);
         }
 
-        void bind(News news) {
+        void bind(News news, Context context) {
+            this.context = context;
             titleTextView.setText(news.getTitle());
             publishedTextView.setText(news.getPublished().toString());
             Picasso.get()
@@ -93,11 +100,25 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
 
         void setListeners(News news) {
-            pinnedImageView.setOnClickListener(view -> updatePinned(news, view.getContext()));
 
-            shareImageView.setOnClickListener(view -> {
-                // TODO Share image work
+            pinnedImageView.setOnClickListener(view -> {
+                updatePinned(news, view.getContext());
             });
+
+            shareImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO Share image work
+                    String url = news.getUrl();
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Send from ArkNews App\n" + Uri.parse(url));
+                    context.startActivity(Intent.createChooser(shareIntent, "Share with"));
+
+                }
+            });
+
 
             menuImageView.setOnClickListener(view -> {
                 PopupMenu popupMenu = new PopupMenu(view.getContext(), view);

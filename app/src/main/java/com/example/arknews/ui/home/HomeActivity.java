@@ -1,7 +1,10 @@
 package com.example.arknews.ui.home;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -22,6 +25,7 @@ import com.example.arknews.ui.news_article.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
 import com.example.arknews.utility.Constants;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -36,6 +40,8 @@ public class HomeActivity extends AppCompatActivity {
     ExtendedFloatingActionButton floatingActionButton;
     SwipeRefreshLayout swipeRefreshLayout;
 
+    Context context;
+
     List<News> mNewsList;
     NewsfeedAdapter adapter;
 
@@ -46,6 +52,8 @@ public class HomeActivity extends AppCompatActivity {
 
         initializeViews();
         setListeners();
+
+        context = this;
 
         mNewsList = ARKDatabase.getInstance(getApplicationContext()).newsDao().getAll();
         adapter = new NewsfeedAdapter(this, mNewsList);
@@ -67,8 +75,9 @@ public class HomeActivity extends AppCompatActivity {
     private void setListeners() {
 
         swipeRefreshLayout.setOnRefreshListener(() -> {
-            swipeRefreshLayout.setRefreshing(false);
+
             refresh();
+            swipeRefreshLayout.setRefreshing(false);
         });
 
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
@@ -80,9 +89,6 @@ public class HomeActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             Intent intent = null;
             switch (item.getItemId()) {
-//                case R.id.menu_refresh:
-//                    refresh();
-//                    return true;
                 case R.id.menu_pinned:
                     intent = new Intent(HomeActivity.this, PinnedActivity.class);
                     break;
@@ -95,15 +101,24 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.menu_settings:
                     intent = new Intent(HomeActivity.this, SettingsActivity.class);
                     break;
-                case R.id.menu_help:
+                case R.id.menu_contact_us:
                     intent = new Intent(HomeActivity.this, FAQActivity.class);
                     break;
                 case R.id.menu_about:
                     intent = new Intent(HomeActivity.this, AboutActivity.class);
                     break;
                 case R.id.menu_rating:
-                    // TODO add rate us view
-                    break;
+                    Dialog dialog;
+                    dialog = new Dialog(context);
+                    dialog.setContentView(R.layout.layout_rate_us);
+                    dialog.show();
+                    MaterialButton rateButton = dialog.findViewById(R.id.submit_rate_mb);
+                    rateButton.setOnClickListener(view12 -> {
+                        Toast.makeText(HomeActivity.this, "Thank you for giving us feedback.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    });
+                    return true;
+
             }
             startActivity(intent);
             return true;
@@ -116,8 +131,9 @@ public class HomeActivity extends AppCompatActivity {
         while (i < Constants.channels.size()) {
             new NewsApiD(this).getChannelNews(Constants.channels.get(i));
             mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
-            i++;
             adapter.notifyItemChanged(0);
+            i++;
+
         }
 
     }

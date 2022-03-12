@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-<!--        <item-->
-<!--            android:id="@+id/menu_refresh"-->
-<!--            android:title="Refresh" />-->
         <item
             android:id="@+id/menu_pinned"
             android:title="Pinned" />
@@ -24,9 +21,9 @@
             android:title="Others">
             <menu>
                 <item
-                    android:id="@+id/menu_help"
+                    android:id="@+id/menu_contact_us"
                     android:icon="@drawable/ic_baseline_help_24"
-                    android:title="Help" />
+                    android:title="Contact Us" />
                 <item
                     android:id="@+id/menu_about"
                     android:title="About" />

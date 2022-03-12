@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380sp"
+    android:id="@+id/layout_rate_us"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="20sp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rateHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Rate Ark News"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/dim_foreground_material_light"
+        android:textSize="20sp" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rateHeader"
+        android:layout_marginTop="5dp" />
+
+    <RatingBar
+        android:id="@+id/ratingsBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:rating="5" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit_rate_mb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Submit"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+</LinearLayout>
