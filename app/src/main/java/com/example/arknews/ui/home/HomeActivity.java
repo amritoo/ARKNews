@@ -24,11 +24,13 @@ import com.example.arknews.ui.news_article.HistoryActivity;
 import com.example.arknews.ui.news_article.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
 import com.example.arknews.utility.Constants;
+import com.example.arknews.utility.Methods;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Date;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -102,8 +104,16 @@ public class HomeActivity extends AppCompatActivity {
                     intent = new Intent(HomeActivity.this, SettingsActivity.class);
                     break;
                 case R.id.menu_contact_us:
-                    intent = new Intent(HomeActivity.this, FAQActivity.class);
-                    break;
+                    intent = new Intent(Intent.ACTION_SEND);
+                    String[] recipients = {"newsArkinfo@gmail.com"};
+                    intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "");
+                    intent.putExtra(Intent.EXTRA_TEXT, "");
+                    intent.putExtra(Intent.EXTRA_CC, "newsArkinfo@gmail.com");
+                    intent.setType("text/html");
+                    intent.setPackage("com.google.android.gm");
+                    startActivity(Intent.createChooser(intent, "Send mail"));
+                    return true;
                 case R.id.menu_about:
                     intent = new Intent(HomeActivity.this, AboutActivity.class);
                     break;

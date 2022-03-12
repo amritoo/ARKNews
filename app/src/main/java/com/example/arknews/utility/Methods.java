@@ -5,19 +5,27 @@ import android.content.Context;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.ui.settings.AutoDelActivity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Methods {
 
     public static Date convertDate(String dateString) {
-        // TODO format and add date
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        Date date = null;
+        try {
+            date = format.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
 
-//        String dateString = "2022-01-11T06:51:47Z";
-//        System.out.println(dateString);
-//
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-
-        return new Date();
+    public static String convertDateToString(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy, HH:mm");
+        String dateTime = dateFormat.format(date);
+        return dateTime;
     }
 
     public static void autoDelete(Context context) {

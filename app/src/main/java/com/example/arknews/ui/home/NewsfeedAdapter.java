@@ -1,7 +1,5 @@
 package com.example.arknews.ui.home;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,6 +17,7 @@ import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.News;
 import com.example.arknews.ui.news_article.ArticleActivity;
 import com.example.arknews.utility.Constants;
+import com.example.arknews.utility.Methods;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
@@ -84,7 +83,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         void bind(News news, Context context) {
             this.context = context;
             titleTextView.setText(news.getTitle());
-            publishedTextView.setText(news.getPublished().toString());
+            publishedTextView.setText(Methods.convertDateToString(news.getPublished()));
             Picasso.get()
                     .load(news.getUrlToImage())
                     .placeholder(R.drawable.ic_twotone_image_128)

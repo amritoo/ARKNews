@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     android:layout_margin="8dp"
     android:checkable="true"
     android:clickable="true"
@@ -14,7 +14,7 @@
         android:background="@color/white">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -26,6 +26,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/history_news_title"
                 android:layout_width="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:layout_height="wrap_content"
                 android:text="Title"
                 android:textAppearance="?attr/textAppearanceSubtitle1" />
@@ -34,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/history_channel_name"
@@ -44,12 +46,12 @@
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_weight="1"
-                    android:background="?android:attr/listDivider" />
+                <!--                <View-->
+                <!--                    android:layout_width="1dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:layout_marginHorizontal="5dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:background="?android:attr/listDivider" />-->
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/history_news_published"
@@ -58,6 +60,7 @@
                     android:text="Publish time"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
+
             </LinearLayout>
         </LinearLayout>
 

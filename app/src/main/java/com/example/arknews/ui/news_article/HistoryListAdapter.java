@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.History;
+import com.example.arknews.utility.Methods;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
@@ -58,7 +59,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             title.setText(history.getTitle());
             String channel = ARKDatabase.getInstance(itemView.getContext()).channelDao().getChannelName(history.getChannelId());
             channel_name.setText(channel);
-            published_time.setText(history.getPublished().toString());
+            published_time.setText(Methods.convertDateToString(history.getPublished()));
             Picasso.get()
                     .load(history.getUrlToImage())
                     .placeholder(R.drawable.ic_twotone_image_128)
