@@ -1,12 +1,12 @@
 package com.example.arknews.model;
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-
-import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = "channel",
@@ -36,6 +36,8 @@ public class Channel {
     private int categoryId;
     @ColumnInfo(name = "api_provider")
     private String apiProvider;
+    @ColumnInfo(name = "is_selected")
+    private boolean selected;
 
     public Channel(int id, String name, String apiId, String description, String url, String language, String country, int categoryId, String apiProvider) {
         this.id = id;
@@ -59,6 +61,7 @@ public class Channel {
         this.country = country;
         this.categoryId = categoryId;
         this.apiProvider = apiProvider;
+        this.selected = false;
     }
 
     public int getId() {
@@ -131,6 +134,14 @@ public class Channel {
 
     public void setApiProvider(String apiProvider) {
         this.apiProvider = apiProvider;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
 }

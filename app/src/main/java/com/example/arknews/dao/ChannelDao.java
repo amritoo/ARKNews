@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface ChannelDao {
 
-    @Query("SELECT * FROM channel")
+    @Query("SELECT * FROM channel ORDER BY name ASC")
     List<Channel> getAll();
 
     @Query("SELECT id FROM channel where api_id = :apiId")
