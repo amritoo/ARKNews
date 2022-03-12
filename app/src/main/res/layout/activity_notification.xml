@@ -41,13 +41,13 @@
             tools:ignore="MissingConstraints">
 
             <RadioButton
-                android:id="@+id/radio_on"
+                android:id="@+id/notification_on_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="On" />
 
             <RadioButton
-                android:id="@+id/radio_off"
+                android:id="@+id/notification_off_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Off" />
