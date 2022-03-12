@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +23,9 @@ public class SettingsActivity extends AppCompatActivity {
     private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton, autoDelMaterialButton, categoryMaterialButton, helpMaterialButton, faqMaterialButton;
     Context context;
     MaterialToolbar toolbarSettings;
+    RadioButton english_rb, bengali_rb, nepali_rb;
+
+    public static final String LANGUAGE_PREF = "lan_p";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,6 @@ public class SettingsActivity extends AppCompatActivity {
         context = this;
         initializeViews();
         setListeners();
-
 
     }
 
@@ -46,6 +47,10 @@ public class SettingsActivity extends AppCompatActivity {
         categoryMaterialButton = findViewById(R.id.settings_category_selection);
         helpMaterialButton = findViewById(R.id.settings_help);
         faqMaterialButton = findViewById(R.id.settings_user_manual);
+
+        english_rb = findViewById(R.id.language_english_rb);
+        bengali_rb = findViewById(R.id.language_bengali_rb);
+        nepali_rb = findViewById(R.id.language_nepali_rb);
 
     }
 
@@ -69,8 +74,21 @@ public class SettingsActivity extends AppCompatActivity {
             Dialog dialog;
             dialog = new Dialog(context);
             dialog.setContentView(R.layout.layout_dialog_language);
-            //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             dialog.show();
+
+//            int language_pref = Preferences.getInstance(this).read(LANGUAGE_PREF, 0);
+//            switch (language_pref) {
+//                case 0:
+//                    english_rb.setChecked(true);
+//                    break;
+//                case 1:
+//                    bengali_rb.setChecked(true);
+//                    break;
+//                case 2:
+//                    nepali_rb.setChecked(true);
+//                    break;
+//            }
+
             MaterialButton closeLanguage = dialog.findViewById(R.id.language_close_mb);
             closeLanguage.setOnClickListener(view12 -> dialog.dismiss());
         });
@@ -114,22 +132,25 @@ public class SettingsActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Theme changed to Dark theme", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.language_bengali_rb:
-                if (checked) {
-                    //Todo Implement language change
-                    Toast.makeText(getApplicationContext(), "Bengali selected", Toast.LENGTH_SHORT).show();
-                }
-                break;
             case R.id.language_english_rb:
                 if (checked) {
+                    Preferences.getInstance(this).write(LANGUAGE_PREF, 0);
                     Toast.makeText(getApplicationContext(), "English selected", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.language_bengali_rb:
+                if (checked) {
+                    Preferences.getInstance(this).write(LANGUAGE_PREF, 1);
+                    Toast.makeText(getApplicationContext(), "Bengali selected", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.language_nepali_rb:
                 if (checked) {
+                    Preferences.getInstance(this).write(LANGUAGE_PREF, 2);
                     Toast.makeText(getApplicationContext(), "Nepali selected", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
+
     }
 }
