@@ -16,14 +16,11 @@
         android:title="Select"
         app:showAsAction="ifRoom" />
 
-    <group android:checkableBehavior="single">
-
-        <item
-            android:id="@+id/history_pause"
-            android:title="Pause" />
-        <item
-            android:id="@+id/history_delete"
-            android:title="Delete" />
-    </group>
+    <item
+        android:id="@+id/history_pause"
+        android:title="Pause" />
+    <item
+        android:id="@+id/history_delete"
+        android:title="Delete" />
 
 </menu>

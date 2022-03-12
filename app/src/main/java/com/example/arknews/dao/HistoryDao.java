@@ -21,6 +21,7 @@ public interface HistoryDao {
     List<History> getAll();
 
     //     ** Insert History **
+//    @Query("INSERT INTO history (channel_id, category_id, title, author, published, url, url_image, news_id)")
     @Insert
     void insert(History history);
 
