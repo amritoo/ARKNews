@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arknews.R;
+import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.Category;
 import com.google.android.material.textview.MaterialTextView;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -61,12 +61,20 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
 
         void bind(Category category) {
-            categoryName.setText(category.getName());
-//            Picasso.get()
+            categoryName.setText(category.getDescription());
+            categoryCheckbox.setChecked(category.isSelected());
+
+            categoryCheckbox.setOnClickListener(v -> {
+                category.setSelected(categoryCheckbox.isChecked());
+                ARKDatabase.getInstance(itemView.getContext()).categoryDao().update(category);
+            });
+
+//                     Picasso.get()
 //                    .load(category.getUrlToImage())
 //                    .placeholder(R.drawable.ic_baseline_source_24)
 //                    .into(categoryImageView);
         }
+
 
     }
 

@@ -15,21 +15,20 @@ public class Category {
     private String name;
     @ColumnInfo(name = "description")
     private String description;
-    @ColumnInfo(name = "url_image")
-    private String urlToImage;
+    @ColumnInfo(name = "is_selected")
+    private boolean selected;
 
-    public Category(int id, String name, String description, String urlToImage) {
+    public Category(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.urlToImage = urlToImage;
     }
 
     @Ignore
-    public Category(String name, String description, String urlToImage) {
+    public Category(String name, String description) {
         this.name = name;
         this.description = description;
-        this.urlToImage = urlToImage;
+        this.selected = false;
     }
 
     public int getId() {
@@ -56,12 +55,12 @@ public class Category {
         this.description = description;
     }
 
-    public String getUrlToImage() {
-        return urlToImage;
+    public boolean isSelected() {
+        return selected;
     }
 
-    public void setUrlToImage(String urlToImage) {
-        this.urlToImage = urlToImage;
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
 }

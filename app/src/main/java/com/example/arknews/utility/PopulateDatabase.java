@@ -21,23 +21,23 @@ public class PopulateDatabase {
     }
 
     void populateCategory() {
-        Category category = new Category("business", "Business news", "");
+        Category category = new Category("business", "Business news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("education", "Education news", "");
+        category = new Category("education", "Education news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("entertainment", "Entertainment news", "");
+        category = new Category("entertainment", "Entertainment news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("general", "General news", "");
+        category = new Category("general", "General news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("health", "Health news", "");
+        category = new Category("health", "Health news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("science", "Science news", "");
+        category = new Category("science", "Science news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("sports", "Sports news", "");
+        category = new Category("sports", "Sports news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("politics", "Politics news", "");
+        category = new Category("politics", "Politics news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
-        category = new Category("technology", "Technology news", "");
+        category = new Category("technology", "Technology news");
         ARKDatabase.getInstance(context).categoryDao().insert(category);
     }
 
