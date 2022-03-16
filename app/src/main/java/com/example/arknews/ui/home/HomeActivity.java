@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -23,7 +24,6 @@ import com.example.arknews.ui.help.AboutActivity;
 import com.example.arknews.ui.news_article.HistoryActivity;
 import com.example.arknews.ui.pinned.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
-import com.example.arknews.utility.Constants;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -32,6 +32,8 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
+
+    public static final int CHANNEL_CODE = 11;
 
     DrawerLayout drawerLayout;
     MaterialToolbar toolbar;
@@ -60,6 +62,17 @@ public class HomeActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(adapter);
+
+        refresh();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == CHANNEL_CODE && resultCode == RESULT_OK) {
+            refresh();
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private void initializeViews() {
@@ -75,7 +88,6 @@ public class HomeActivity extends AppCompatActivity {
     private void setListeners() {
 
         swipeRefreshLayout.setOnRefreshListener(() -> {
-
             refresh();
             swipeRefreshLayout.setRefreshing(false);
         });
@@ -137,6 +149,14 @@ public class HomeActivity extends AppCompatActivity {
     private void refresh() {
         mNewsList.clear();
         List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAllSelected();
+
+        if (channels.size() == 0) {
+            // TODO show dialog to select channels
+            Intent intent = new Intent(HomeActivity.this, FavoriteChannelsActivity.class);
+            startActivityForResult(intent, CHANNEL_CODE);
+            return;
+        }
+
         for (Channel channel : channels) {
             new NewsApiD(this).getChannelNews(channel.getApiId());
         }
