@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -33,8 +32,6 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static final int CHANNEL_CODE = 11;
-
     DrawerLayout drawerLayout;
     MaterialToolbar toolbar;
     NavigationView navigationView;
@@ -57,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
 
         context = this;
 
-        mNewsList = ARKDatabase.getInstance(getApplicationContext()).newsDao().getAll();
+        mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
         adapter = new NewsfeedAdapter(this, mNewsList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
@@ -66,18 +63,9 @@ public class HomeActivity extends AppCompatActivity {
         refresh();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == CHANNEL_CODE && resultCode == RESULT_OK) {
-            refresh();
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
     private void initializeViews() {
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar = findViewById(R.id.favorite_toolbar);
+        toolbar = findViewById(R.id.home_toolbar);
         navigationView = findViewById(R.id.nav_view);
         mRecyclerView = findViewById(R.id.newsfeed_rv);
         floatingActionButton = findViewById(R.id.home_extended_fab);
@@ -149,13 +137,6 @@ public class HomeActivity extends AppCompatActivity {
     private void refresh() {
         mNewsList.clear();
         List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAllSelected();
-
-        if (channels.size() == 0) {
-            // TODO show dialog to select channels
-            Intent intent = new Intent(HomeActivity.this, FavoriteChannelsActivity.class);
-            startActivityForResult(intent, CHANNEL_CODE);
-            return;
-        }
 
         for (Channel channel : channels) {
             new NewsApiD(this).getChannelNews(channel.getApiId());

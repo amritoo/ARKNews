@@ -22,7 +22,7 @@ public interface HistoryDao {
 
     //     ** Insert History **
 //    @Query("INSERT INTO history (channel_id, category_id, title, author, published, url, url_image, news_id)")
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(History history);
 
     //     ** Update History **

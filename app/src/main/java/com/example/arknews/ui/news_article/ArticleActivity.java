@@ -1,6 +1,5 @@
 package com.example.arknews.ui.news_article;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
-import com.example.arknews.dao.NewsDao;
 import com.example.arknews.model.History;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Constants;
+import com.example.arknews.utility.Methods;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
@@ -38,9 +37,11 @@ public class ArticleActivity extends AppCompatActivity {
         initializeViews();
         setListeners();
 
-        int id = getIntent().getIntExtra(Constants.NEWSID, 0);
+//        int id = getIntent().getIntExtra(Constants.NEWSID, 0);
+        String url = getIntent().getStringExtra(Constants.NEWSID);
         //add condition, if id = 0 show error message
-        mNews = ARKDatabase.getInstance(this).newsDao().getById(id);
+        System.out.println(url);
+        mNews = ARKDatabase.getInstance(this).newsDao().getByUrl(url);
 
         setData();
 
@@ -87,7 +88,7 @@ public class ArticleActivity extends AppCompatActivity {
                     break;
                 case R.id.article_menu_copy_link:
 
-                        // TODO Share image work
+                    // TODO Share image work
 
             }
             return false;
@@ -109,7 +110,7 @@ public class ArticleActivity extends AppCompatActivity {
 
         titleMaterialTextView.setText(mNews.getTitle());
         authorMaterialTextView.setText(mNews.getAuthor());
-        publishedMaterialTextView.setText(mNews.getPublished().toString());
+        publishedMaterialTextView.setText(Methods.convertDateToString(mNews.getPublished()));
 //        updateMaterialTextView.setText(mNews.getUpdated().toString());
         contentsMaterialTextView.setText(mNews.getContent());
     }

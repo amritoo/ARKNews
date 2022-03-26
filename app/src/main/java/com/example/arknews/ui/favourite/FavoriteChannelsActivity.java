@@ -3,7 +3,6 @@ package com.example.arknews.ui.favourite;
 import static com.example.arknews.R.id;
 import static com.example.arknews.R.layout;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,11 +30,7 @@ public class FavoriteChannelsActivity extends AppCompatActivity {
         setContentView(layout.activity_favorite_channels);
 
         toolbar = findViewById(R.id.favorite_toolbar);
-        toolbar.setNavigationOnClickListener(v -> {
-            setResult(ARKDatabase.getInstance(this).channelDao()
-                    .getAllSelected().size() > 0 ? RESULT_OK : RESULT_CANCELED, new Intent());
-            finish();
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         loadChannelList();
 

@@ -34,7 +34,7 @@ public class PinnedActivity extends AppCompatActivity {
         initializeViews();
         setListeners();
 
-        pinnedList = ARKDatabase.getInstance(getApplicationContext()).newsDao().getAllPinned();
+        pinnedList = ARKDatabase.getInstance(this).newsDao().getAllPinned();
 
         adapter = new NewsfeedAdapter(this, pinnedList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

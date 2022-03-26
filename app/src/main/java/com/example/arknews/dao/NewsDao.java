@@ -27,7 +27,10 @@ public interface NewsDao {
     @Query("SELECT * FROM news WHERE id = :id")
     News getById(int id);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Query("SELECT * FROM news WHERE url = :url")
+    News getByUrl(String url);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(News news);
 
     @Delete

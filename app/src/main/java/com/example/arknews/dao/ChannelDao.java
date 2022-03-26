@@ -22,6 +22,9 @@ public interface ChannelDao {
     @Query("SELECT id FROM channel where api_id = :apiId")
     int getChannelId(String apiId);
 
+    @Query("SELECT * FROM channel where api_id = :apiId")
+    Channel getChannel(String apiId);
+
     @Query("SELECT api_id FROM channel where id = :id")
     String getChannelApiId(int id);
 

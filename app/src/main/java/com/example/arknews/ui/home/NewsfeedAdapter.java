@@ -34,7 +34,6 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.newsList = newsList;
     }
 
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -51,7 +50,9 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         holder.itemView.setOnClickListener(view -> {
             // start article activity
             Intent intent = new Intent(context, ArticleActivity.class);
-            intent.putExtra(Constants.NEWSID, news.getId());
+            System.out.println(news.getUrl());
+            System.out.println(news.getTitle());
+            intent.putExtra(Constants.NEWSID, news.getUrl());
             context.startActivity(intent);
         });
     }
