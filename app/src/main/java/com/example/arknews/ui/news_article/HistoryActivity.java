@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,14 +35,32 @@ public class HistoryActivity extends AppCompatActivity {
         initializeViews();
         setListeners();
 
-
         historyList = ARKDatabase.getInstance(getApplicationContext()).historyDao().getAll();
         HistoryListAdapter adapter = new HistoryListAdapter(this, historyList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
 
+        // swipe to delete
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
 
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                int position = viewHolder.getAdapterPosition();
+                History history = historyList.get(position);
+                ARKDatabase.getInstance(getApplicationContext()).historyDao().delete(history);
+                historyList.remove(position);
+                adapter.notifyDataSetChanged();
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+        // ends here
     }
 
     void initializeViews() {
@@ -54,7 +73,5 @@ public class HistoryActivity extends AppCompatActivity {
 
     void setListeners() {
         toolbar.setNavigationOnClickListener(v -> finish());
-
-
     }
 }
