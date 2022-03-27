@@ -9,10 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
+import com.example.arknews.model.Category;
+import com.example.arknews.model.Channel;
 import com.example.arknews.model.History;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Constants;
-import com.example.arknews.utility.Methods;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
@@ -28,6 +29,8 @@ public class ArticleActivity extends AppCompatActivity {
     List<News> newsList;
 
     private News mNews;
+    private Channel mChannel;
+    private Category mCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class ArticleActivity extends AppCompatActivity {
         //add condition, if id = 0 show error message
         System.out.println(url);
         mNews = ARKDatabase.getInstance(this).newsDao().getByUrl(url);
+        mChannel = ARKDatabase.getInstance(this).channelDao().getChannelById(mNews.getChannelId());
+        mCategory = ARKDatabase.getInstance(this).categoryDao().getCategoryById(mNews.getCategoryId());
 
         setData();
 
@@ -82,12 +87,17 @@ public class ArticleActivity extends AppCompatActivity {
 
                 case R.id.article_menu_pin:
                     updatePinned();
-
                 case R.id.article_menu_category:
+                    updateCategory();
                 case R.id.article_menu_unfavorite:
-                    break;
+                    updateFavorite();
                 case R.id.article_menu_copy_link:
-
+                    url = mNews.getUrl();
+                    shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Send from ArkNews App\n" + Uri.parse(url));
+                    startActivity(Intent.createChooser(shareIntent, "Share with"));
                     // TODO Share image work
 
             }
@@ -110,7 +120,7 @@ public class ArticleActivity extends AppCompatActivity {
 
         titleMaterialTextView.setText(mNews.getTitle());
         authorMaterialTextView.setText(mNews.getAuthor());
-        publishedMaterialTextView.setText(Methods.convertDateToString(mNews.getPublished()));
+        publishedMaterialTextView.setText(mNews.getPublished().toString());
 //        updateMaterialTextView.setText(mNews.getUpdated().toString());
         contentsMaterialTextView.setText(mNews.getContent());
     }
@@ -125,6 +135,16 @@ public class ArticleActivity extends AppCompatActivity {
         }
         // update pinned to database
         ARKDatabase.getInstance(this).newsDao().update(mNews);
+    }
+
+    void updateFavorite() {
+        mChannel.setSelected(!mChannel.isSelected());
+        ARKDatabase.getInstance(this).channelDao().update(mChannel);
+    }
+
+    void updateCategory() {
+        mCategory.setSelected(!mCategory.isSelected());
+        ARKDatabase.getInstance(this).categoryDao().update(mCategory);
     }
 }
 

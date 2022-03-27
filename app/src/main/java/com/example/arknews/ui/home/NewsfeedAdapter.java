@@ -1,5 +1,7 @@
 package com.example.arknews.ui.home;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -47,14 +50,6 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         String urlToChannelImage = ARKDatabase.getInstance(context).channelDao().getChannelImageUrl(news.getChannelId());
         news.setUrlToChannelImage(urlToChannelImage);
         ((NewsfeedViewHolder) holder).bind(news, context);
-        holder.itemView.setOnClickListener(view -> {
-            // start article activity
-            Intent intent = new Intent(context, ArticleActivity.class);
-            System.out.println(news.getUrl());
-            System.out.println(news.getTitle());
-            intent.putExtra(Constants.NEWSID, news.getUrl());
-            context.startActivity(intent);
-        });
     }
 
     @Override
@@ -99,22 +94,20 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         void setListeners(News news) {
 
+            itemView.setOnClickListener(view -> openArticle(news));
+
             pinnedImageView.setOnClickListener(view -> {
                 updatePinned(news, view.getContext());
             });
 
-            shareImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO Share image work
-                    String url = news.getUrl();
-                    Intent shareIntent = new Intent();
-                    shareIntent.setAction(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Send from ArkNews App\n" + Uri.parse(url));
-                    context.startActivity(Intent.createChooser(shareIntent, "Share with"));
+            shareImageView.setOnClickListener(view -> {
+                String url = news.getUrl();
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Send from ArkNews App\n" + Uri.parse(url));
+                context.startActivity(Intent.createChooser(shareIntent, "Share with"));
 
-                }
             });
 
             menuImageView.setOnClickListener(view -> {
@@ -123,10 +116,19 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     //  TODO menu options
                     switch (item.getItemId()) {
                         case R.id.news_card_menu_open:
+                            openArticle(news);
+                            break;
                         case R.id.news_card_menu_hide:
                         case R.id.news_card_menu_category:
                         case R.id.news_card_menu_unfavorite:
+                            break;
+
                         case R.id.news_card_menu_copy_link:
+                            String url = news.getUrl();
+                            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("ARK news", url);
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(context, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             return true;
                         case R.id.news_card_menu_pin:
                             updatePinned(news, view.getContext());
@@ -137,6 +139,12 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 popupMenu.inflate(R.menu.news_card_menu);
                 popupMenu.show();
             });
+        }
+
+        void openArticle(News news) {
+            Intent intent = new Intent(context, ArticleActivity.class);
+            intent.putExtra(Constants.NEWSID, news.getUrl());
+            context.startActivity(intent);
         }
 
         void updatePinned(News news, Context context) {

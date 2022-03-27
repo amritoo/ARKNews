@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.arknews.model.Category;
+import com.example.arknews.model.Channel;
 
 import java.util.List;
 
@@ -21,6 +22,9 @@ public interface CategoryDao {
 
     @Query("SELECT name FROM category WHERE id = :id")
     String getCategoryNameById(int id);
+
+    @Query("SELECT * FROM category where id = :id")
+    Category getCategoryById(int id);
 
     @Insert
     void insert(Category category);
