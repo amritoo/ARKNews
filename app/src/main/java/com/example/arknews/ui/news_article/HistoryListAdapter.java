@@ -3,6 +3,7 @@ package com.example.arknews.ui.news_article;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -46,6 +47,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         MaterialTextView title, channel_name, published_time;
         ImageView news_image;
+        CheckBox checkBox;
 
         public HistoryViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -53,6 +55,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             channel_name = itemView.findViewById(R.id.history_channel_name);
             published_time = itemView.findViewById(R.id.history_news_published);
             news_image = itemView.findViewById(R.id.history_news_image);
+            checkBox = itemView.findViewById(R.id.history_card_checkbox);
         }
 
         void bind(History history) {
@@ -64,6 +67,14 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     .load(history.getUrlToImage())
                     .placeholder(R.drawable.ic_twotone_image_128)
                     .into(news_image);
+
+//            checkBox.setVisibility(history.isChecked() ? View.VISIBLE : View.GONE);
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                }
+//            });
         }
     }
 

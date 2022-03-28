@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.arknews.model.History;
+import com.example.arknews.model.News;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ public interface HistoryDao {
      */
     @Query("SELECT * FROM history ORDER BY published DESC")
     List<History> getAll();
+
+    @Query("SELECT * FROM history WHERE title LIKE :query")
+    List<History> getBySpecificQueryHist(String query);
 
     //     ** Insert History **
 //    @Query("INSERT INTO history (channel_id, category_id, title, author, published, url, url_image, news_id)")
