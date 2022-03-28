@@ -3,7 +3,9 @@ package com.example.arknews.ui.home;
 import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
@@ -148,15 +151,24 @@ public class HomeActivity extends AppCompatActivity {
                     intent = new Intent(HomeActivity.this, SettingsActivity.class);
                     break;
                 case R.id.menu_contact_us:
-                    intent = new Intent(Intent.ACTION_SEND);
-                    String[] recipients = {"newsArkinfo@gmail.com"};
-                    intent.putExtra(Intent.EXTRA_EMAIL, recipients);
-                    intent.putExtra(Intent.EXTRA_SUBJECT, "");
-                    intent.putExtra(Intent.EXTRA_TEXT, "");
-                    intent.putExtra(Intent.EXTRA_CC, "newsArkinfo@gmail.com");
-                    intent.setType("text/html");
-                    intent.setPackage("com.google.android.gm");
-                    startActivity(Intent.createChooser(intent, "Send mail"));
+                    new AlertDialog.Builder(this)
+                            .setTitle("Confirmation")
+                            .setMessage("Are you sure you would like to contact us via eMail?")
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                               Intent intent1 = new Intent(Intent.ACTION_SEND);
+                                String[] recipients = {"newsArkinfo@gmail.com"};
+                                intent1.putExtra(Intent.EXTRA_EMAIL, recipients);
+                                intent1.putExtra(Intent.EXTRA_SUBJECT, "");
+                                intent1.putExtra(Intent.EXTRA_TEXT, "");
+                                intent1.putExtra(Intent.EXTRA_CC, "newsArkinfo@gmail.com");
+                                intent1.setType("text/html");
+                                intent1.setPackage("com.google.android.gm");
+                                startActivity(Intent.createChooser(intent1, "Send mail"));
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+
                     return true;
                 case R.id.menu_about:
                     intent = new Intent(HomeActivity.this, AboutActivity.class);

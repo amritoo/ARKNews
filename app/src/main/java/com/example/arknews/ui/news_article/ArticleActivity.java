@@ -3,6 +3,7 @@ package com.example.arknews.ui.news_article;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arknews.R;
@@ -20,6 +22,7 @@ import com.example.arknews.model.History;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Constants;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
@@ -30,6 +33,7 @@ public class ArticleActivity extends AppCompatActivity {
     MaterialTextView channelMaterialTextView, categoryMaterialTextView, titleMaterialTextView, authorMaterialTextView, publishedMaterialTextView, updateMaterialTextView, contentsMaterialTextView;
     ImageView articleImageView;
     MaterialToolbar toolbar;
+    MaterialButton readFullNews_mb;
 
     List<News> newsList;
 
@@ -75,6 +79,7 @@ public class ArticleActivity extends AppCompatActivity {
         contentsMaterialTextView = findViewById(R.id.article_contents_tv);
         articleImageView = findViewById(R.id.article_image_iv);
         toolbar = findViewById(R.id.article_toolbar);
+        readFullNews_mb = findViewById(R.id.article_view_full_mb);
     }
 
     void setListeners() {
@@ -107,6 +112,20 @@ public class ArticleActivity extends AppCompatActivity {
                     return true;
             }
             return false;
+        });
+
+        readFullNews_mb.setOnClickListener(view -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("Redirect to browser")
+                    .setMessage("Are you sure you want to redirect to your default browser to view full News?")
+                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                        Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(mNews.getUrl()));
+                        startActivity(browse);
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         });
 
     }
