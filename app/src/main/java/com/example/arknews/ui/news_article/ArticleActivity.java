@@ -1,9 +1,14 @@
 package com.example.arknews.ui.news_article;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,7 +48,7 @@ public class ArticleActivity extends AppCompatActivity {
 //        int id = getIntent().getIntExtra(Constants.NEWSID, 0);
         String url = getIntent().getStringExtra(Constants.NEWSID);
         //add condition, if id = 0 show error message
-        System.out.println(url);
+
         mNews = ARKDatabase.getInstance(this).newsDao().getByUrl(url);
         mChannel = ARKDatabase.getInstance(this).channelDao().getChannelById(mNews.getChannelId());
         mCategory = ARKDatabase.getInstance(this).categoryDao().getCategoryById(mNews.getCategoryId());
@@ -84,22 +89,22 @@ public class ArticleActivity extends AppCompatActivity {
                     shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Send from ArkNews App\n" + Uri.parse(url));
                     startActivity(Intent.createChooser(shareIntent, "Share with"));
                     return true;
-
                 case R.id.article_menu_pin:
                     updatePinned();
+                    return true;
                 case R.id.article_menu_category:
                     updateCategory();
+                    return true;
                 case R.id.article_menu_unfavorite:
                     updateFavorite();
+                    return true;
                 case R.id.article_menu_copy_link:
                     url = mNews.getUrl();
-                    shareIntent = new Intent();
-                    shareIntent.setAction(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Send from ArkNews App\n" + Uri.parse(url));
-                    startActivity(Intent.createChooser(shareIntent, "Share with"));
-                    // TODO Share image work
-
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("ARK news", url);
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getApplicationContext(), "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                    return true;
             }
             return false;
         });
@@ -126,12 +131,13 @@ public class ArticleActivity extends AppCompatActivity {
     }
 
     void updatePinned() {
+        MenuItem item = toolbar.getMenu().findItem(R.id.article_menu_pin);
         if (mNews.getPinned()) {
             mNews.setPinned(false);
-//            pinnedImageView.setImageResource(R.drawable.ic_baseline_star_border_24);
+            item.setIcon(R.drawable.ic_baseline_star_border_24);
         } else {
             mNews.setPinned(true);
-//            pinnedImageView.setImageResource(R.drawable.ic_baseline_star_24);
+            item.setIcon(R.drawable.ic_baseline_star_24);
         }
         // update pinned to database
         ARKDatabase.getInstance(this).newsDao().update(mNews);
