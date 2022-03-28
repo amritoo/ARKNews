@@ -19,6 +19,9 @@ public interface ChannelDao {
     @Query("SELECT * FROM channel WHERE is_selected = 1 ORDER BY name ASC")
     List<Channel> getAllSelected();
 
+    @Query("SELECT id FROM channel WHERE is_selected = 1 ORDER BY name ASC")
+    List<Integer> getAllSelectedId();
+
     @Query("SELECT id FROM channel where api_id = :apiId")
     int getChannelId(String apiId);
 

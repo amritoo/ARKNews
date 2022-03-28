@@ -18,6 +18,9 @@ public interface NewsDao {
     @Query("SELECT * FROM news ORDER BY published DESC")
     List<News> getAll();
 
+    @Query("SELECT * FROM news WHERE title LIKE :query OR content LIKE :query")
+    List<News> getBySpecificQuery(String query);
+
     @Query("SELECT * FROM news WHERE channel_id = :channelId ORDER BY published DESC")
     List<News> getAllChannelNews(int channelId);
 
