@@ -3,15 +3,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_pinned"
+            android:icon="@drawable/ic_baseline_push_pin_24"
             android:title="Pinned" />
         <item
             android:id="@+id/menu_favorite"
+            android:icon="@drawable/ic_baseline_favorite_24"
             android:title="Favorite" />
         <item
             android:id="@+id/menu_history"
+            android:icon="@drawable/ic_baseline_history_24"
             android:title="History" />
         <item
             android:id="@+id/menu_settings"
+            android:icon="@drawable/ic_baseline_settings_24"
             android:title="Settings" />
     </group>
 
@@ -26,9 +30,11 @@
                     android:title="Contact Us" />
                 <item
                     android:id="@+id/menu_about"
+                    android:icon="@drawable/ic_baseline_supervised_user_circle_24"
                     android:title="About" />
                 <item
                     android:id="@+id/menu_rating"
+                    android:icon="@drawable/ic_baseline_star_rate_24"
                     android:title="Rate us" />
             </menu>
         </item>

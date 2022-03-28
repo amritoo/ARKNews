@@ -1,12 +1,19 @@
 package com.example.arknews.ui.home;
 
 import android.app.Dialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,6 +35,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Collections;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -40,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
     SwipeRefreshLayout swipeRefreshLayout;
 
     Context context;
+    Dialog sortDialog;
 
     List<News> mNewsList;
     NewsfeedAdapter adapter;
@@ -51,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
 
         initializeViews();
         setListeners();
+        implementSearch(toolbar.getMenu());
 
         context = this;
 
@@ -82,9 +92,45 @@ public class HomeActivity extends AppCompatActivity {
 
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
+        toolbar.setOnMenuItemClickListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.home_menu_sort:
+                    sortDialog = new Dialog(this);
+                    sortDialog.setContentView(R.layout.layout_dialog_sort);
+                    sortDialog.show();
+                    return true;
+
+                case R.id.home_menu_search:
+
+                case R.id.home_menu_filter:
+
+                    break;
+            }
+            return false;
+        });
+
         floatingActionButton.setOnClickListener(view -> {
+            mRecyclerView.smoothScrollToPosition(0);
+            floatingActionButton.setVisibility(View.INVISIBLE);
             // TODO complete + also make visible when recycle view is scrolled
         });
+
+        floatingActionButton.setVisibility(View.GONE);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                //dy is the change in the vertical scroll position
+                if (dy > 0) {
+                    //scroll down
+                    floatingActionButton.setVisibility(View.VISIBLE);
+                } else if (dy < 0) {
+                    //scroll up
+                    floatingActionButton.setVisibility(View.GONE);
+                }
+            }
+        });
+
 
         navigationView.setNavigationItemSelectedListener(item -> {
             Intent intent = null;
@@ -143,6 +189,65 @@ public class HomeActivity extends AppCompatActivity {
         }
         mNewsList.addAll(ARKDatabase.getInstance(this).newsDao().getAll());
         adapter.notifyItemChanged(0);
+    }
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        sortDialog.hide();
+        switch (view.getId()) {
+            case R.id.sort_ascend_alpha:
+                if (checked) {
+                    Collections.sort(mNewsList, (o1, o2) -> o1.getTitle().compareToIgnoreCase(o2.getTitle()));
+                }
+                break;
+            case R.id.sort_descend_alpha:
+                if (checked) {
+                    Collections.sort(mNewsList, (o1, o2) -> o2.getTitle().compareToIgnoreCase(o1.getTitle()));
+                }
+                break;
+            case R.id.sort_ascend_time:
+                if (checked) {
+                    Collections.sort(mNewsList, (o1, o2) -> o1.getPublished().compareTo(o2.getPublished()));
+                }
+                break;
+            case R.id.sort_descend_time:
+                if (checked) {
+                    Collections.sort(mNewsList, (o1, o2) -> o2.getPublished().compareTo(o1.getPublished()));
+                }
+                break;
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    void implementSearch(Menu menu) {
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView = (SearchView) menu.findItem(R.id.home_menu_search).getActionView();
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setQueryHint("Search News...");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                List<News> news = ARKDatabase.getInstance(context).newsDao().getBySpecificQuery("%" + query + "%");
+                List<Integer> channelIds = ARKDatabase.getInstance(context).channelDao().getAllSelectedId();
+                mNewsList.clear();
+                System.out.println(news.size());
+                for (News nNews : news) {
+                    System.out.println(nNews.getTitle());
+                    if (channelIds.contains(nNews.getChannelId())) {
+                        mNewsList.add(nNews);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+                Toast.makeText(context, "Search completed", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
 }
