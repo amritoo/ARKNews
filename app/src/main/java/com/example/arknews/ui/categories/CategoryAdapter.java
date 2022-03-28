@@ -63,16 +63,45 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         void bind(Category category) {
             categoryName.setText(category.getDescription());
             categoryCheckbox.setChecked(category.isSelected());
+            loadCatIcon(category.getName());
 
             categoryCheckbox.setOnClickListener(v -> {
                 category.setSelected(categoryCheckbox.isChecked());
                 ARKDatabase.getInstance(itemView.getContext()).categoryDao().update(category);
             });
-
-//                     Picasso.get()
-//                    .load(category.getUrlToImage())
-//                    .placeholder(R.drawable.ic_baseline_source_24)
-//                    .into(categoryImageView);
+        }
+        void loadCatIcon(String categoryName) {
+            int id = 0;
+            switch (categoryName) {
+                case "education":
+                    id = R.drawable.education;
+                    break;
+                case "general":
+                    id = R.drawable.general;
+                    break;
+                case "business":
+                    id = R.drawable.business;
+                    break;
+                case "entertainment":
+                    id = R.drawable.entertainment;
+                    break;
+                case "health":
+                    id = R.drawable.health;
+                    break;
+                case "politics":
+                    id = R.drawable.politics;
+                    break;
+                case "sports":
+                    id = R.drawable.sports;
+                    break;
+                case "science":
+                    id = R.drawable.science;
+                    break;
+                case "technology":
+                    id = R.drawable.technology;
+                    break;
+            }
+            categoryImageView.setImageResource(id);
         }
 
 
