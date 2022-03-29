@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.History;
+import com.example.arknews.utility.Preferences;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class HistoryActivity extends AppCompatActivity {
     TextView publish_time;
     ImageView news_image;
     RecyclerView recyclerView;
+    public static final String HISTORY_PREF = "history_pause";
 
     List<History> historyList;
     HistoryListAdapter adapter;
@@ -76,10 +78,33 @@ public class HistoryActivity extends AppCompatActivity {
         publish_time = findViewById(R.id.history_news_published);
         news_image = findViewById(R.id.history_news_image);
         recyclerView = findViewById(R.id.rv_history);
+        if (Preferences.getInstance(this).read(HISTORY_PREF, false)) {
+            toolbar.getMenu().findItem(R.id.history_pause).setTitle(getString(R.string.resume));
+        }
     }
 
     void setListeners() {
         toolbar.setNavigationOnClickListener(v -> finish());
+        toolbar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.history_pause:
+                    if (item.getTitle().equals(getString(R.string.pause))) {
+                        item.setTitle(getString(R.string.resume));
+                        Preferences.getInstance(this).write(HISTORY_PREF, true);
+                        Toast.makeText(this, "History is paused", Toast.LENGTH_SHORT).show();
+                    } else {
+                        item.setTitle(getString(R.string.pause));
+                        Preferences.getInstance(this).write(HISTORY_PREF, false);
+                        Toast.makeText(this, "Resumed history", Toast.LENGTH_SHORT).show();
+                    }
+                    return true;
+                case R.id.history_delete:
+                    Toast.makeText(this, "You selected Delete", Toast.LENGTH_SHORT).show();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        });
     }
 
     void implementHistorySearch(Menu menu) {

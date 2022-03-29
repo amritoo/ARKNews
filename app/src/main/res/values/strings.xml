@@ -19,9 +19,8 @@
     <string name="del_time_week">A Week</string>
     <string name="del_time_month">A Month</string>
     <string name="auto_del_text_message">This is auto-delete section from where you can set the expiration time, after which older news will be automatically deleted from your internal storage.</string>
-
-
     <string name="more_on_your_news">More on your News</string>
     <string name="close">Close</string>
-
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
 </resources>

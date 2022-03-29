@@ -3,7 +3,6 @@ package com.example.arknews.ui.news_article;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +20,7 @@ import com.example.arknews.model.Channel;
 import com.example.arknews.model.History;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Constants;
+import com.example.arknews.utility.Preferences;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
@@ -59,13 +59,15 @@ public class ArticleActivity extends AppCompatActivity {
 
         setData();
 
-        // add to history
-        History history = new History(
-                mNews.getChannelId(), mNews.getCategoryId(),
-                mNews.getTitle(), mNews.getAuthor(),
-                mNews.getPublished(), mNews.getUrl(),
-                mNews.getUrlToImage(), mNews.getId());
-        ARKDatabase.getInstance(this).historyDao().insert(history);
+        if (!Preferences.getInstance(this).read(HistoryActivity.HISTORY_PREF, false)) {
+            // add to history
+            History history = new History(
+                    mNews.getChannelId(), mNews.getCategoryId(),
+                    mNews.getTitle(), mNews.getAuthor(),
+                    mNews.getPublished(), mNews.getUrl(),
+                    mNews.getUrlToImage(), mNews.getId());
+            ARKDatabase.getInstance(this).historyDao().insert(history);
+        }
     }
 
     void initializeViews() {
