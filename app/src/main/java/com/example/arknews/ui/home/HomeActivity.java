@@ -24,6 +24,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.arknews.R;
 import com.example.arknews.client.NewsApiD;
 import com.example.arknews.dao.ARKDatabase;
+import com.example.arknews.dao.NewsDao;
 import com.example.arknews.model.Category;
 import com.example.arknews.model.Channel;
 import com.example.arknews.model.News;
@@ -43,6 +44,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -76,13 +78,16 @@ public class HomeActivity extends AppCompatActivity {
 
 
         context = this;
-        mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
+        mNewsList = new ArrayList<>();
+        defaultSortNewsList();
         adapter = new NewsfeedAdapter(this, mNewsList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(adapter);
 
-        refresh();
+        if (mNewsList.isEmpty()) {
+            refresh();
+        }
     }
 
     private void initializeViews() {
@@ -132,17 +137,14 @@ public class HomeActivity extends AppCompatActivity {
 
         floatingActionButton.setOnClickListener(view -> {
             mRecyclerView.smoothScrollToPosition(0);
-            floatingActionButton.setVisibility(View.INVISIBLE);
-            // TODO complete + also make visible when recycle view is scrolled
+            floatingActionButton.setVisibility(View.GONE);
         });
 
-        floatingActionButton.setVisibility(View.GONE);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 //dy is the change in the vertical scroll position
-                if (dy > 0) {
+                if (dy > 50) {
                     //scroll down
                     floatingActionButton.setVisibility(View.VISIBLE);
                 } else if (dy < 0) {
@@ -209,41 +211,52 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void refresh() {
-        mNewsList.clear();
-        List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAllSelected();
-
+        List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAll();
         for (Channel channel : channels) {
             new NewsApiD(this).getChannelNews(channel.getApiId());
         }
-        mNewsList.addAll(ARKDatabase.getInstance(this).newsDao().getAll());
-        adapter.notifyItemChanged(0);
+
+        defaultSortNewsfeed();
+        loadFilterChips();
+    }
+
+    private void defaultSortNewsList() {
+        // sort by selected category and channels
+        List<Integer> selectedChannels = ARKDatabase.getInstance(this).channelDao().getAllSelectedId();
+        List<Integer> selectedCategories = ARKDatabase.getInstance(this).categoryDao().getAllSelectedIds();
+        List<News> preferredNews = ARKDatabase.getInstance(this).newsDao().getFilteredNewsByChanCat(selectedChannels, selectedCategories);
+        mNewsList.addAll(preferredNews);
+
+        List<News> news = ARKDatabase.getInstance(this).newsDao().getAll();
+        news.removeAll(preferredNews);
+        mNewsList.addAll(news);
+    }
+
+    private void defaultSortNewsfeed() {
+        mNewsList.clear();
+        defaultSortNewsList();
+        adapter.notifyDataSetChanged();
     }
 
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
-        sortDialog.hide();
-        switch (view.getId()) {
-            case R.id.sort_ascend_alpha:
-                if (checked) {
+        if (checked) {
+            switch (view.getId()) {
+                case R.id.sort_ascend_alpha:
                     Collections.sort(mNewsList, (o1, o2) -> o1.getTitle().compareToIgnoreCase(o2.getTitle()));
-                }
-                break;
-            case R.id.sort_descend_alpha:
-                if (checked) {
+                    break;
+                case R.id.sort_descend_alpha:
                     Collections.sort(mNewsList, (o1, o2) -> o2.getTitle().compareToIgnoreCase(o1.getTitle()));
-                }
-                break;
-            case R.id.sort_ascend_time:
-                if (checked) {
+                    break;
+                case R.id.sort_ascend_time:
                     Collections.sort(mNewsList, (o1, o2) -> o1.getPublished().compareTo(o2.getPublished()));
-                }
-                break;
-            case R.id.sort_descend_time:
-                if (checked) {
+                    break;
+                case R.id.sort_descend_time:
                     Collections.sort(mNewsList, (o1, o2) -> o2.getPublished().compareTo(o1.getPublished()));
-                }
-                break;
+                    break;
+            }
         }
+        sortDialog.hide();
         adapter.notifyDataSetChanged();
     }
 
@@ -259,9 +272,7 @@ public class HomeActivity extends AppCompatActivity {
                 List<News> news = ARKDatabase.getInstance(context).newsDao().getBySpecificQuery("%" + query + "%");
                 List<Integer> channelIds = ARKDatabase.getInstance(context).channelDao().getAllSelectedId();
                 mNewsList.clear();
-                System.out.println(news.size());
                 for (News nNews : news) {
-                    System.out.println(nNews.getTitle());
                     if (channelIds.contains(nNews.getChannelId())) {
                         mNewsList.add(nNews);
                     }
@@ -276,24 +287,27 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // TODO change neewsfeed after exiting searchview
     }
 
     void loadFilterChips() {
         List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAll();
+        channelChipGroup.removeAllViews();
         for (int i = 0; i < channels.size(); i++) {
             Channel channel = channels.get(i);
             Chip chip = new Chip(this);
-            chip.setId(i);
+            chip.setId(channel.getId());
             chip.setText(channel.getName());
             chip.setCheckable(true);
             channelChipGroup.addView(chip);
         }
 
         List<Category> categories = ARKDatabase.getInstance(this).categoryDao().getAll();
+        categoryChipGroup.removeAllViews();
         for (int i = 0; i < categories.size(); i++) {
             Category category = categories.get(i);
             Chip chip = new Chip(this);
-            chip.setId(i);
+            chip.setId(category.getId());
             chip.setText(category.getDescription());
             chip.setCheckable(true);
             categoryChipGroup.addView(chip);
@@ -301,19 +315,43 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     void filterNews() {
-        List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAll();
-        List<Channel> filteredChannels = new ArrayList<>();
-        for (int id : channelChipGroup.getCheckedChipIds()) {
-            filteredChannels.add(channels.get(id));
+        // Get all filter parameters
+        List<Integer> filteredChanlIds = channelChipGroup.getCheckedChipIds();
+        List<Integer> filteredCatIds = categoryChipGroup.getCheckedChipIds();
+        Date startDate = EditTextDateRangePicker.startDate;
+        Date endDate = EditTextDateRangePicker.endDate;
+
+        // check if any valid filter parameter is selected
+        if (!filteredChanlIds.isEmpty() || !filteredCatIds.isEmpty() || (startDate != null && endDate != null)) {
+            mNewsList.clear();
+            NewsDao newsDao = ARKDatabase.getInstance(this).newsDao();
+
+            // call appropriate methods from newsDao to get filtered result
+            if (filteredChanlIds.isEmpty()) {
+                if (filteredCatIds.isEmpty()) {
+                    mNewsList.addAll(newsDao.getFilteredNewsByDate(startDate, endDate));
+                } else if (startDate == null || endDate == null) {
+                    mNewsList.addAll(newsDao.getFilteredNewsByCat(filteredCatIds));
+                } else {
+                    mNewsList.addAll(newsDao.getFilteredNewsByCatDate(filteredCatIds, startDate, endDate));
+                }
+            } else {
+                if (filteredCatIds.isEmpty()) {
+                    if (startDate == null || endDate == null) {
+                        mNewsList.addAll(newsDao.getFilteredNewsByChannel(filteredChanlIds));
+                    } else {
+                        mNewsList.addAll(newsDao.getFilteredNewsByChanDate(filteredChanlIds, startDate, endDate));
+                    }
+                } else if (startDate == null || endDate == null) {
+                    mNewsList.addAll(newsDao.getFilteredNewsByChanCat(filteredChanlIds, filteredCatIds));
+                } else {
+                    mNewsList.addAll(newsDao.getFilteredNews(filteredChanlIds, filteredCatIds, startDate, endDate));
+                }
+            }
+            adapter.notifyDataSetChanged();
         }
 
-        List<Category> categories = ARKDatabase.getInstance(this).categoryDao().getAll();
-        List<Category> filteredCategories = new ArrayList<>();
-        for (int id : categoryChipGroup.getCheckedChipIds()) {
-            filteredCategories.add(categories.get(id));
-        }
-
-        // get Start and end date
+        findViewById(R.id.home_filter_layout).setVisibility(View.GONE);
     }
 
 }

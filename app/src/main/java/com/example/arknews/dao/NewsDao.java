@@ -30,6 +30,27 @@ public interface NewsDao {
     @Query("SELECT * FROM news WHERE id = :id")
     News getById(int id);
 
+    @Query("SELECT * FROM news WHERE channel_id IN (:channelIds) ORDER BY published DESC")
+    List<News> getFilteredNewsByChannel(List<Integer> channelIds);
+
+    @Query("SELECT * FROM news WHERE category_id IN (:categoryIds) ORDER BY published DESC")
+    List<News> getFilteredNewsByCat(List<Integer> categoryIds);
+
+    @Query("SELECT * FROM news WHERE published BETWEEN :startDate AND :endDate ORDER BY published DESC")
+    List<News> getFilteredNewsByDate(Date startDate, Date endDate);
+
+    @Query("SELECT * FROM news WHERE channel_id IN (:channelIds) AND category_id IN (:categoryIds) ORDER BY published DESC")
+    List<News> getFilteredNewsByChanCat(List<Integer> channelIds, List<Integer> categoryIds);
+
+    @Query("SELECT * FROM news WHERE channel_id IN (:channelIds) AND published BETWEEN :startDate AND :endDate ORDER BY published DESC")
+    List<News> getFilteredNewsByChanDate(List<Integer> channelIds, Date startDate, Date endDate);
+
+    @Query("SELECT * FROM news WHERE category_id IN (:categoryIds) AND published BETWEEN :startDate AND :endDate ORDER BY published DESC")
+    List<News> getFilteredNewsByCatDate(List<Integer> categoryIds, Date startDate, Date endDate);
+
+    @Query("SELECT * FROM news WHERE channel_id IN (:channelIds) AND category_id IN (:categoryIds) AND published BETWEEN :startDate AND :endDate ORDER BY published DESC")
+    List<News> getFilteredNews(List<Integer> channelIds, List<Integer> categoryIds, Date startDate, Date endDate);
+
     @Query("SELECT * FROM news WHERE url = :url")
     News getByUrl(String url);
 

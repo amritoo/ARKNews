@@ -6,7 +6,6 @@ import java.util.List;
 public interface Constants {
 
     String NewsApi = "https://newsapi.org/";
-    String DEFAULT_CHANNEL = "bbc-news";
     List<String> channels = Arrays
             .asList("abc-news", "associated-press", "bbc-news", "bbc-sport",
                     "business-insider", "cbc-news", "cnn", "engadget",

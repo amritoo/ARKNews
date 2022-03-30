@@ -24,7 +24,7 @@ public class EditTextDateRangePicker implements OnClickListener, MaterialPickerO
     FragmentManager mFragmentManager;
 
     MaterialDatePicker<Pair<Long, Long>> dateRangePicker;
-    private Date startDate, endDate;
+    public static Date startDate, endDate;
 
     public EditTextDateRangePicker(Context context, EditText mEditText1, EditText mEditText2, FragmentManager mFragmentManager) {
         this.context = context;

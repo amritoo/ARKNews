@@ -60,10 +60,6 @@ public class NewsApiD {
                             Channel channel = new Channel(name, apiId, description, url, language, country, categoryId, apiProvider);
                             ARKDatabase.getInstance(context).channelDao().insert(channel);
                         }
-
-                        Channel channel = ARKDatabase.getInstance(context).channelDao().getChannel(Constants.DEFAULT_CHANNEL);
-                        channel.setSelected(true);
-                        ARKDatabase.getInstance(context).channelDao().update(channel);
                     }
 
                     @Override
@@ -80,6 +76,7 @@ public class NewsApiD {
         newsApiClient.getEverything(
                 new EverythingRequest.Builder()
                         .sources(channelName)
+                        .language("en")
                         .build(),
                 new NewsApiClient.ArticlesResponseCallback() {
                     @Override
