@@ -33,7 +33,7 @@ public class ArticleActivity extends AppCompatActivity {
     MaterialTextView channelMaterialTextView, categoryMaterialTextView, titleMaterialTextView, authorMaterialTextView, publishedMaterialTextView, updateMaterialTextView, contentsMaterialTextView;
     ImageView articleImageView;
     MaterialToolbar toolbar;
-    MaterialButton readFullNews_mb;
+    MaterialButton open_in_browser_mb;
 
     List<News> newsList;
 
@@ -81,7 +81,7 @@ public class ArticleActivity extends AppCompatActivity {
         contentsMaterialTextView = findViewById(R.id.article_contents_tv);
         articleImageView = findViewById(R.id.article_image_iv);
         toolbar = findViewById(R.id.article_toolbar);
-        readFullNews_mb = findViewById(R.id.article_view_full_mb);
+        open_in_browser_mb = findViewById(R.id.open_in_browser_mb);
     }
 
     void setListeners() {
@@ -116,7 +116,7 @@ public class ArticleActivity extends AppCompatActivity {
             return false;
         });
 
-        readFullNews_mb.setOnClickListener(view -> {
+        open_in_browser_mb.setOnClickListener(view -> {
             new AlertDialog.Builder(this)
                     .setTitle("Redirect to browser")
                     .setMessage("Are you sure you want to redirect to your default browser to view full News?")

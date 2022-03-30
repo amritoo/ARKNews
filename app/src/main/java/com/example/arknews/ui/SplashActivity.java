@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.arknews.R;
 import com.example.arknews.ui.home.HomeActivity;
+import com.example.arknews.utility.Methods;
 import com.example.arknews.utility.PopulateDatabase;
 import com.example.arknews.utility.Preferences;
 
@@ -26,6 +27,9 @@ public class SplashActivity extends AppCompatActivity {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
+
+        Methods.setLanguagePref(this);
+
         // Populating new database
         boolean isPopulated = Preferences.getInstance(this).read(PopulateDatabase.POPULATED, false);
         if (!isPopulated) {

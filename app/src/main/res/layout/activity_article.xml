@@ -101,7 +101,7 @@
                 tools:text="Main Article goes here." />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/article_view_full_mb"
+                android:id="@+id/open_in_browser_mb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.example.arknews.R;
 import com.example.arknews.ui.categories.CategorySelectionActivity;
 import com.example.arknews.ui.help.FAQActivity;
+import com.example.arknews.ui.home.HomeActivity;
+import com.example.arknews.utility.Methods;
 import com.example.arknews.utility.Preferences;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
@@ -28,6 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
     Context context;
     MaterialToolbar toolbarSettings;
     RadioButton english_rb, bengali_rb, nepali_rb;
+    Dialog languageDialog;
 
     public static final String LANGUAGE_PREF = "lan_p";
 
@@ -39,6 +42,18 @@ public class SettingsActivity extends AppCompatActivity {
         context = this;
         initializeViews();
         setListeners();
+
+        String language = Preferences.getInstance(context).read(SettingsActivity.LANGUAGE_PREF, "en");
+
+        System.out.println(language);
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+
+        Resources resources = context.getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        config.setLayoutDirection(locale);
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
 
     }
 
@@ -55,19 +70,6 @@ public class SettingsActivity extends AppCompatActivity {
         english_rb = findViewById(R.id.language_english_rb);
         bengali_rb = findViewById(R.id.language_bengali_rb);
         nepali_rb = findViewById(R.id.language_nepali_rb);
-
-    }
-
-    private static Context setLanguagePref(Context context, String languageCode) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
-
-        Resources resources = context.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
-
-        return context;
 
     }
 
@@ -88,23 +90,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         //Language
         languageMaterialButton.setOnClickListener(view -> {
-            Dialog dialog;
-            dialog = new Dialog(context);
-            dialog.setContentView(R.layout.layout_dialog_language);
-            dialog.show();
-
-//            int language_pref = Preferences.getInstance(this).read(LANGUAGE_PREF, 0);
-//            switch (language_pref) {
-//                case 0:
-//                    english_rb.setChecked(true);
-//                    break;
-//                case 1:
-//                    bengali_rb.setChecked(true);
-//                    break;
-//                case 2:
-//                    nepali_rb.setChecked(true);
-//                    break;
-//            }
+            languageDialog = new Dialog(context);
+            languageDialog.setContentView(R.layout.layout_dialog_language);
+            languageDialog.show();
 
         });
 
@@ -149,26 +137,32 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
             case R.id.language_english_rb:
                 if (checked) {
-                    Preferences.getInstance(this).write(LANGUAGE_PREF, 0);
-                    setLanguagePref(this, "en");
+                    Preferences.getInstance(this).write(LANGUAGE_PREF, "en");
+                    //Methods.setLanguagePref(this, "en");
+                    languageDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "English selected", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, SettingsActivity.class));
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 }
                 break;
             case R.id.language_bengali_rb:
                 if (checked) {
-                    Preferences.getInstance(this).write(LANGUAGE_PREF, 1);
-                    setLanguagePref(this, "bn");
+                    Preferences.getInstance(this).write(LANGUAGE_PREF, "bn");
+                   // Methods.setLanguagePref(this, "bn");
+                    languageDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Bengali selected", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, SettingsActivity.class));
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 }
                 break;
             case R.id.language_nepali_rb:
                 if (checked) {
-                    //https://developers.google.com/admin-sdk/directory/v1/languages
-                    Preferences.getInstance(this).write(LANGUAGE_PREF, 2);
-                    setLanguagePref(this, "en");    //No language code available for Nepali
+                    Preferences.getInstance(this).write(LANGUAGE_PREF, "ne");
+                    //Methods.setLanguagePref(this, "ne");
+                    languageDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Nepali selected", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(new Intent(this, SettingsActivity.class));
                 }
                 break;
         }
