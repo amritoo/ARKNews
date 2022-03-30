@@ -22,6 +22,15 @@
             app:title="History" />
     </com.google.android.material.appbar.AppBarLayout>
 
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/multiple_history_delete"-->
+<!--        android:text="Delete"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:visibility="gone"-->
+<!--        />-->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_history"
         android:layout_width="match_parent"

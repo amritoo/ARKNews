@@ -24,6 +24,7 @@ public interface HistoryDao {
     @Query("SELECT * FROM history WHERE title LIKE :query")
     List<History> getBySpecificQueryHist(String query);
 
+
     //     ** Insert History **
 //    @Query("INSERT INTO history (channel_id, category_id, title, author, published, url, url_image, news_id)")
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -37,5 +38,8 @@ public interface HistoryDao {
     //     ** Delete History **
     @Delete
     void delete(History history);
+
+    @Query("DELETE FROM history WHERE id IN (:selectedIds)")
+    void deleteAllSelected(List<Integer> selectedIds);
 
 }

@@ -46,7 +46,7 @@ public class HistoryActivity extends AppCompatActivity {
         implementHistorySearch(toolbar.getMenu());
 
         historyList = ARKDatabase.getInstance(getApplicationContext()).historyDao().getAll();
-        adapter = new HistoryListAdapter(this, historyList);
+        adapter = new HistoryListAdapter(historyList, toolbar.getMenu().findItem(R.id.history_menu_select));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
@@ -117,6 +117,25 @@ public class HistoryActivity extends AppCompatActivity {
                             .setNegativeButton(android.R.string.no, null)
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
+                    return true;
+                case R.id.history_menu_select:
+                    item.setOnMenuItemClickListener(item1 -> {
+                        System.out.println(HistoryListAdapter.isChecked);
+                        if (HistoryListAdapter.isChecked) {
+                            // deletes selected history items
+                            ARKDatabase.getInstance(this).historyDao().deleteAllSelected(HistoryListAdapter.selectedHistoryIds);
+                            HistoryListAdapter.selectedHistoryIds.clear();
+                            HistoryListAdapter.isChecked = false;
+                            adapter.notifyDataSetChanged();
+                            item.setIcon(R.drawable.ic_baseline_select_all_24);
+                        } else {
+                            // show checkbox and change item icon to delete
+                            HistoryListAdapter.isChecked = true;
+                            adapter.notifyDataSetChanged();
+                            item.setIcon(R.drawable.ic_baseline_delete_24);
+                        }
+                        return true;
+                    });
                     return true;
                 default:
                     return super.onOptionsItemSelected(item);
