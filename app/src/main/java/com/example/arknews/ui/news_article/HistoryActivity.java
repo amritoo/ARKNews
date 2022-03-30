@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -61,15 +62,19 @@ public class HistoryActivity extends AppCompatActivity {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 int position = viewHolder.getAdapterPosition();
-                History history = historyList.get(position);
-                ARKDatabase.getInstance(getApplicationContext()).historyDao().delete(history);
-                historyList.remove(position);
+                deleteItem(position);
                 adapter.notifyDataSetChanged();
             }
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
         // ends here
+    }
+
+    private void deleteItem(int position) {
+        History hist = historyList.get(position);
+        ARKDatabase.getInstance(this).historyDao().delete(hist);
+        historyList.remove(position);
     }
 
     void initializeViews() {
@@ -99,7 +104,19 @@ public class HistoryActivity extends AppCompatActivity {
                     }
                     return true;
                 case R.id.history_delete:
-                    Toast.makeText(this, "You selected Delete", Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(this)
+                            .setTitle("Delete All Histories")
+                            .setMessage("Are you sure you want to delete all your reading history?\nOnce deleted, you can't recover them")
+                            .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                                for (int i = historyList.size() - 1; i >= 0; i--) {
+                                    deleteItem(i);
+                                }
+                                adapter.notifyDataSetChanged();
+                                Toast.makeText(this, "Deleted all histories", Toast.LENGTH_SHORT).show();
+                            })
+                            .setNegativeButton(android.R.string.no, null)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                     return true;
                 default:
                     return super.onOptionsItemSelected(item);
