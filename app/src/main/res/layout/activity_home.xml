@@ -27,6 +27,11 @@
                 app:title="@string/app_name" />
         </com.google.android.material.appbar.AppBarLayout>
 
+        <include
+            android:id="@+id/home_filter_layout"
+            layout="@layout/layout_filter"
+            android:visibility="gone" />
+
         <include layout="@layout/layout_home_content" />
     </LinearLayout>
 

@@ -3,14 +3,12 @@ package com.example.arknews.ui.home;
 import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -26,6 +24,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.arknews.R;
 import com.example.arknews.client.NewsApiD;
 import com.example.arknews.dao.ARKDatabase;
+import com.example.arknews.model.Category;
 import com.example.arknews.model.Channel;
 import com.example.arknews.model.News;
 import com.example.arknews.ui.favourite.FavoriteChannelsActivity;
@@ -33,11 +32,16 @@ import com.example.arknews.ui.help.AboutActivity;
 import com.example.arknews.ui.news_article.HistoryActivity;
 import com.example.arknews.ui.pinned.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
+import com.example.arknews.utility.EditTextDateRangePicker;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -49,6 +53,10 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     ExtendedFloatingActionButton floatingActionButton;
     SwipeRefreshLayout swipeRefreshLayout;
+    ImageView closeFilterIV;
+    ChipGroup channelChipGroup, categoryChipGroup;
+    TextInputLayout startDateT, endDateT;
+    MaterialButton filterResultButton;
 
     Context context;
     Dialog sortDialog;
@@ -63,10 +71,11 @@ public class HomeActivity extends AppCompatActivity {
 
         initializeViews();
         setListeners();
+        loadFilterChips();
         implementSearch(toolbar.getMenu());
 
-        context = this;
 
+        context = this;
         mNewsList = ARKDatabase.getInstance(this).newsDao().getAll();
         adapter = new NewsfeedAdapter(this, mNewsList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -83,6 +92,12 @@ public class HomeActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.newsfeed_rv);
         floatingActionButton = findViewById(R.id.home_extended_fab);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        closeFilterIV = findViewById(R.id.filter_close_iv);
+        channelChipGroup = findViewById(R.id.filter_channel_cg);
+        categoryChipGroup = findViewById(R.id.filter_category_cg);
+        startDateT = findViewById(R.id.filter_date_start_tf);
+        endDateT = findViewById(R.id.filter_date_end_tf);
+        filterResultButton = findViewById(R.id.filter_result_mb);
     }
 
     // sets listeners to views
@@ -102,15 +117,18 @@ public class HomeActivity extends AppCompatActivity {
                     sortDialog.setContentView(R.layout.layout_dialog_sort);
                     sortDialog.show();
                     return true;
-
-                case R.id.home_menu_search:
-
                 case R.id.home_menu_filter:
-
+                    findViewById(R.id.home_filter_layout).setVisibility(View.VISIBLE);
                     break;
             }
             return false;
         });
+
+        closeFilterIV.setOnClickListener(view -> findViewById(R.id.home_filter_layout).setVisibility(View.GONE));
+
+        new EditTextDateRangePicker(this, startDateT.getEditText(), endDateT.getEditText(), getSupportFragmentManager());
+
+        filterResultButton.setOnClickListener(view -> filterNews());
 
         floatingActionButton.setOnClickListener(view -> {
             mRecyclerView.smoothScrollToPosition(0);
@@ -134,7 +152,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
         navigationView.setNavigationItemSelectedListener(item -> {
             Intent intent = null;
             switch (item.getItemId()) {
@@ -155,7 +172,7 @@ public class HomeActivity extends AppCompatActivity {
                             .setTitle("Confirmation")
                             .setMessage("Are you sure you would like to contact us via eMail?")
                             .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                               Intent intent1 = new Intent(Intent.ACTION_SEND);
+                                Intent intent1 = new Intent(Intent.ACTION_SEND);
                                 String[] recipients = {"newsArkinfo@gmail.com"};
                                 intent1.putExtra(Intent.EXTRA_EMAIL, recipients);
                                 intent1.putExtra(Intent.EXTRA_SUBJECT, "");
@@ -190,7 +207,6 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         });
     }
-
 
     private void refresh() {
         mNewsList.clear();
@@ -260,6 +276,44 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    void loadFilterChips() {
+        List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAll();
+        for (int i = 0; i < channels.size(); i++) {
+            Channel channel = channels.get(i);
+            Chip chip = new Chip(this);
+            chip.setId(i);
+            chip.setText(channel.getName());
+            chip.setCheckable(true);
+            channelChipGroup.addView(chip);
+        }
+
+        List<Category> categories = ARKDatabase.getInstance(this).categoryDao().getAll();
+        for (int i = 0; i < categories.size(); i++) {
+            Category category = categories.get(i);
+            Chip chip = new Chip(this);
+            chip.setId(i);
+            chip.setText(category.getDescription());
+            chip.setCheckable(true);
+            categoryChipGroup.addView(chip);
+        }
+    }
+
+    void filterNews() {
+        List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAll();
+        List<Channel> filteredChannels = new ArrayList<>();
+        for (int id : channelChipGroup.getCheckedChipIds()) {
+            filteredChannels.add(channels.get(id));
+        }
+
+        List<Category> categories = ARKDatabase.getInstance(this).categoryDao().getAll();
+        List<Category> filteredCategories = new ArrayList<>();
+        for (int id : categoryChipGroup.getCheckedChipIds()) {
+            filteredCategories.add(categories.get(id));
+        }
+
+        // get Start and end date
     }
 
 }

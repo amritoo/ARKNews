@@ -32,6 +32,12 @@ public class Methods {
         return dateTime;
     }
 
+    public static String convertDateToShortString(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String dateTime = dateFormat.format(date);
+        return dateTime;
+    }
+
     public static void autoDelete(Context context) {
         int time = Preferences.getInstance(context).read(AutoDelActivity.AUTODELTIME, 30);
         Date date = new Date(new Date().getTime() - time * 86400000L); //24 * 60 * 60 * 1000
