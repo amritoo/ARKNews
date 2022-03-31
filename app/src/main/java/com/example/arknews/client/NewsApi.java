@@ -18,7 +18,7 @@ import com.kwabenaberko.newsapilib.models.response.SourcesResponse;
 
 import java.util.Date;
 
-public class NewsApiD {
+public class NewsApi {
 
     private static final String TAG = "NewsApi";
     private static final String NEWS_API = "https://newsapi.org/";
@@ -28,7 +28,7 @@ public class NewsApiD {
     /**
      * @param context The application context
      */
-    public NewsApiD(Context context) {
+    public NewsApi(Context context) {
         this.context = context;
     }
 

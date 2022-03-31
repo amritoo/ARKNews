@@ -1,11 +1,11 @@
 package com.example.arknews.utility;
 
 import android.content.Context;
+import android.util.Log;
 
-import com.example.arknews.client.NewsApiD;
+import com.example.arknews.client.NewsApi;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.model.Category;
-import com.example.arknews.model.FAQ;
 
 public class PopulateDatabase {
 
@@ -17,7 +17,7 @@ public class PopulateDatabase {
         this.context = context;
         populateCategory();
         populateChannel();
-        populateFAQ();
+        Log.i(TAG, "Database created and populated");
     }
 
     void populateCategory() {
@@ -42,12 +42,7 @@ public class PopulateDatabase {
     }
 
     void populateChannel() {
-        new NewsApiD(context).getChannels();
-    }
-
-    void populateFAQ() {
-        FAQ faq = new FAQ("What's the name of this app?", "ARK News.");
-        ARKDatabase.getInstance(context).faqDao().insert(faq);
+        new NewsApi(context).getChannels();
     }
 
 }

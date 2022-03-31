@@ -23,4 +23,10 @@
     <string name="close">Close</string>
     <string name="pause">Pause</string>
     <string name="resume">Resume</string>
+    <string name="project_title">Android Based News App for Fast and Ad-free Experience - ARKNews</string>
+    <string name="about_ark">With the advent and spread of new generation mobile devices and the latest technology, the necessity of a real revolution in the media and publishing industry has touched its highest peak. We are being exposed to an excessive amount of information every day that sometimes it’s quite tough to keep a record of those necessary and authentic ones for an individual. Hence, introducing a news app that can provide users real-time access to relevant, prominent and genuine news to keep them up-to-date with the global affairs is a prime concern.\n</string>
+    <string name="about_inspiration">- Understanding news management\n- Experiencing to create, maintain and manipulate large database\n- Easy to track relevant information\n</string>
+    <string name="inspiration">Inspiration</string>
+    <string name="supervisor">Supervisor</string>
+    <string name="about_nahid_sir">Md. Nahid Sultan Sir\nAssistant Professor\nDepartment of CSE\nFaculty of CSE\nHSTU</string>
 </resources>

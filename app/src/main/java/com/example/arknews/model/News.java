@@ -24,9 +24,9 @@ import java.util.Date;
                         onDelete = CASCADE)
         },
         indices = {
+                @Index(value = "url", unique = true),
                 @Index(value = "channel_id"),
-                @Index(value = "category_id"),
-                @Index(value = "url", unique = true)
+                @Index(value = "category_id")
         }
 )
 public class News {

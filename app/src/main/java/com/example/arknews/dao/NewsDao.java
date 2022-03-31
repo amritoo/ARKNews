@@ -65,4 +65,5 @@ public interface NewsDao {
 
     @Query("DELETE FROM news WHERE published <= :date")
     void deleteBefore(Date date);
+
 }

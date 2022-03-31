@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.arknews.R;
-import com.example.arknews.client.NewsApiD;
+import com.example.arknews.client.NewsApi;
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.dao.NewsDao;
 import com.example.arknews.model.Category;
@@ -131,7 +131,7 @@ public class HomeActivity extends AppCompatActivity {
 
         closeFilterIV.setOnClickListener(view -> findViewById(R.id.home_filter_layout).setVisibility(View.GONE));
 
-        new EditTextDateRangePicker(this, startDateT.getEditText(), endDateT.getEditText(), getSupportFragmentManager());
+        new EditTextDateRangePicker(startDateT.getEditText(), endDateT.getEditText(), getSupportFragmentManager());
 
         filterResultButton.setOnClickListener(view -> filterNews());
 
@@ -213,7 +213,7 @@ public class HomeActivity extends AppCompatActivity {
     private void refresh() {
         List<Channel> channels = ARKDatabase.getInstance(this).channelDao().getAll();
         for (Channel channel : channels) {
-            new NewsApiD(this).getChannelNews(channel.getApiId());
+            new NewsApi(this).getChannelNews(channel.getApiId());
         }
 
         defaultSortNewsfeed();

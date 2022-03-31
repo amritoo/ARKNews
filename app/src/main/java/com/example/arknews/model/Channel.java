@@ -6,6 +6,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(
@@ -13,7 +14,8 @@ import androidx.room.PrimaryKey;
         foreignKeys = {@ForeignKey(entity = Category.class,
                 parentColumns = "id",
                 childColumns = "category_id",
-                onDelete = CASCADE)}
+                onDelete = CASCADE)},
+        indices = {@Index(value = "category_id")}
 )
 public class Channel {
 

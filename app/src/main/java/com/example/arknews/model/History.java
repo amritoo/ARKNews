@@ -2,8 +2,6 @@ package com.example.arknews.model;
 
 import static androidx.room.ForeignKey.CASCADE;
 
-import android.graphics.Bitmap;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -29,7 +27,12 @@ import java.util.Date;
                         childColumns = "news_id",
                         onDelete = CASCADE)
         },
-        indices = {@Index(value = "url", unique = true)}
+        indices = {
+                @Index(value = "url", unique = true),
+                @Index(value = "channel_id"),
+                @Index(value = "category_id"),
+                @Index(value = "news_id")
+        }
 )
 public class History {
 

@@ -63,31 +63,22 @@ public class PinnedActivity extends AppCompatActivity {
 
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
-        switch (view.getId()) {
-            case R.id.sort_ascend_alpha:
-                if (checked) {
+        if (checked) {
+            switch (view.getId()) {
+                case R.id.sort_ascend_alpha:
                     Collections.sort(pinnedList, (o1, o2) -> o1.getTitle().compareToIgnoreCase(o2.getTitle()));
-                    adapter.notifyItemChanged(0);
-                }
-                break;
-            case R.id.sort_descend_alpha:
-                if (checked) {
+                    break;
+                case R.id.sort_descend_alpha:
                     Collections.sort(pinnedList, (o1, o2) -> o2.getTitle().compareToIgnoreCase(o1.getTitle()));
-                    adapter.notifyItemChanged(0);
-                }
-                break;
-            case R.id.sort_ascend_time:
-                if (checked) {
+                    break;
+                case R.id.sort_ascend_time:
                     Collections.sort(pinnedList, (o1, o2) -> o1.getPublished().compareTo(o2.getPublished()));
-                    adapter.notifyItemChanged(0);
-                }
-                break;
-            case R.id.sort_descend_time:
-                if (checked) {
+                    break;
+                case R.id.sort_descend_time:
                     Collections.sort(pinnedList, (o1, o2) -> o2.getPublished().compareTo(o1.getPublished()));
-                    adapter.notifyItemChanged(0);
-                }
-                break;
+                    break;
+            }
+            adapter.notifyDataSetChanged();
         }
     }
 }

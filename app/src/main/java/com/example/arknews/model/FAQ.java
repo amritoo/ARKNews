@@ -1,19 +1,10 @@
 package com.example.arknews.model;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
-@Entity(tableName = "faq")
 public class FAQ {
 
-    @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "question")
     private String question;
-    @ColumnInfo(name = "answer")
     private String answer;
 
     public FAQ(int id, String question, String answer) {
@@ -22,7 +13,6 @@ public class FAQ {
         this.answer = answer;
     }
 
-    @Ignore
     public FAQ(String question, String answer) {
         this.question = question;
         this.answer = answer;

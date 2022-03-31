@@ -9,14 +9,14 @@ import androidx.room.TypeConverters;
 
 import com.example.arknews.model.Category;
 import com.example.arknews.model.Channel;
-import com.example.arknews.model.FAQ;
 import com.example.arknews.model.History;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Converters;
 
 @Database(
-        entities = {News.class, Channel.class, Category.class, History.class, FAQ.class},
-        version = 1
+        entities = {News.class, Channel.class, Category.class, History.class},
+        version = 1,
+        exportSchema = false
 )
 @TypeConverters({Converters.class})
 public abstract class ARKDatabase extends RoomDatabase {
@@ -42,7 +42,5 @@ public abstract class ARKDatabase extends RoomDatabase {
     public abstract CategoryDao categoryDao();
 
     public abstract HistoryDao historyDao();
-
-    public abstract FAQDao faqDao();
 
 }
