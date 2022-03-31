@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".ui.help.AboutActivity">
 
-    <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,5 +19,202 @@
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
             app:title="About" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        android:id="@+id/frag_cal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="400dp"
+                    android:layout_height="222dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/icon_ark" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="240dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Android Based News App for Fast and Ad-free Experience - ARKNews"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="280dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="With the advent and spread of new generation mobile devices and the latest technology, the necessity of a real revolution in the media and publishing industry has touched its highest peak. We are being exposed to an excessive amount of information every day that sometimes it’s quite tough to keep a record of those necessary and authentic ones for an individual. Hence, introducing a news app that can provide users real-time access to relevant, prominent and genuine news to keep them up-to-date with the global affairs is a prime concern.\n" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="480dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Inspiration?"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="500dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="- Understanding news management\n- Experiencing to create, maintain and manipulate large database\n- Easy to track relevant information\n" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="600dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:text="Supervisor: "
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:layout_width="98dp"
+                    android:layout_height="85dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="640dp"
+                    android:src="@drawable/nahid_sir" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="640dp"
+                    android:layout_marginBottom="20dp"
+                    android:paddingLeft="10dp"
+                    android:text="Md. Nahid Sultan Sir\nAssistant Professor\nDepartment of CSE\nFaculty of CSE\nHSTU"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="750dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Developers:"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="95dp"
+                    android:layout_height="84dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="800dp"
+                    android:src="@drawable/prashant" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="800dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Prashant Karna\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/imprashant98"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="95dp"
+                    android:layout_height="84dp"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="930dp"
+                    android:src="@drawable/karma" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="930dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Karma Jimpa\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/Karmajimba23"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="95dp"
+                    android:layout_height="84dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="1060dp"
+                    android:src="@drawable/priyanka" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="1060dp"
+                    android:layout_marginBottom="20dp"
+                    android:paddingRight="15dp"
+                    android:text="Priyanka Roy\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/priyan-2020"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="95dp"
+                    android:layout_height="84dp"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="1190dp"
+                    android:src="@drawable/tipu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="1190dp"
+                    android:layout_marginBottom="20dp"
+                    android:paddingRight="40dp"
+                    android:text="Amrito Das Tipu\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/amritoo"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1300dp"
+                    android:paddingLeft="60dp"
+                    android:text="For more Queries, please mail us at:\n👉 newsArkinfo@gmail.com\n"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
 
 </LinearLayout>
