@@ -30,28 +30,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="15dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/article_channel_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_marginEnd="8dp"
-                    android:text="Source" />
+                    android:text="Source"
+                    android:textAppearance="@android:style/TextAppearance.Material.Button" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/article_category_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Category" />
+                    android:text="Category"
+                    android:textAppearance="@android:style/TextAppearance.Material.Button" />
             </RelativeLayout>
 
             <ImageView
@@ -66,21 +68,25 @@
                 android:id="@+id/article_headline_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:layout_marginVertical="10dp"
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
                 tools:text="Headline goes here" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/article_author_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Author" />
+                android:text="Author"
+                android:textAppearance="@android:style/TextAppearance.Material.Body2" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/article_published_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
                 android:layout_toEndOf="@+id/article_author_tv"
-                android:text="Published date" />
+                android:text="Published date"
+                android:textAppearance="@android:style/TextAppearance.Material.Body2" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/article_update_tv"

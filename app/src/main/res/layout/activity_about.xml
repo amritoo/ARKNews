@@ -91,7 +91,7 @@
                 android:layout_marginStart="240dp"
                 android:layout_marginTop="640dp"
                 android:contentDescription="Nahid sir image"
-                android:src="@drawable/nahid_sir" />
+                android:src="@drawable/supervisor_nahid_sir" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
                 android:layout_height="85dp"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="800dp"
-                android:src="@drawable/prashant" />
+                android:src="@drawable/dev_prashant_karna" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
                 android:layout_height="85dp"
                 android:layout_marginLeft="260dp"
                 android:layout_marginTop="930dp"
-                android:src="@drawable/karma" />
+                android:src="@drawable/dev_karma_jimpa" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
                 android:layout_height="85dp"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="1060dp"
-                android:src="@drawable/priyanka" />
+                android:src="@drawable/dev_priyanka_roy" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -169,7 +169,7 @@
                 android:layout_height="85dp"
                 android:layout_marginLeft="260dp"
                 android:layout_marginTop="1190dp"
-                android:src="@drawable/tipu" />
+                android:src="@drawable/dev_amrito_das_tipu" />
 
             <TextView
                 android:layout_width="wrap_content"

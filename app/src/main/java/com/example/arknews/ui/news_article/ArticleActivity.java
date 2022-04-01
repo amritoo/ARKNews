@@ -20,6 +20,7 @@ import com.example.arknews.model.Channel;
 import com.example.arknews.model.History;
 import com.example.arknews.model.News;
 import com.example.arknews.utility.Constants;
+import com.example.arknews.utility.Methods;
 import com.example.arknews.utility.Preferences;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
@@ -33,7 +34,7 @@ public class ArticleActivity extends AppCompatActivity {
     MaterialTextView channelMaterialTextView, categoryMaterialTextView, titleMaterialTextView, authorMaterialTextView, publishedMaterialTextView, updateMaterialTextView, contentsMaterialTextView;
     ImageView articleImageView;
     MaterialToolbar toolbar;
-    MaterialButton open_in_browser_mb;
+    MaterialButton openInBrowserMB;
 
     public static final String FAVORITE_PREF = "article_menu_favorite";
     public static final String CATEGORY_PREF = "article_menu_category";
@@ -84,7 +85,7 @@ public class ArticleActivity extends AppCompatActivity {
         contentsMaterialTextView = findViewById(R.id.article_contents_tv);
         articleImageView = findViewById(R.id.article_image_iv);
         toolbar = findViewById(R.id.article_toolbar);
-        open_in_browser_mb = findViewById(R.id.open_in_browser_mb);
+        openInBrowserMB = findViewById(R.id.open_in_browser_mb);
 
         if (Preferences.getInstance(this).read(FAVORITE_PREF, false)) {
             toolbar.getMenu().findItem(R.id.article_menu_favorite).setTitle(getString(R.string.dislike_this_channel));
@@ -140,7 +141,7 @@ public class ArticleActivity extends AppCompatActivity {
             return false;
         });
 
-        open_in_browser_mb.setOnClickListener(view -> {
+        openInBrowserMB.setOnClickListener(view -> {
             new AlertDialog.Builder(this)
                     .setTitle("Redirect to browser")
                     .setMessage("Are you sure you want to redirect to your default browser to view full News?")
@@ -170,8 +171,7 @@ public class ArticleActivity extends AppCompatActivity {
 
         titleMaterialTextView.setText(mNews.getTitle());
         authorMaterialTextView.setText(mNews.getAuthor());
-        publishedMaterialTextView.setText(mNews.getPublished().toString());
-//        updateMaterialTextView.setText(mNews.getUpdated().toString());
+        publishedMaterialTextView.setText(Methods.convertDateToString(mNews.getPublished()));
         contentsMaterialTextView.setText(mNews.getContent());
     }
 
