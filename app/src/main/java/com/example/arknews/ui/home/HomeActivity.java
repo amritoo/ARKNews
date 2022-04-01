@@ -172,7 +172,7 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.menu_contact_us:
                     new AlertDialog.Builder(this)
                             .setTitle("Confirmation")
-                            .setMessage("Are you sure you would like to contact us via eMail?")
+                            .setMessage("Are you sure you would like to contact us via email?")
                             .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                 Intent intent1 = new Intent(Intent.ACTION_SEND);
                                 String[] recipients = {"newsArkinfo@gmail.com"};

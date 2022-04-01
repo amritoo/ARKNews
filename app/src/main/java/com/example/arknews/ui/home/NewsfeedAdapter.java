@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,10 +19,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arknews.R;
 import com.example.arknews.dao.ARKDatabase;
+import com.example.arknews.model.Category;
+import com.example.arknews.model.Channel;
 import com.example.arknews.model.News;
 import com.example.arknews.ui.news_article.ArticleActivity;
 import com.example.arknews.utility.Constants;
 import com.example.arknews.utility.Methods;
+import com.example.arknews.utility.Preferences;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
@@ -62,6 +68,9 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         Context context;
         ImageView newsImageView, channelImageView, pinnedImageView, shareImageView, menuImageView;
         MaterialTextView titleTextView, publishedTextView;
+        private Channel mChannel;
+        private Category mCategory;
+
 
         public NewsfeedViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,6 +102,11 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
 
         void setListeners(News news) {
+            String url = news.getUrl();
+
+            News mNews = ARKDatabase.getInstance(context).newsDao().getByUrl(url);
+            mChannel = ARKDatabase.getInstance(context).channelDao().getChannelById(mNews.getChannelId());
+            mCategory = ARKDatabase.getInstance(context).categoryDao().getCategoryById(mNews.getCategoryId());
 
             itemView.setOnClickListener(view -> openArticle(news));
 
@@ -101,7 +115,6 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             });
 
             shareImageView.setOnClickListener(view -> {
-                String url = news.getUrl();
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -119,12 +132,31 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             openArticle(news);
                             break;
                         case R.id.news_card_menu_hide:
+                            itemView.setVisibility(View.GONE);
+                            ViewGroup.LayoutParams params = itemView.getLayoutParams();
+                            params.height = 0;
+                            params.width = 0;
+                            itemView.setLayoutParams(params);
+                            return true;
                         case R.id.news_card_menu_category:
-                        case R.id.news_card_menu_unfavorite:
-                            break;
+                            if (item.getTitle().equals("Select this category")) {
+                                item.setTitle("Unselect this category");
+                            } else {
+                                item.setTitle("Select this category");
+                            }
+                            updateCategory();
+                            return true;
+
+                        case R.id.news_card_menu_favorite:
+                            if (item.getTitle().equals("Favorite this channel")) {
+                                item.setTitle("Dislike this channel");
+                            } else {
+                                item.setTitle("Favorite this channel");
+                            }
+                            updateFavorite();
+                            return true;
 
                         case R.id.news_card_menu_copy_link:
-                            String url = news.getUrl();
                             ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("ARK news", url);
                             clipboard.setPrimaryClip(clip);
@@ -157,6 +189,17 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
             // update pinned to database
             ARKDatabase.getInstance(context).newsDao().update(news);
+        }
+
+
+        void updateFavorite() {
+            mChannel.setSelected(!mChannel.isSelected());
+            ARKDatabase.getInstance(context).channelDao().update(mChannel);
+        }
+
+        void updateCategory() {
+            mCategory.setSelected(!mCategory.isSelected());
+            ARKDatabase.getInstance(context).categoryDao().update(mCategory);
         }
 
         void loadChannelIcon(String channelName) {

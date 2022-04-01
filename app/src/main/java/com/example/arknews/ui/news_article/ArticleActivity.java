@@ -35,6 +35,9 @@ public class ArticleActivity extends AppCompatActivity {
     MaterialToolbar toolbar;
     MaterialButton open_in_browser_mb;
 
+    public static final String FAVORITE_PREF = "article_menu_favorite";
+    public static final String CATEGORY_PREF = "article_menu_category";
+
     List<News> newsList;
 
     private News mNews;
@@ -82,6 +85,13 @@ public class ArticleActivity extends AppCompatActivity {
         articleImageView = findViewById(R.id.article_image_iv);
         toolbar = findViewById(R.id.article_toolbar);
         open_in_browser_mb = findViewById(R.id.open_in_browser_mb);
+
+        if (Preferences.getInstance(this).read(FAVORITE_PREF, false)) {
+            toolbar.getMenu().findItem(R.id.article_menu_favorite).setTitle(getString(R.string.dislike_this_channel));
+        }
+        if (Preferences.getInstance(this).read(CATEGORY_PREF, false)) {
+            toolbar.getMenu().findItem(R.id.article_menu_category).setTitle(getString(R.string.unselect_this_category));
+        }
     }
 
     void setListeners() {
@@ -100,9 +110,23 @@ public class ArticleActivity extends AppCompatActivity {
                     updatePinned();
                     return true;
                 case R.id.article_menu_category:
+                    if (item.getTitle().equals(getString(R.string.select_this_category))) {
+                        item.setTitle(getString(R.string.unselect_this_category));
+                        Preferences.getInstance(this).write(CATEGORY_PREF, true);
+                    } else {
+                        Preferences.getInstance(this).write(CATEGORY_PREF, false);
+                        item.setTitle(getString(R.string.select_this_category));
+                    }
                     updateCategory();
                     return true;
-                case R.id.article_menu_unfavorite:
+                case R.id.article_menu_favorite:
+                    if (item.getTitle().equals(getString(R.string.favorite_this_channel))) {
+                        item.setTitle(getString(R.string.dislike_this_channel));
+                        Preferences.getInstance(this).write(FAVORITE_PREF, true);
+                    } else {
+                        item.setTitle(getString(R.string.favorite_this_channel));
+                        Preferences.getInstance(this).write(FAVORITE_PREF, false);
+                    }
                     updateFavorite();
                     return true;
                 case R.id.article_menu_copy_link:
