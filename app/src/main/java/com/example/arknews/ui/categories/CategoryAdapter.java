@@ -74,31 +74,31 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             int id = 0;
             switch (categoryName) {
                 case "education":
-                    id = R.drawable.education;
+                    id = R.drawable.cat_education;
                     break;
                 case "general":
-                    id = R.drawable.general;
+                    id = R.drawable.cat_general;
                     break;
                 case "business":
-                    id = R.drawable.business;
+                    id = R.drawable.cat_business;
                     break;
                 case "entertainment":
-                    id = R.drawable.entertainment;
+                    id = R.drawable.cat_entertainment;
                     break;
                 case "health":
-                    id = R.drawable.health;
+                    id = R.drawable.cat_health;
                     break;
                 case "politics":
-                    id = R.drawable.politics;
+                    id = R.drawable.cat_politics;
                     break;
                 case "sports":
-                    id = R.drawable.sports;
+                    id = R.drawable.cat_sports;
                     break;
                 case "science":
-                    id = R.drawable.science;
+                    id = R.drawable.cat_science;
                     break;
                 case "technology":
-                    id = R.drawable.technology;
+                    id = R.drawable.cat_technology;
                     break;
             }
             categoryImageView.setImageResource(id);
