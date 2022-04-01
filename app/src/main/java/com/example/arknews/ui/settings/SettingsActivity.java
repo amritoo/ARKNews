@@ -10,14 +10,13 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.arknews.R;
 import com.example.arknews.ui.categories.CategorySelectionActivity;
 import com.example.arknews.ui.help.FAQActivity;
-import com.example.arknews.ui.home.HomeActivity;
-import com.example.arknews.utility.Methods;
 import com.example.arknews.utility.Preferences;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
@@ -26,7 +25,7 @@ import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton, autoDelMaterialButton, categoryMaterialButton, helpMaterialButton, faqMaterialButton;
+    private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton, autoDelMaterialButton, categoryMaterialButton, contactUsMaterialButton, faqMaterialButton;
     Context context;
     MaterialToolbar toolbarSettings;
     RadioButton english_rb, bengali_rb, nepali_rb;
@@ -64,7 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
         languageMaterialButton = findViewById(R.id.settings_language);
         autoDelMaterialButton = findViewById(R.id.settings_auto_deletion);
         categoryMaterialButton = findViewById(R.id.settings_category_selection);
-        helpMaterialButton = findViewById(R.id.settings_help);
+        contactUsMaterialButton = findViewById(R.id.settings_help);
         faqMaterialButton = findViewById(R.id.settings_user_manual);
 
         english_rb = findViewById(R.id.language_english_rb);
@@ -103,16 +102,24 @@ public class SettingsActivity extends AppCompatActivity {
         categoryMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, CategorySelectionActivity.class)));
 
         //Help--> Default Gmail
-        helpMaterialButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            String[] recipients = {"newsArkinfo@gmail.com"};
-            intent.putExtra(Intent.EXTRA_EMAIL, recipients);
-            intent.putExtra(Intent.EXTRA_SUBJECT, "");
-            intent.putExtra(Intent.EXTRA_TEXT, "");
-            intent.putExtra(Intent.EXTRA_CC, "newsArkinfo@gmail.com");
-            intent.setType("text/html");
-            intent.setPackage("com.google.android.gm");
-            startActivity(Intent.createChooser(intent, "Send mail"));
+        contactUsMaterialButton.setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirmation")
+                    .setMessage("Are you sure you would like to contact us via email?")
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                        Intent intent1 = new Intent(Intent.ACTION_SEND);
+                        String[] recipients = {"newsArkinfo@gmail.com"};
+                        intent1.putExtra(Intent.EXTRA_EMAIL, recipients);
+                        intent1.putExtra(Intent.EXTRA_SUBJECT, "");
+                        intent1.putExtra(Intent.EXTRA_TEXT, "");
+                        intent1.putExtra(Intent.EXTRA_CC, "newsArkinfo@gmail.com");
+                        intent1.setType("text/html");
+                        intent1.setPackage("com.google.android.gm");
+                        startActivity(Intent.createChooser(intent1, "Send mail"));
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         });
         //Redirect to User Manual Activity
         faqMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, FAQActivity.class)));
