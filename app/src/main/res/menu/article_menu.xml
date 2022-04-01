@@ -19,10 +19,10 @@
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/article_menu_category"
-            android:title="Mark this category" />
+            android:title="@string/select_this_category" />
         <item
-            android:id="@+id/article_menu_unfavorite"
-            android:title="Favorite this channel" />
+            android:id="@+id/article_menu_favorite"
+            android:title="@string/favorite_this_channel"/>
         <item
             android:id="@+id/article_menu_copy_link"
             android:title="Copy link" />

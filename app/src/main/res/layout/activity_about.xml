@@ -128,7 +128,7 @@
                 android:layout_marginLeft="180dp"
                 android:layout_marginTop="800dp"
                 android:layout_marginBottom="20dp"
-                android:text="Prashant Karna\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/imprashant98"
+                android:text="@string/about_prashant"
                 android:textStyle="bold" />
 
             <ImageView
@@ -144,7 +144,7 @@
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="930dp"
                 android:layout_marginBottom="20dp"
-                android:text="Karma Jimpa\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/Karmajimba23"
+                android:text="@string/about_karma"
                 android:textStyle="bold" />
 
             <ImageView
@@ -161,7 +161,7 @@
                 android:layout_marginTop="1060dp"
                 android:layout_marginBottom="20dp"
                 android:paddingRight="15dp"
-                android:text="Priyanka Roy\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/priyan-2020"
+                android:text="@string/about_priyanka"
                 android:textStyle="bold" />
 
             <ImageView
@@ -178,7 +178,7 @@
                 android:layout_marginTop="1190dp"
                 android:layout_marginBottom="20dp"
                 android:paddingRight="40dp"
-                android:text="Amrito Das Tipu\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/amritoo"
+                android:text="@string/about_tipu"
                 android:textStyle="bold" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -187,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1300dp"
                 android:paddingLeft="60dp"
-                android:text="For more Queries, please mail us at:\n👉 newsArkinfo@gmail.com\n"
+                android:text="@string/for_more_queries"
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </RelativeLayout>
