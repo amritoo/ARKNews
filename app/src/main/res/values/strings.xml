@@ -29,4 +29,14 @@
     <string name="inspiration">Inspiration</string>
     <string name="supervisor">Supervisor</string>
     <string name="about_nahid_sir">Md. Nahid Sultan Sir\nAssistant Professor\nDepartment of CSE\nFaculty of CSE\nHSTU</string>
+    <string name="select_this_category">Select this category</string>
+    <string name="unselect_this_category">Unselect this category</string>
+    <string name="favorite_this_channel">Favorite this channel</string>
+    <string name="dislike_this_channel">Dislike this channel</string>
+    <string name="pin_this_news">Pin this news</string>
+    <string name="about_prashant">Prashant Karna  Faculty of CSE,  Department of CSE,  HSTU.  github.com/imprashant98</string>
+    <string name="about_karma">Karma Jimpa\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/Karmajimba23</string>
+    <string name="about_priyanka">Priyanka Roy\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/priyan-2020</string>
+    <string name="about_tipu">Amrito Das Tipu\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/amritoo</string>
+    <string name="for_more_queries">"For more Queries, please mail us at: 👉 newsArkinfo@gmail.com "</string>
 </resources>
