@@ -13,46 +13,39 @@
         android:text="Sort By:"
         android:textAppearance="@android:style/TextAppearance.Material.DialogWindowTitle" />
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RadioGroup
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/sort_ascend_alpha"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/sort_ascend_alpha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"
-                android:text="Alphabetical (A-Z)" />
+            android:onClick="onRadioButtonClicked"
+            android:text="Alphabetical (A-Z)" />
 
 
-            <RadioButton
-                android:id="@+id/sort_descend_alpha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"
-                android:text="Alphabetical (Z-A)" />
+        <RadioButton
+            android:id="@+id/sort_descend_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Alphabetical (Z-A)" />
 
-            <RadioButton
-                android:id="@+id/sort_descend_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"
-                android:text="Time (Newest to Oldest)" />
+        <RadioButton
+            android:id="@+id/sort_descend_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Time (Newest to Oldest)" />
 
-            <RadioButton
-                android:id="@+id/sort_ascend_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"
-                android:text="Time (Oldest to Newest)" />
-        </RadioGroup>
-
-    </LinearLayout>
+        <RadioButton
+            android:id="@+id/sort_ascend_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Time (Oldest to Newest)" />
+    </RadioGroup>
 
 </LinearLayout>

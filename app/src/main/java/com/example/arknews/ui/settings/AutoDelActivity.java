@@ -1,11 +1,10 @@
 package com.example.arknews.ui.settings;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arknews.R;
 import com.example.arknews.utility.Preferences;
@@ -13,11 +12,10 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 public class AutoDelActivity extends AppCompatActivity {
 
-    public static final String AUTODELTIME = "autodel_time";
+    public static final String AUTO_DELETE_TIME = "autodel_time";
 
-    MaterialToolbar toolbarAutoDel;
-
-    RadioButton radioButton2, radioButton7, radioButton30;
+    private MaterialToolbar toolbarAutoDel;
+    private RadioButton radioButton2, radioButton7, radioButton30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,7 @@ public class AutoDelActivity extends AppCompatActivity {
         radioButton7 = findViewById(R.id.autodel_week_rb);
         radioButton30 = findViewById(R.id.autodel_month_rb);
 
-        int time = Preferences.getInstance(this).read(AUTODELTIME, 30);
+        int time = Preferences.getInstance(this).read(AUTO_DELETE_TIME, 30);
         switch (time) {
             case 2:
                 radioButton2.setChecked(true);
@@ -47,21 +45,18 @@ public class AutoDelActivity extends AppCompatActivity {
 
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
+        if (!checked)
+            return;
+
         switch (view.getId()) {
             case R.id.autodel_day_rb:
-                if (checked) {
-                    Preferences.getInstance(this).write(AUTODELTIME, 2);
-                }
+                Preferences.getInstance(this).write(AUTO_DELETE_TIME, 2);
                 break;
             case R.id.autodel_week_rb:
-                if (checked) {
-                    Preferences.getInstance(this).write(AUTODELTIME, 7);
-                }
+                Preferences.getInstance(this).write(AUTO_DELETE_TIME, 7);
                 break;
             case R.id.autodel_month_rb:
-                if (checked) {
-                    Preferences.getInstance(this).write(AUTODELTIME, 30);
-                }
+                Preferences.getInstance(this).write(AUTO_DELETE_TIME, 30);
                 break;
         }
     }

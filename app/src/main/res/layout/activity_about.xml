@@ -34,8 +34,8 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/icon_ark"
-                android:contentDescription="ark news icon" />
+                android:contentDescription="ark news icon"
+                android:src="@drawable/icon_ark" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv1"
@@ -167,14 +167,14 @@
             <ImageView
                 android:layout_width="85dp"
                 android:layout_height="85dp"
-                android:layout_marginLeft="260dp"
+                android:layout_marginStart="260dp"
                 android:layout_marginTop="1190dp"
                 android:src="@drawable/dev_amrito_das_tipu" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="1190dp"
                 android:layout_marginBottom="20dp"
                 android:paddingRight="40dp"

@@ -16,15 +16,15 @@
         android:theme="@style/Theme.ARKNews">
         <activity android:name=".ui.settings.NotificationActivity" />
         <activity android:name=".ui.help.AboutActivity" />
-        <activity android:name=".ui.favourite.FavoriteChannelsActivity" />
+        <activity android:name=".ui.favorite_channels.FavoriteChannelActivity" />
         <activity android:name=".ui.settings.AutoDelActivity" />
         <activity android:name=".ui.help.FAQActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.home.HomeActivity" />
-        <activity android:name=".ui.news_article.HistoryActivity" />
+        <activity android:name=".ui.history.HistoryActivity" />
         <activity android:name=".ui.news_article.ArticleActivity" />
-        <activity android:name=".ui.pinned.PinnedActivity" />
-        <activity android:name=".ui.categories.CategorySelectionActivity" />
+        <activity android:name=".ui.pinned_news.PinnedActivity" />
+        <activity android:name=".ui.categories.CategoryActivity" />
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true">

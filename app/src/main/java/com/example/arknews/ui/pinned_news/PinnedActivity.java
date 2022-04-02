@@ -1,4 +1,4 @@
-package com.example.arknews.ui.pinned;
+package com.example.arknews.ui.pinned_news;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -20,11 +20,11 @@ import java.util.List;
 
 public class PinnedActivity extends AppCompatActivity {
 
-    MaterialToolbar toolbar;
-    RecyclerView recyclerView;
-    NewsfeedAdapter adapter;
+    private MaterialToolbar toolbar;
 
-    List<News> pinnedList;
+    private RecyclerView recyclerView;
+    private NewsfeedAdapter adapter;
+    private List<News> mPinnedList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,9 @@ public class PinnedActivity extends AppCompatActivity {
         initializeViews();
         setListeners();
 
-        pinnedList = ARKDatabase.getInstance(this).newsDao().getAllPinned();
+        mPinnedList = ARKDatabase.getInstance(this).newsDao().getAllPinned();
 
-        adapter = new NewsfeedAdapter(this, pinnedList);
+        adapter = new NewsfeedAdapter(this, mPinnedList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
@@ -66,16 +66,16 @@ public class PinnedActivity extends AppCompatActivity {
         if (checked) {
             switch (view.getId()) {
                 case R.id.sort_ascend_alpha:
-                    Collections.sort(pinnedList, (o1, o2) -> o1.getTitle().compareToIgnoreCase(o2.getTitle()));
+                    Collections.sort(mPinnedList, (o1, o2) -> o1.getTitle().compareToIgnoreCase(o2.getTitle()));
                     break;
                 case R.id.sort_descend_alpha:
-                    Collections.sort(pinnedList, (o1, o2) -> o2.getTitle().compareToIgnoreCase(o1.getTitle()));
+                    Collections.sort(mPinnedList, (o1, o2) -> o2.getTitle().compareToIgnoreCase(o1.getTitle()));
                     break;
                 case R.id.sort_ascend_time:
-                    Collections.sort(pinnedList, (o1, o2) -> o1.getPublished().compareTo(o2.getPublished()));
+                    Collections.sort(mPinnedList, (o1, o2) -> o1.getPublished().compareTo(o2.getPublished()));
                     break;
                 case R.id.sort_descend_time:
-                    Collections.sort(pinnedList, (o1, o2) -> o2.getPublished().compareTo(o1.getPublished()));
+                    Collections.sort(mPinnedList, (o1, o2) -> o2.getPublished().compareTo(o1.getPublished()));
                     break;
             }
             adapter.notifyDataSetChanged();

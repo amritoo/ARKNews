@@ -8,7 +8,7 @@
         <item
             android:id="@+id/menu_favorite"
             android:icon="@drawable/ic_baseline_favorite_24"
-            android:title="Favorite Channel" />
+            android:title="Favorite Channels" />
         <item
             android:id="@+id/menu_history"
             android:icon="@drawable/ic_baseline_history_24"
@@ -25,13 +25,13 @@
             android:title="Others">
             <menu>
                 <item
-                    android:id="@+id/menu_contact_us"
-                    android:icon="@drawable/ic_baseline_help_24"
-                    android:title="Contact Us" />
-                <item
                     android:id="@+id/menu_about"
                     android:icon="@drawable/ic_baseline_supervised_user_circle_24"
                     android:title="About" />
+                <item
+                    android:id="@+id/menu_contact_us"
+                    android:icon="@drawable/ic_baseline_help_24"
+                    android:title="Contact Us" />
                 <item
                     android:id="@+id/menu_rating"
                     android:icon="@drawable/ic_baseline_star_rate_24"

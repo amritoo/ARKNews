@@ -11,7 +11,6 @@
         android:id="@+id/rateHeader"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="Rate Ark News"
         android:textAppearance="@android:style/TextAppearance.Material.DialogWindowTitle" />
@@ -20,14 +19,12 @@
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/rateHeader"
         android:layout_marginTop="5dp" />
 
     <RatingBar
         android:id="@+id/ratingsBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/separator"
         android:layout_gravity="center"
         android:clickable="false"
         android:rating="5"
@@ -41,6 +38,5 @@
         android:layout_gravity="center"
         android:text="Submit"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
 
 </LinearLayout>

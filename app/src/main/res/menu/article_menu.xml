@@ -4,16 +4,16 @@
 
     <item
         android:id="@+id/article_menu_share"
+        android:contentDescription="Share news"
         android:icon="@drawable/ic_baseline_share_24"
         android:title="Share"
-        android:contentDescription="Share news"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/article_menu_pin"
+        android:contentDescription="Starred Favorite content news"
         android:icon="@drawable/ic_baseline_star_border_24"
         android:title="Pin this news"
-        android:contentDescription="Starred Favorite content news"
         app:showAsAction="ifRoom" />
 
     <group android:checkableBehavior="none">
@@ -22,7 +22,7 @@
             android:title="@string/select_this_category" />
         <item
             android:id="@+id/article_menu_favorite"
-            android:title="@string/favorite_this_channel"/>
+            android:title="@string/favorite_this_channel" />
         <item
             android:id="@+id/article_menu_copy_link"
             android:title="Copy link" />

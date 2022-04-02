@@ -13,12 +13,12 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.List;
 
-public class CategorySelectionActivity extends AppCompatActivity {
+public class CategoryActivity extends AppCompatActivity {
 
-    MaterialToolbar toolbar;
-    RecyclerView recyclerView;
+    private MaterialToolbar toolbar;
+    private RecyclerView recyclerView;
 
-    List<Category> categoryList;
+    private List<Category> categoryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,5 @@ public class CategorySelectionActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
-
 
 }

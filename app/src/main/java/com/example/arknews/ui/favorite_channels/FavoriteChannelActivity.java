@@ -1,4 +1,4 @@
-package com.example.arknews.ui.favourite;
+package com.example.arknews.ui.favorite_channels;
 
 import static com.example.arknews.R.id;
 import static com.example.arknews.R.layout;
@@ -17,12 +17,12 @@ import com.google.android.material.appbar.MaterialToolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FavoriteChannelsActivity extends AppCompatActivity {
+public class FavoriteChannelActivity extends AppCompatActivity {
 
-    MaterialToolbar toolbar;
-    RecyclerView recyclerView;
+    private MaterialToolbar toolbar;
+    private RecyclerView recyclerView;
 
-    List<Channel> channelList;
+    private List<Channel> channelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class FavoriteChannelsActivity extends AppCompatActivity {
         loadChannelList();
 
         recyclerView = findViewById(id.channel_rv);
-        ChannelAdapter adapter = new ChannelAdapter(channelList, this);
+        FavoriteChannelAdapter adapter = new FavoriteChannelAdapter(channelList, this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);

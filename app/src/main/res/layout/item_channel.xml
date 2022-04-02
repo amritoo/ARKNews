@@ -16,10 +16,11 @@
             android:id="@+id/channel_image"
             android:layout_width="56dp"
             android:layout_height="56dp"
+            android:contentDescription="Channel icon"
             android:src="@drawable/ic_baseline_source_24" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="8dp"
             android:layout_weight="1"
@@ -33,60 +34,20 @@
                 android:textSize="20sp"
                 android:visibility="visible" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/channel_cat_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Category"
-                    android:textSize="20sp"
-                    android:visibility="visible" />
-
-                <!--            <View-->
-                <!--                android:id="@+id/divider"-->
-                <!--                android:layout_width="1dp"-->
-                <!--                android:layout_height="24dp"-->
-                <!--                android:layout_marginHorizontal="2dp"-->
-                <!--                android:layout_weight="1"-->
-                <!--                android:background="?android:attr/listDivider" />-->
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/channel_cat_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="Category"
-                    android:textSize="20sp"
-                    android:visibility="gone" />
-
-                <!--            <View-->
-                <!--                android:id="@+id/divider2"-->
-                <!--                android:layout_width="1dp"-->
-                <!--                android:layout_height="24dp"-->
-                <!--                android:layout_marginHorizontal="2dp"-->
-                <!--                android:layout_weight="1"-->
-                <!--                android:background="?android:attr/listDivider" />-->
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/channel_cat_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:text="Category"
-                    android:textSize="20sp"
-                    android:visibility="gone" />
-            </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/channel_cat_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textSize="20sp"
+                android:visibility="visible" />
         </LinearLayout>
 
         <CheckBox
             android:id="@+id/channel_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" " />
+            android:text="" />
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

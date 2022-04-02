@@ -5,9 +5,9 @@
     <string name="notify">Notification</string>
     <string name="settings_faq">Frequently Asked Questions</string>
     <string name="contact_us">Contact Us</string>
-    <string name="auto_deletion">Set time for auto-deletion</string>
+    <string name="auto_deletion">Set Time for Auto-deletion</string>
     <string name="language">Language</string>
-    <string name="category">Category Selection</string>
+    <string name="category">Category Preference</string>
     <string name="dark">Dark Mode</string>
     <string name="light">Light Mode</string>
     <string name="theme_dialog_text_message">Choose your preferred appearance:</string>
@@ -37,6 +37,6 @@
     <string name="about_prashant">Prashant Karna  Faculty of CSE,  Department of CSE,  HSTU.  github.com/imprashant98</string>
     <string name="about_karma">Karma Jimpa\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/Karmajimba23</string>
     <string name="about_priyanka">Priyanka Roy\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/priyan-2020</string>
-    <string name="about_tipu">Amrito Das Tipu\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/amritoo</string>
+    <string name="about_tipu">Amrita Das Tipu\n Faculty of CSE,\n Department of CSE,\n HSTU.\n github.com/amritoo</string>
     <string name="for_more_queries">"For more Queries, please mail us at: 👉 newsArkinfo@gmail.com "</string>
 </resources>

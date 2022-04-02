@@ -19,8 +19,8 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    List<Category> categoryList;
-    Context context;
+    private List<Category> categoryList;
+    private Context context;
 
     public CategoryAdapter(List<Category> categoryList, Context context) {
         this.categoryList = categoryList;
@@ -47,14 +47,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class CategoryViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView categoryImageView;
-        MaterialTextView categoryName;
-        CheckBox categoryCheckbox;
+        private ImageView categoryImageView;
+        private MaterialTextView categoryName;
+        private CheckBox categoryCheckbox;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            //Initialize
+            // Initialize
             categoryImageView = itemView.findViewById(R.id.category_image);
             categoryName = itemView.findViewById(R.id.category_name);
             categoryCheckbox = itemView.findViewById(R.id.category_checkbox);
@@ -70,6 +70,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 ARKDatabase.getInstance(itemView.getContext()).categoryDao().update(category);
             });
         }
+
         void loadCatIcon(String categoryName) {
             int id = 0;
             switch (categoryName) {
@@ -103,8 +104,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
             categoryImageView.setImageResource(id);
         }
-
-
     }
 
 }

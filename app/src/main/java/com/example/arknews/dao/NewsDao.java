@@ -15,21 +15,27 @@ import java.util.List;
 @Dao
 public interface NewsDao {
 
+    @Query("SELECT * FROM news WHERE id = :id")
+    News getById(int id);
+
+    @Query("SELECT * FROM news WHERE url = :url")
+    News getByUrl(String url);
+
     @Query("SELECT * FROM news ORDER BY published DESC")
     List<News> getAll();
 
-    @Query("SELECT * FROM news WHERE title LIKE :query OR content LIKE :query")
+    @Query("SELECT * FROM news WHERE title LIKE :query OR content LIKE :query ORDER BY published DESC")
     List<News> getBySpecificQuery(String query);
 
     @Query("SELECT * FROM news WHERE channel_id = :channelId ORDER BY published DESC")
     List<News> getAllChannelNews(int channelId);
 
-    @Query("SELECT * FROM news WHERE pinned = 1")
+    @Query("SELECT * FROM news WHERE pinned = 1 ORDER BY published DESC")
     List<News> getAllPinned();
 
-    @Query("SELECT * FROM news WHERE id = :id")
-    News getById(int id);
-
+    /**
+     * Filter queries
+     */
     @Query("SELECT * FROM news WHERE channel_id IN (:channelIds) ORDER BY published DESC")
     List<News> getFilteredNewsByChannel(List<Integer> channelIds);
 
@@ -51,17 +57,14 @@ public interface NewsDao {
     @Query("SELECT * FROM news WHERE channel_id IN (:channelIds) AND category_id IN (:categoryIds) AND published BETWEEN :startDate AND :endDate ORDER BY published DESC")
     List<News> getFilteredNews(List<Integer> channelIds, List<Integer> categoryIds, Date startDate, Date endDate);
 
-    @Query("SELECT * FROM news WHERE url = :url")
-    News getByUrl(String url);
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(News news);
 
-    @Delete
-    void delete(News news);
-
     @Update
     void update(News news);
+
+    @Delete
+    void delete(News news);
 
     @Query("DELETE FROM news WHERE published <= :date")
     void deleteBefore(Date date);

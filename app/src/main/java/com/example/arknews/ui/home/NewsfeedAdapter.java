@@ -1,16 +1,12 @@
 package com.example.arknews.ui.home;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,8 +21,6 @@ import com.example.arknews.model.News;
 import com.example.arknews.ui.news_article.ArticleActivity;
 import com.example.arknews.utility.Constants;
 import com.example.arknews.utility.Methods;
-import com.example.arknews.utility.Preferences;
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
@@ -34,9 +28,8 @@ import java.util.List;
 
 public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    Context context;
-    List<News> newsList;
-    private String URL;
+    private Context context;
+    private List<News> newsList;
 
     public NewsfeedAdapter(Context context, List<News> newsList) {
         this.context = context;
@@ -65,12 +58,11 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class NewsfeedViewHolder extends RecyclerView.ViewHolder {
 
-        Context context;
-        ImageView newsImageView, channelImageView, pinnedImageView, shareImageView, menuImageView;
-        MaterialTextView titleTextView, publishedTextView;
+        private Context context;
+        private ImageView newsImageView, channelImageView, pinnedImageView, shareImageView, menuImageView;
+        private MaterialTextView titleTextView, publishedTextView;
         private Channel mChannel;
         private Category mCategory;
-
 
         public NewsfeedViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -118,7 +110,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Send from ArkNews App\n" + Uri.parse(url));
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this news! Sent from ArkNews:\n" + Uri.parse(url));
                 context.startActivity(Intent.createChooser(shareIntent, "Share with"));
 
             });
@@ -126,7 +118,6 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             menuImageView.setOnClickListener(view -> {
                 PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
                 popupMenu.setOnMenuItemClickListener(item -> {
-                    //  TODO menu options
                     switch (item.getItemId()) {
                         case R.id.news_card_menu_open:
                             openArticle(news);
@@ -139,7 +130,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             itemView.setLayoutParams(params);
                             return true;
                         case R.id.news_card_menu_category:
-                            if (item.getTitle().equals("Select this category")) {
+                            if (mCategory.isSelected()) {
                                 item.setTitle("Unselect this category");
                             } else {
                                 item.setTitle("Select this category");
@@ -148,8 +139,8 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             return true;
 
                         case R.id.news_card_menu_favorite:
-                            if (item.getTitle().equals("Favorite this channel")) {
-                                item.setTitle("Dislike this channel");
+                            if (mChannel.isSelected()) {
+                                item.setTitle("Remove from favorite");
                             } else {
                                 item.setTitle("Favorite this channel");
                             }
@@ -157,9 +148,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             return true;
 
                         case R.id.news_card_menu_copy_link:
-                            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                            ClipData clip = ClipData.newPlainText("ARK news", url);
-                            clipboard.setPrimaryClip(clip);
+                            Methods.copyToClipboard(context, url);
                             Toast.makeText(context, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             return true;
                         case R.id.news_card_menu_pin:
@@ -175,7 +164,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         void openArticle(News news) {
             Intent intent = new Intent(context, ArticleActivity.class);
-            intent.putExtra(Constants.NEWSID, news.getUrl());
+            intent.putExtra(Constants.NEWS_ID, news.getUrl());
             context.startActivity(intent);
         }
 
@@ -187,10 +176,10 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 news.setPinned(true);
                 pinnedImageView.setImageResource(R.drawable.ic_baseline_star_24);
             }
+
             // update pinned to database
             ARKDatabase.getInstance(context).newsDao().update(news);
         }
-
 
         void updateFavorite() {
             mChannel.setSelected(!mChannel.isSelected());

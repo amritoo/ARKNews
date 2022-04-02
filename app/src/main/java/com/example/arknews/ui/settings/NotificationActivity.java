@@ -15,9 +15,9 @@ public class NotificationActivity extends AppCompatActivity {
 
     public static final String NOTIFICATION_STATUS = "notification_status";
 
-    MaterialToolbar toolbarNotify;
-    RadioButton notification_on_rb, notification_off_rb;
-    RadioGroup radioGroup;
+    private MaterialToolbar toolbarNotify;
+    private RadioButton notification_on_rb, notification_off_rb;
+    private RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +31,24 @@ public class NotificationActivity extends AppCompatActivity {
         toolbarNotify.setNavigationOnClickListener(v -> finish());
 
         boolean status = Preferences.getInstance(this).read(NOTIFICATION_STATUS, true);
-        if (status)
+        if (status) {
             notification_on_rb.setChecked(true);
-        else
+        } else {
             notification_off_rb.setChecked(true);
+        }
     }
 
     public void onRadioButtonClicked(View view) {
-        if (notification_on_rb.isChecked())
-            Preferences.getInstance(this).write(NOTIFICATION_STATUS, true);
-        else
-            Preferences.getInstance(this).write(NOTIFICATION_STATUS, false);
+        Preferences.getInstance(this).write(NOTIFICATION_STATUS, notification_on_rb.isChecked());
+    }
+
+    /**
+     * TODO complete the notification method
+     *
+     * @param body the message to show
+     */
+    public void showNotification(String body) {
+
     }
 
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.categories.CategorySelectionActivity">
+    tools:context=".ui.categories.CategoryActivity">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -26,6 +26,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_category" />
-
 
 </LinearLayout>

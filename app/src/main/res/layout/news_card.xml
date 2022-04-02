@@ -98,7 +98,6 @@
                     android:src="@drawable/ic_baseline_more_vert_24" />
             </LinearLayout>
         </RelativeLayout>
-
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

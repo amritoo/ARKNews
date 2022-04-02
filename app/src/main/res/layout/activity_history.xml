@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.news_article.HistoryActivity">
+    tools:context=".ui.history.HistoryActivity">
 
     <!--  Toolbar  -->
     <com.google.android.material.appbar.AppBarLayout
@@ -21,15 +21,6 @@
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
             app:title="History" />
     </com.google.android.material.appbar.AppBarLayout>
-
-<!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/multiple_history_delete"-->
-<!--        android:text="Delete"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        android:visibility="gone"-->
-<!--        />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_history"

@@ -16,6 +16,7 @@
             android:id="@+id/category_image"
             android:layout_width="56dp"
             android:layout_height="56dp"
+            android:contentDescription="Category Icon"
             android:src="@drawable/ic_baseline_source_24" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -24,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_weight="1"
-            android:text="Channel Name"
+            android:text="Category Name"
             android:textAppearance="@android:style/TextAppearance.Material.Body1"
             android:visibility="visible" />
 
@@ -32,6 +33,7 @@
             android:id="@+id/category_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" " />
+            android:text="" />
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

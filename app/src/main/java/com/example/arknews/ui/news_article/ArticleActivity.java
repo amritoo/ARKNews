@@ -1,8 +1,5 @@
 package com.example.arknews.ui.news_article;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +16,7 @@ import com.example.arknews.model.Category;
 import com.example.arknews.model.Channel;
 import com.example.arknews.model.History;
 import com.example.arknews.model.News;
+import com.example.arknews.ui.history.HistoryActivity;
 import com.example.arknews.utility.Constants;
 import com.example.arknews.utility.Methods;
 import com.example.arknews.utility.Preferences;
@@ -27,19 +25,15 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 public class ArticleActivity extends AppCompatActivity {
-
-    MaterialTextView channelMaterialTextView, categoryMaterialTextView, titleMaterialTextView, authorMaterialTextView, publishedMaterialTextView, updateMaterialTextView, contentsMaterialTextView;
-    ImageView articleImageView;
-    MaterialToolbar toolbar;
-    MaterialButton openInBrowserMB;
 
     public static final String FAVORITE_PREF = "article_menu_favorite";
     public static final String CATEGORY_PREF = "article_menu_category";
 
-    List<News> newsList;
+    private MaterialTextView channelMaterialTextView, categoryMaterialTextView, titleMaterialTextView, authorMaterialTextView, publishedMaterialTextView, updateMaterialTextView, contentsMaterialTextView;
+    private ImageView articleImageView;
+    private MaterialToolbar toolbar;
+    private MaterialButton openInBrowserMB;
 
     private News mNews;
     private Channel mChannel;
@@ -53,9 +47,9 @@ public class ArticleActivity extends AppCompatActivity {
         initializeViews();
         setListeners();
 
-//        int id = getIntent().getIntExtra(Constants.NEWSID, 0);
-        String url = getIntent().getStringExtra(Constants.NEWSID);
-        //add condition, if id = 0 show error message
+        String url = getIntent().getStringExtra(Constants.NEWS_ID);
+
+        //TODO add condition, if id = 0 show error message
 
         mNews = ARKDatabase.getInstance(this).newsDao().getByUrl(url);
         mChannel = ARKDatabase.getInstance(this).channelDao().getChannelById(mNews.getChannelId());
@@ -64,7 +58,6 @@ public class ArticleActivity extends AppCompatActivity {
         setData();
 
         if (!Preferences.getInstance(this).read(HistoryActivity.HISTORY_PREF, false)) {
-            // add to history
             History history = new History(
                     mNews.getChannelId(), mNews.getCategoryId(),
                     mNews.getTitle(), mNews.getAuthor(),
@@ -132,9 +125,7 @@ public class ArticleActivity extends AppCompatActivity {
                     return true;
                 case R.id.article_menu_copy_link:
                     url = mNews.getUrl();
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("ARK news", url);
-                    clipboard.setPrimaryClip(clip);
+                    Methods.copyToClipboard(this, url);
                     Toast.makeText(getApplicationContext(), "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                     return true;
             }
@@ -144,7 +135,7 @@ public class ArticleActivity extends AppCompatActivity {
         openInBrowserMB.setOnClickListener(view -> {
             new AlertDialog.Builder(this)
                     .setTitle("Redirect to browser")
-                    .setMessage("Are you sure you want to redirect to your default browser to view full News?")
+                    .setMessage("Are you sure you want to redirect to your browser to view full News?")
                     .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                         Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(mNews.getUrl()));
                         startActivity(browse);
@@ -152,7 +143,6 @@ public class ArticleActivity extends AppCompatActivity {
                     .setNegativeButton(android.R.string.no, null)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-
         });
 
     }
@@ -161,7 +151,7 @@ public class ArticleActivity extends AppCompatActivity {
         String channelName = ARKDatabase.getInstance(this).channelDao().getChannelName(mNews.getChannelId());
         channelMaterialTextView.setText(channelName);
 
-        String categoryName = ARKDatabase.getInstance(this).categoryDao().getCategoryNameById(mNews.getCategoryId());
+        String categoryName = ARKDatabase.getInstance(this).categoryDao().getCategoryDescById(mNews.getCategoryId());
         categoryMaterialTextView.setText(categoryName);
 
         Picasso.get()
@@ -184,6 +174,7 @@ public class ArticleActivity extends AppCompatActivity {
             mNews.setPinned(true);
             item.setIcon(R.drawable.ic_baseline_star_24);
         }
+
         // update pinned to database
         ARKDatabase.getInstance(this).newsDao().update(mNews);
     }

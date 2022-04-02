@@ -45,7 +45,7 @@ public class NewsApi {
                         for (int i = 0; i < response.getSources().size(); i++) {
                             Source source = response.getSources().get(i);
                             String apiId = source.getId();
-                            if (!Constants.channels.contains((apiId)))
+                            if (!Constants.channels.contains(apiId))
                                 continue;
 
                             String name = source.getName();
@@ -59,18 +59,23 @@ public class NewsApi {
                             int categoryId = ARKDatabase.getInstance(context).categoryDao().getCategoryId(categoryName);
                             Channel channel = new Channel(name, apiId, description, url, language, country, categoryId, apiProvider);
                             ARKDatabase.getInstance(context).channelDao().insert(channel);
+                            Log.i(TAG, channel.getApiId());
                         }
                     }
 
                     @Override
                     public void onFailure(Throwable throwable) {
-                        System.out.println(throwable.getMessage());
                         Log.e(TAG, "getChannels:requestError", throwable);
                     }
                 }
         );
     }
 
+    /**
+     * Gets all news from the given channel
+     *
+     * @param channelName channel id to retrieve news from
+     */
     public void getChannelNews(String channelName) {
         NewsApiClient newsApiClient = new NewsApiClient(API_KEY);
         newsApiClient.getEverything(
@@ -101,6 +106,7 @@ public class NewsApi {
                             News news = new News(channelId, categoryId, title, author, published, url, urlToImage, content);
                             ARKDatabase.getInstance(context).newsDao().insert(news);
                         }
+                        Log.i(TAG, String.valueOf(response.getArticles().size()));
                     }
 
                     @Override

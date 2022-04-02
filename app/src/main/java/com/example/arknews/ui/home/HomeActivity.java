@@ -28,10 +28,10 @@ import com.example.arknews.dao.NewsDao;
 import com.example.arknews.model.Category;
 import com.example.arknews.model.Channel;
 import com.example.arknews.model.News;
-import com.example.arknews.ui.favourite.FavoriteChannelsActivity;
+import com.example.arknews.ui.favorite_channels.FavoriteChannelActivity;
 import com.example.arknews.ui.help.AboutActivity;
-import com.example.arknews.ui.news_article.HistoryActivity;
-import com.example.arknews.ui.pinned.PinnedActivity;
+import com.example.arknews.ui.history.HistoryActivity;
+import com.example.arknews.ui.pinned_news.PinnedActivity;
 import com.example.arknews.ui.settings.SettingsActivity;
 import com.example.arknews.utility.EditTextDateRangePicker;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -80,11 +80,13 @@ public class HomeActivity extends AppCompatActivity {
         context = this;
         mNewsList = new ArrayList<>();
         defaultSortNewsList();
+
         adapter = new NewsfeedAdapter(this, mNewsList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(adapter);
 
+        // if news table is empty then calls api via refresh to get news
         if (mNewsList.isEmpty()) {
             refresh();
         }
@@ -105,7 +107,6 @@ public class HomeActivity extends AppCompatActivity {
         filterResultButton = findViewById(R.id.filter_result_mb);
     }
 
-    // sets listeners to views
     private void setListeners() {
 
         swipeRefreshLayout.setOnRefreshListener(() -> {
@@ -144,11 +145,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 //dy is the change in the vertical scroll position
-                if (dy > 50) {
-                    //scroll down
+                if (dy > 50) {  //scroll down
                     floatingActionButton.setVisibility(View.VISIBLE);
-                } else if (dy < 0) {
-                    //scroll up
+                } else if (dy < 0) {    //scroll up
                     floatingActionButton.setVisibility(View.GONE);
                 }
             }
@@ -161,7 +160,7 @@ public class HomeActivity extends AppCompatActivity {
                     intent = new Intent(HomeActivity.this, PinnedActivity.class);
                     break;
                 case R.id.menu_favorite:
-                    intent = new Intent(HomeActivity.this, FavoriteChannelsActivity.class);
+                    intent = new Intent(HomeActivity.this, FavoriteChannelActivity.class);
                     break;
                 case R.id.menu_history:
                     intent = new Intent(HomeActivity.this, HistoryActivity.class);
@@ -187,7 +186,6 @@ public class HomeActivity extends AppCompatActivity {
                             .setNegativeButton(android.R.string.cancel, null)
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
-
                     return true;
                 case R.id.menu_about:
                     intent = new Intent(HomeActivity.this, AboutActivity.class);
@@ -203,7 +201,6 @@ public class HomeActivity extends AppCompatActivity {
                         dialog.dismiss();
                     });
                     return true;
-
             }
             startActivity(intent);
             return true;
@@ -265,18 +262,13 @@ public class HomeActivity extends AppCompatActivity {
         final SearchView searchView = (SearchView) menu.findItem(R.id.home_menu_search).getActionView();
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setQueryHint("Search News...");
+        searchView.setQueryHint("Search News");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 List<News> news = ARKDatabase.getInstance(context).newsDao().getBySpecificQuery("%" + query + "%");
-                List<Integer> channelIds = ARKDatabase.getInstance(context).channelDao().getAllSelectedId();
                 mNewsList.clear();
-                for (News nNews : news) {
-                    if (channelIds.contains(nNews.getChannelId())) {
-                        mNewsList.add(nNews);
-                    }
-                }
+                mNewsList.addAll(news);
                 adapter.notifyDataSetChanged();
                 Toast.makeText(context, "Search completed", Toast.LENGTH_SHORT).show();
                 return true;
@@ -287,7 +279,8 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
-        // TODO change neewsfeed after exiting searchview
+
+        // TODO change newsfeed after exiting searchview
     }
 
     void loadFilterChips() {

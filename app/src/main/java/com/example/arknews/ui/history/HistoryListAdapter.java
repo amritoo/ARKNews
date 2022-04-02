@@ -1,4 +1,4 @@
-package com.example.arknews.ui.news_article;
+package com.example.arknews.ui.history;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -22,9 +22,10 @@ import java.util.List;
 
 public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<History> historyList;
-    static List<Integer> selectedHistoryIds;
     static boolean isChecked;
+    static List<Integer> selectedHistoryIds;
+
+    private List<History> historyList;
     private MenuItem menuItem;
 
     public HistoryListAdapter(List<History> historyList, MenuItem menuItem) {
@@ -54,8 +55,6 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             notifyDataSetChanged();
             return true;
         });
-
-
     }
 
     @Override
@@ -65,11 +64,9 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     public static class HistoryViewHolder extends RecyclerView.ViewHolder {
 
-        MaterialTextView title, channel_name, published_time;
-        ImageView news_image;
-        CheckBox checkBox;
-
-        MenuItem deleteMI;
+        private MaterialTextView title, channel_name, published_time;
+        private ImageView news_image;
+        private CheckBox checkBox;
 
         public HistoryViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,7 +75,6 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             published_time = itemView.findViewById(R.id.history_news_published);
             news_image = itemView.findViewById(R.id.history_news_image);
             checkBox = itemView.findViewById(R.id.history_card_checkbox);
-
         }
 
         void bind(History history) {

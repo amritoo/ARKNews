@@ -26,99 +26,97 @@
         android:layout_height="match_parent">
 
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <!--  Appearance -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_theme"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/theme"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-                <!--  Appearance -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_theme"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/theme"
-                    android:textColor="@color/black"
-                    android:textAllCaps="false"
-                    android:textSize="15sp"
-                    android:gravity="start" />
+            <!--  Notification -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_notify"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/notify"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-                <!--  Notification -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_notify"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/notify"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:gravity="start" />
+            <!--  Language  -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_language"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/language"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-                <!--  Language  -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_language"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/language"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:gravity="start"/>
+            <!--  Set Time For Auto-deletion  -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_auto_deletion"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/auto_deletion"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-                <!--  Set Time For Auto-deletion  -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_auto_deletion"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
-                    android:gravity="start"
-                    android:layout_height="wrap_content"
-                    android:text="@string/auto_deletion"
-                    android:textAllCaps="false"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"/>
+            <!--  Category Selection  -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_category_selection"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/category"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-                <!--  Category Selection  -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_category_selection"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/category"
-                    android:textAllCaps="false"
-                    android:gravity="start"
-                    android:textSize="15sp"
-                    android:textColor="@color/black" />
+            <!--  User Manual  -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_user_manual"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/settings_faq"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-                <!--  User Manual  -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_user_manual"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:text="@string/settings_faq"
-                    android:textAllCaps="false"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"/>
-
-                <!--  Contact  -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_help"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
-                    android:gravity="start"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contact_us"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="false"
-                    android:textSize="15sp"
-                    android:textColor="@color/black" />
-
-            </LinearLayout>
-
+            <!--  Contact  -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_help"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/contact_us"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>

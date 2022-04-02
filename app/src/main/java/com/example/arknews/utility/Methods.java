@@ -1,5 +1,7 @@
 package com.example.arknews.utility;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -39,11 +41,10 @@ public class Methods {
     }
 
     public static void autoDelete(Context context) {
-        int time = Preferences.getInstance(context).read(AutoDelActivity.AUTODELTIME, 30);
+        int time = Preferences.getInstance(context).read(AutoDelActivity.AUTO_DELETE_TIME, 30);
         Date date = new Date(new Date().getTime() - time * 86400000L); //24 * 60 * 60 * 1000
         ARKDatabase.getInstance(context).newsDao().deleteBefore(date);
     }
-
 
     public static void setLanguagePref(Context context) {
         String language = Preferences.getInstance(context).read(SettingsActivity.LANGUAGE_PREF, "en");
@@ -57,4 +58,11 @@ public class Methods {
         config.setLayoutDirection(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
+
+    public static void copyToClipboard(Context context, String data) {
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("ark-news", data);
+        clipboard.setPrimaryClip(clip);
+    }
+
 }

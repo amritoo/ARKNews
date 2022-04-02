@@ -17,12 +17,10 @@ public class FaqAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<FAQ> faqList;
 
-
-    FaqAdapter(List<FAQ> data) {
-        this.faqList = data;
+    public FaqAdapter(List<FAQ> faqList) {
+        this.faqList = faqList;
     }
 
-    // inflates the row layout from xml when needed
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new FaqAdapter.FaqViewHolder(LayoutInflater.from(parent.getContext())
@@ -42,14 +40,13 @@ public class FaqAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public class FaqViewHolder extends RecyclerView.ViewHolder {
-        MaterialTextView question, answer;
+        private MaterialTextView question, answer;
 
         FaqViewHolder(View itemView) {
             super(itemView);
             question = itemView.findViewById(R.id.faq_card_question);
             answer = itemView.findViewById(R.id.faq_card_answer);
         }
-
     }
 
 }

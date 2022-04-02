@@ -1,4 +1,4 @@
-package com.example.arknews.ui.favourite;
+package com.example.arknews.ui.favorite_channels;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,12 +17,12 @@ import com.google.android.material.textview.MaterialTextView;
 
 import java.util.List;
 
-public class ChannelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class FavoriteChannelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    List<Channel> channelList;
-    Context context;
+    private List<Channel> channelList;
+    private Context context;
 
-    public ChannelAdapter(List<Channel> channelList, Context context) {
+    public FavoriteChannelAdapter(List<Channel> channelList, Context context) {
         this.channelList = channelList;
         this.context = context;
     }
@@ -30,14 +30,14 @@ public class ChannelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ChannelAdapter.ChannelViewHolder(LayoutInflater.from(parent.getContext())
+        return new FavoriteChannelAdapter.ChannelViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_channel, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Channel channel = channelList.get(position);
-        ((ChannelAdapter.ChannelViewHolder) holder).bind(channel);
+        ((FavoriteChannelAdapter.ChannelViewHolder) holder).bind(channel);
     }
 
     @Override
@@ -46,15 +46,14 @@ public class ChannelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public static class ChannelViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        MaterialTextView channelName;
-        CheckBox checkBox;
-        MaterialTextView category1, category2, category3;
+        private ImageView imageView;
+        private MaterialTextView channelName, category1, category2, category3;
+        private CheckBox checkBox;
 
         public ChannelViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            //Initialize
+            // Initialize
             imageView = itemView.findViewById(R.id.channel_image);
             channelName = itemView.findViewById(R.id.channel_name_fav);
             checkBox = itemView.findViewById(R.id.channel_checkbox);
@@ -69,7 +68,6 @@ public class ChannelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
             String catName = ARKDatabase.getInstance(itemView.getContext())
                     .categoryDao().getCategoryNameById(channel.getCategoryId());
-            // TODO allow multiple category per channel
             category1.setText(catName);
 
             checkBox.setChecked(channel.isSelected());

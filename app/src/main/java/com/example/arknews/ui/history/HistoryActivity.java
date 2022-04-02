@@ -1,4 +1,4 @@
-package com.example.arknews.ui.news_article;
+package com.example.arknews.ui.history;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -25,16 +25,15 @@ import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
 
-    MaterialToolbar toolbar;
-    TextView title;
-    TextView publish_time;
-    ImageView news_image;
-    RecyclerView recyclerView;
     public static final String HISTORY_PREF = "history_pause";
 
-    List<History> historyList;
-    HistoryListAdapter adapter;
+    private MaterialToolbar toolbar;
+    private TextView title, publish_time;
+    private ImageView news_image;
+    private RecyclerView recyclerView;
 
+    private List<History> historyList;
+    private HistoryListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,6 @@ public class HistoryActivity extends AppCompatActivity {
 
         // swipe to delete
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
@@ -68,7 +66,6 @@ public class HistoryActivity extends AppCompatActivity {
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
-        // ends here
     }
 
     private void deleteItem(int position) {
@@ -106,7 +103,7 @@ public class HistoryActivity extends AppCompatActivity {
                 case R.id.history_delete:
                     new AlertDialog.Builder(this)
                             .setTitle("Delete All Histories")
-                            .setMessage("Are you sure you want to delete all your reading history?\nOnce deleted, you can't recover them")
+                            .setMessage("Are you sure you want to delete all your reading history?\nOnce deleted, you can't recover them.")
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                                 for (int i = historyList.size() - 1; i >= 0; i--) {
                                     deleteItem(i);
@@ -148,17 +145,14 @@ public class HistoryActivity extends AppCompatActivity {
         final SearchView searchViewHistory = (SearchView) menu.findItem(R.id.history_menu_search).getActionView();
 
         searchViewHistory.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchViewHistory.setQueryHint("Search history...");
+        searchViewHistory.setQueryHint("Search history");
         searchViewHistory.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                System.out.println("ABC");
                 List<History> histories = ARKDatabase.getInstance(getApplicationContext()).historyDao().getBySpecificQueryHist("%" + query + "%");
                 List<Integer> channelIds = ARKDatabase.getInstance(getApplicationContext()).channelDao().getAllSelectedId();
                 historyList.clear();
-                System.out.println(histories.size());
                 for (History history : histories) {
-                    System.out.println(history.getTitle());
                     if (channelIds.contains(history.getChannelId())) {
                         historyList.add(history);
                     }

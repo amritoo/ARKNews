@@ -14,12 +14,11 @@ import java.util.ArrayList;
 
 public class FAQActivity extends AppCompatActivity {
 
+    private RecyclerView recyclerView;
+    private FaqAdapter adapter;
+    private MaterialToolbar toolbar;
+
     private ArrayList<FAQ> faqArrayList;
-
-    RecyclerView recyclerView;
-    FaqAdapter adapter;
-
-    MaterialToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +26,13 @@ public class FAQActivity extends AppCompatActivity {
         setContentView(R.layout.activity_faq);
 
         toolbar = findViewById(R.id.manual_toolbar);
-        recyclerView = findViewById(R.id.faq_rv);
         toolbar.setNavigationOnClickListener(v -> finish());
 
         populateList();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView = findViewById(R.id.faq_rv);
         adapter = new FaqAdapter(faqArrayList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
     }

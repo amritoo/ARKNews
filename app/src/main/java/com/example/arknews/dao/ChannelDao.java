@@ -40,6 +40,9 @@ public interface ChannelDao {
     @Query("SELECT name FROM channel where id = :channelId")
     String getChannelName(int channelId);
 
+    @Query("SELECT category_id FROM channel where api_id = :apiId")
+    int getCategoryId(String apiId);
+
     @Insert
     void insert(Channel channel);
 
@@ -49,6 +52,4 @@ public interface ChannelDao {
     @Delete
     void delete(Channel channel);
 
-    @Query("SELECT category_id FROM channel where api_id = :apiId")
-    int getCategoryId(String apiId);
 }

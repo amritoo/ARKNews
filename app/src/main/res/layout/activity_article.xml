@@ -84,7 +84,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:layout_toEndOf="@+id/article_author_tv"
                 android:text="Published date"
                 android:textAppearance="@android:style/TextAppearance.Material.Body2" />
 
@@ -92,9 +91,7 @@
                 android:id="@+id/article_update_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_marginStart="5dp"
-                android:layout_toEndOf="@id/article_published_tv"
                 android:gravity="center"
                 android:text="Last update"
                 android:visibility="gone" />
