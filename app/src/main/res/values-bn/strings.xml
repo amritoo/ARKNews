@@ -5,4 +5,13 @@
     <string name="settings">সেটিংস</string>
     <string name="notify">বিজ্ঞপ্তি</string>
     <string name="settings_faq">জিজ্ঞাসা</string>
+    <string name="contact_us">যোগাযোগ</string>
+    <string name="auto_deletion">স্বয়ংক্রিয়ভাবে ডিলিট করার জন্য সময় সেট করুন</string>
+    <string name="language">ভাষা</string>
+    <string name="category">ক্যাটাগোরি নির্বাচন</string>
+
+    <string name="language_dialog_text_message">আপনার পছন্দের ভাষা চয়ন করুন:</string>
+    <string name="english">ইংরেজি</string>
+    <string name="bangla">বাংলা</string>
+    <string name="nepali">নেপালি</string>
 </resources>

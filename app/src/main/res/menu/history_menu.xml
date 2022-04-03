@@ -16,6 +16,7 @@
         android:icon="@drawable/ic_baseline_select_all_24"
         android:orderInCategory="0"
         android:title="Select"
+        android:visible="false"
         app:showAsAction="ifRoom" />
 
     <item

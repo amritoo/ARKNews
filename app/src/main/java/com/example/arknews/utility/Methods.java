@@ -4,7 +4,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 
 import com.example.arknews.dao.ARKDatabase;
 import com.example.arknews.ui.settings.AutoDelActivity;
@@ -52,11 +51,9 @@ public class Methods {
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
-        Resources resources = context.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        config.setLayoutDirection(locale);
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        context.getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
     }
 
     public static void copyToClipboard(Context context, String data) {
