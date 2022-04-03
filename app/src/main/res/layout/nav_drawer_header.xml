@@ -10,7 +10,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.5"
         android:contentDescription="Ark news Icon"
-        android:src="@drawable/icon_ark" />
+        android:src="@drawable/app_icon" />
 
     <TextView
         android:layout_width="wrap_content"

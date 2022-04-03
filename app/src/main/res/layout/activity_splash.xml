@@ -12,7 +12,7 @@
         android:layout_width="156dp"
         android:layout_height="156dp"
         android:contentDescription="ARKNews logo"
-        app:srcCompat="@drawable/icon_ark" />
+        app:srcCompat="@drawable/app_icon" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"

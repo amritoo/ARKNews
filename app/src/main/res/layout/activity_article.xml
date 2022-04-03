@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:scaleType="center"
-                android:src="@drawable/icon_ark" />
+                android:src="@drawable/app_icon" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/article_headline_tv"
