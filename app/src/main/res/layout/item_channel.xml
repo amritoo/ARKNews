@@ -35,7 +35,7 @@
                 android:visibility="visible" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/channel_cat_1"
+                android:id="@+id/channel_cat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category"

@@ -47,7 +47,7 @@ public class FavoriteChannelAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public static class ChannelViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
-        private MaterialTextView channelName, category1, category2, category3;
+        private MaterialTextView channelName, category, category2, category3;
         private CheckBox checkBox;
 
         public ChannelViewHolder(@NonNull View itemView) {
@@ -57,9 +57,7 @@ public class FavoriteChannelAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             imageView = itemView.findViewById(R.id.channel_image);
             channelName = itemView.findViewById(R.id.channel_name_fav);
             checkBox = itemView.findViewById(R.id.channel_checkbox);
-            category1 = itemView.findViewById(R.id.channel_cat_1);
-            category2 = itemView.findViewById(R.id.channel_cat_2);
-            category3 = itemView.findViewById(R.id.channel_cat_3);
+            category = itemView.findViewById(R.id.channel_cat);
         }
 
         void bind(Channel channel) {
@@ -68,7 +66,7 @@ public class FavoriteChannelAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
             String catName = ARKDatabase.getInstance(itemView.getContext())
                     .categoryDao().getCategoryNameById(channel.getCategoryId());
-            category1.setText(catName);
+            category.setText(catName);
 
             checkBox.setChecked(channel.isSelected());
             checkBox.setOnClickListener(v -> {
