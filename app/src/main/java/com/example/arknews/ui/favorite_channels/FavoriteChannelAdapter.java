@@ -65,7 +65,7 @@ public class FavoriteChannelAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             loadIcon(channel.getApiId());
 
             String catName = ARKDatabase.getInstance(itemView.getContext())
-                    .categoryDao().getCategoryNameById(channel.getCategoryId());
+                    .categoryDao().getCategoryDescriptionById(channel.getCategoryId());
             category.setText(catName);
 
             checkBox.setChecked(channel.isSelected());

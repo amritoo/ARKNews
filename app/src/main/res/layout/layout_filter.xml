@@ -35,6 +35,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="@string/choose_channel"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
@@ -53,6 +54,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="@string/choose_category"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
@@ -70,6 +72,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="@string/time"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 

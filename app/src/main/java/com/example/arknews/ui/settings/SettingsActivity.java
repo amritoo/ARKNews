@@ -129,16 +129,16 @@ public class SettingsActivity extends AppCompatActivity {
             case R.id.language_english_rb:
                 if (checked) {
                     Preferences.getInstance(this).write(LANGUAGE_PREF, "en");
-                    Methods.setLanguagePref(this);
+                    Methods.setLanguagePref(this, "en");
                     languageDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "English selected", Toast.LENGTH_SHORT).show();
                     recreate();
+                    Toast.makeText(getApplicationContext(), "English selected", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.language_bengali_rb:
                 if (checked) {
                     Preferences.getInstance(this).write(LANGUAGE_PREF, "bn");
-                    Methods.setLanguagePref(this);
+                    Methods.setLanguagePref(this, "be");
                     languageDialog.dismiss();
                     recreate();
                     Toast.makeText(getApplicationContext(), "Bengali selected", Toast.LENGTH_SHORT).show();
@@ -147,7 +147,7 @@ public class SettingsActivity extends AppCompatActivity {
             case R.id.language_nepali_rb:
                 if (checked) {
                     Preferences.getInstance(this).write(LANGUAGE_PREF, "ne");
-                    Methods.setLanguagePref(this);
+                    Methods.setLanguagePref(this, "ne");
                     languageDialog.dismiss();
                     recreate();
                     Toast.makeText(getApplicationContext(), "Nepali selected", Toast.LENGTH_SHORT).show();

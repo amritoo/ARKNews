@@ -26,6 +26,9 @@ public interface CategoryDao {
     String getCategoryNameById(int id);
 
     @Query("SELECT description FROM category WHERE id = :id")
+    String getCategoryDescriptionById(int id);
+
+    @Query("SELECT description FROM category WHERE id = :id")
     String getCategoryDescById(int id);
 
     @Query("SELECT * FROM category where id = :id")

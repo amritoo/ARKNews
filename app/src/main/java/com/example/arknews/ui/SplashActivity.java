@@ -9,10 +9,13 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.arknews.R;
 import com.example.arknews.ui.home.HomeActivity;
+import com.example.arknews.ui.settings.SettingsActivity;
 import com.example.arknews.utility.Constants;
 import com.example.arknews.utility.Methods;
 import com.example.arknews.utility.PopulateDatabase;
 import com.example.arknews.utility.Preferences;
+
+import static com.example.arknews.ui.settings.SettingsActivity.LANGUAGE_PREF;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -30,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         // Setting language
-        Methods.setLanguagePref(this);
+        Methods.setLanguagePref(this, LANGUAGE_PREF);
 
         // Populating new database
         boolean isPopulated = Preferences.getInstance(this).read(PopulateDatabase.POPULATED, false);

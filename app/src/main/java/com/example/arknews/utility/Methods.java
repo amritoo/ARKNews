@@ -45,7 +45,7 @@ public class Methods {
         ARKDatabase.getInstance(context).newsDao().deleteBefore(date);
     }
 
-    public static void setLanguagePref(Context context) {
+    public static void setLanguagePref(Context context, String lan) {
         String language = Preferences.getInstance(context).read(SettingsActivity.LANGUAGE_PREF, "en");
 
         Locale locale = new Locale(language);
