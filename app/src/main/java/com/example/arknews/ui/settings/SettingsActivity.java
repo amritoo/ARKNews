@@ -22,13 +22,14 @@ import com.google.android.material.button.MaterialButton;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton, autoDelMaterialButton, categoryMaterialButton, contactUsMaterialButton, faqMaterialButton;
-    Context context;
-    MaterialToolbar toolbarSettings;
-    RadioButton english_rb, bengali_rb, nepali_rb;
-    Dialog languageDialog;
-
     public static final String LANGUAGE_PREF = "lan_p";
+
+    private MaterialButton themeMaterialButton, notifyMaterialButton, languageMaterialButton,
+            autoDelMaterialButton, categoryMaterialButton, contactUsMaterialButton, faqMaterialButton;
+    private MaterialToolbar toolbarSettings;
+    private Dialog languageDialog;
+
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +50,6 @@ public class SettingsActivity extends AppCompatActivity {
         categoryMaterialButton = findViewById(R.id.settings_category_selection);
         contactUsMaterialButton = findViewById(R.id.settings_help);
         faqMaterialButton = findViewById(R.id.settings_user_manual);
-
-        english_rb = findViewById(R.id.language_english_rb);
-        bengali_rb = findViewById(R.id.language_bengali_rb);
-        nepali_rb = findViewById(R.id.language_nepali_rb);
-
     }
 
     void setListeners() {
@@ -76,7 +72,6 @@ public class SettingsActivity extends AppCompatActivity {
             languageDialog = new Dialog(context);
             languageDialog.setContentView(R.layout.layout_dialog_language);
             languageDialog.show();
-
         });
 
         //Redirect to Auto-Delete Activity
@@ -105,6 +100,7 @@ public class SettingsActivity extends AppCompatActivity {
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         });
+
         //Redirect to User Manual Activity
         faqMaterialButton.setOnClickListener(v -> startActivity(new Intent(SettingsActivity.this, FAQActivity.class)));
     }
@@ -154,6 +150,6 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 break;
         }
-
     }
+
 }

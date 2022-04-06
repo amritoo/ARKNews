@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -49,6 +50,8 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static final int SETTINGS_REQUEST_CODE = 1;
+
     DrawerLayout drawerLayout;
     MaterialToolbar toolbar;
     NavigationView navigationView;
@@ -76,7 +79,6 @@ public class HomeActivity extends AppCompatActivity {
         loadFilterChips();
         implementSearch(toolbar.getMenu());
 
-
         context = this;
         mNewsList = new ArrayList<>();
         defaultSortNewsList();
@@ -89,6 +91,15 @@ public class HomeActivity extends AppCompatActivity {
         // if news table is empty then calls api via refresh to get news
         if (mNewsList.isEmpty()) {
             refresh();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == SETTINGS_REQUEST_CODE) {
+            recreate();
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -167,7 +178,8 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case R.id.menu_settings:
                     intent = new Intent(HomeActivity.this, SettingsActivity.class);
-                    break;
+                    startActivityForResult(intent, SETTINGS_REQUEST_CODE);
+                    return true;
                 case R.id.menu_contact_us:
                     new AlertDialog.Builder(this)
                             .setTitle("Confirmation")
