@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:text="Sort By:"
+        android:text="@string/sort_by"
         android:textAppearance="@android:style/TextAppearance.Material.DialogWindowTitle" />
 
     <RadioGroup

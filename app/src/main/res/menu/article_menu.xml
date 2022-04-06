@@ -25,7 +25,7 @@
             android:title="@string/favorite_this_channel" />
         <item
             android:id="@+id/article_menu_copy_link"
-            android:title="Copy link" />
+            android:title="@string/copy_link" />
     </group>
 
 </menu>

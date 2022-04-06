@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/news_card_menu_open"
-        android:title="Open" />
+        android:title="@string/open" />
     <item
         android:id="@+id/news_card_menu_hide"
-        android:title="Hide this news" />
+        android:title="@string/hide_news" />
     <item
         android:id="@+id/news_card_menu_category"
         android:title="@string/select_this_category" />
@@ -15,7 +15,7 @@
         android:title="@string/favorite_this_channel" />
     <item
         android:id="@+id/news_card_menu_copy_link"
-        android:title="Copy link" />
+        android:title="@string/copy_link" />
     <item
         android:id="@+id/news_card_menu_pin"
         android:title="@string/pin_this_news" />

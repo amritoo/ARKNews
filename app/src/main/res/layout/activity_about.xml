@@ -187,6 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1300dp"
                 android:paddingLeft="60dp"
+                android:paddingBottom="50dp"
                 android:text="@string/for_more_queries"
                 android:textSize="15sp"
                 android:textStyle="bold" />

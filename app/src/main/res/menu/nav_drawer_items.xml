@@ -4,38 +4,38 @@
         <item
             android:id="@+id/menu_pinned"
             android:icon="@drawable/ic_baseline_push_pin_24"
-            android:title="Pinned News" />
+            android:title="@string/toolbar_pinned" />
         <item
             android:id="@+id/menu_favorite"
             android:icon="@drawable/ic_baseline_favorite_24"
-            android:title="Favorite Channels" />
+            android:title="@string/toolbar_fav_channel" />
         <item
             android:id="@+id/menu_history"
             android:icon="@drawable/ic_baseline_history_24"
-            android:title="History" />
+            android:title="@string/toolbar_history" />
         <item
             android:id="@+id/menu_settings"
             android:icon="@drawable/ic_baseline_settings_24"
-            android:title="Settings" />
+            android:title="@string/settings" />
     </group>
 
     <group android:checkableBehavior="single">
         <item
             android:checkable="false"
-            android:title="Others">
+            android:title="@string/others">
             <menu>
                 <item
                     android:id="@+id/menu_about"
                     android:icon="@drawable/ic_baseline_supervised_user_circle_24"
-                    android:title="About" />
+                    android:title="@string/about" />
                 <item
                     android:id="@+id/menu_contact_us"
                     android:icon="@drawable/ic_baseline_help_24"
-                    android:title="Contact Us" />
+                    android:title="@string/contact_us" />
                 <item
                     android:id="@+id/menu_rating"
                     android:icon="@drawable/ic_baseline_star_rate_24"
-                    android:title="Rate us" />
+                    android:title="@string/rate_us" />
             </menu>
         </item>
     </group>

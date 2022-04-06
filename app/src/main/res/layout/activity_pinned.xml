@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             app:menu="@menu/pinned_menu"
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
-            app:title="Pinned News" />
+            app:title="@string/toolbar_pinned" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <!--  Newsfeed  -->

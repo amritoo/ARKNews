@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:text="Turn notification:"
+            android:text="@string/notification_message"
             android:textSize="20sp" />
 
         <RadioGroup
@@ -44,13 +44,13 @@
                 android:id="@+id/notification_on_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="On" />
+                android:text="@string/on" />
 
             <RadioButton
                 android:id="@+id/notification_off_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Off" />
+                android:text="@string/off" />
         </RadioGroup>
 
     </LinearLayout>

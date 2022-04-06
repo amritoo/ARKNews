@@ -26,6 +26,6 @@
     <item
         android:id="@+id/history_delete"
         android:orderInCategory="2"
-        android:title="Delete All" />
+        android:title="@string/delete_all" />
 
 </menu>

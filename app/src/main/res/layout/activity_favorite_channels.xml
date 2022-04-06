@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
-            app:title="Favorite Channels" />
+            app:title="@string/toolbar_fav_channel" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

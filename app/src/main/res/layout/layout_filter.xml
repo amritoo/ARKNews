@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Filter by"
+                android:text="@string/filter_heading"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
             <ImageView
@@ -35,7 +35,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose channel"
+            android:text="@string/choose_channel"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <com.google.android.material.chip.ChipGroup
@@ -53,7 +53,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose category"
+            android:text="@string/choose_category"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <com.google.android.material.chip.ChipGroup
@@ -70,7 +70,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time"
+            android:text="@string/time"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <LinearLayout
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:layout_weight="1"
-                android:hint="Start Time">
+                android:hint="@string/start_time">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="End Time">
+                android:hint="@string/end_time">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -117,7 +117,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Filter"
+            android:text="@string/filter"
             app:icon="@drawable/ic_baseline_filter_alt_24" />
     </LinearLayout>
 </ScrollView>

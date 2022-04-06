@@ -12,7 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Rate Ark News"
+        android:text="@string/rate_ark_news"
         android:textAppearance="@android:style/TextAppearance.Material.DialogWindowTitle" />
 
     <View
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Submit"
+        android:text="@string/submit"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </LinearLayout>
