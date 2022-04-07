@@ -14,9 +14,9 @@
     <string name="pin_this_news">यो समाचार पिन गर्नुहोस्</string>
     <string name="theme_dialog_text_message">मनपर्ने रूप छनोट गर्नुहोस्</string>
     <string name="language_dialog_text_message">मनपर्ने भाषा छान्नुहोस्</string>
-    <string name="english">अंग्रेजी</string>
-    <string name="bangla">बंगाली</string>
-    <string name="nepali">" नेपाली"</string>
+    <string name="english">English</string>
+    <string name="bangla">বাংলা</string>
+    <string name="nepali">"नेपाली"</string>
     <string name="del_time_day">"२ दिन "</string>
     <string name="del_time_week">"एक हप्ता "</string>
     <string name="del_time_month">"एक महिना "</string>
