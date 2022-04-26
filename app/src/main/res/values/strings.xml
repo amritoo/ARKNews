@@ -13,8 +13,8 @@
     <string name="theme_dialog_text_message">Choose your preferred appearance:</string>
     <string name="language_dialog_text_message">Choose your preferred language:</string>
     <string name="english">English</string>
-    <string name="bangla">Bengali</string>
-    <string name="nepali">Nepali</string>
+    <string name="bangla">বাংলা</string>
+    <string name="nepali">नेपाली</string>
     <string name="del_time_day">2 Days</string>
     <string name="del_time_week">A Week</string>
     <string name="del_time_month">A Month</string>

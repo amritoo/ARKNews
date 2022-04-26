@@ -128,7 +128,7 @@ public class SettingsActivity extends AppCompatActivity {
                     Methods.setLanguagePref(this, "en");
                     languageDialog.dismiss();
                     recreate();
-                    Toast.makeText(getApplicationContext(), "English selected", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "English is selected", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.language_bengali_rb:
@@ -137,7 +137,7 @@ public class SettingsActivity extends AppCompatActivity {
                     Methods.setLanguagePref(this, "be");
                     languageDialog.dismiss();
                     recreate();
-                    Toast.makeText(getApplicationContext(), "Bengali selected", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "বাংলা নির্বাচন করা হয়েছে", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.language_nepali_rb:
@@ -146,7 +146,7 @@ public class SettingsActivity extends AppCompatActivity {
                     Methods.setLanguagePref(this, "ne");
                     languageDialog.dismiss();
                     recreate();
-                    Toast.makeText(getApplicationContext(), "Nepali selected", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "नेपाली भाषालाई छनोट गरिएको छ", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
