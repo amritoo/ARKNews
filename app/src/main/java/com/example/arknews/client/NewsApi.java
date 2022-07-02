@@ -22,7 +22,7 @@ public class NewsApi {
 
     private static final String TAG = "NewsApi";
     private static final String NEWS_API = "https://newsapi.org/";
-    private static final String API_KEY = "fd680eea1ef2449bb48ff822ba62c7f5";
+    private static final String API_KEY = "API_KEY";
     private final Context context;
 
     /**
